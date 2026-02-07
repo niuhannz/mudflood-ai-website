@@ -199,1649 +199,163 @@
             from {
                 opacity: 0;
                 transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 80px;
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, #4d8bff 0%, #7c5cfc 50%, #00d9ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 60px rgba(77, 139, 255, 0.3);
-        }
-
-        .hero .tagline {
-            font-size: 28px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 50px;
-            max-width: 700px;
-        }
-
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(77, 139, 255, 0.3);
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            background: rgba(77, 139, 255, 0.1);
-            border-color: var(--accent-blue);
-            color: var(--text-primary);
-        }
-
-        .badge.recommended {
-            background: rgba(124, 92, 252, 0.1);
-            border-color: var(--accent-purple);
-            color: var(--accent-purple);
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            animation: fadeInUp 1s ease 0.6s both;
-            margin-bottom: 80px;
-        }
-
-        .btn {
-            padding: 14px 36px;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'DM Sans', sans-serif;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-            color: white;
-            box-shadow: 0 8px 32px rgba(77, 139, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(77, 139, 255, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-        }
-
-        /* Mock Screenshot */
-        .mock-screenshot {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .mock-title-bar {
-            height: 30px;
-            background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .mock-editor {
-            display: grid;
-            grid-template-columns: 250px 1fr 300px;
-            height: 400px;
-            background: var(--bg-secondary);
-        }
-
-        .mock-sidebar {
-            background: var(--bg-tertiary);
-            border-right: 1px solid var(--border-color);
-            padding: 15px;
-            overflow-y: auto;
-            font-size: 12px;
-        }
-
-        .mock-panel-tab {
-            padding: 10px 15px;
-            margin-bottom: 5px;
-            background: rgba(77, 139, 255, 0.1);
-            border-left: 3px solid var(--accent-blue);
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 4px;
-        }
-
-        .mock-panel-tab:hover {
-            background: rgba(77, 139, 255, 0.2);
-        }
-
-        .mock-viewport {
-            background: var(--bg-primary);
-            border-right: 1px solid var(--border-color);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .mock-properties {
-            background: var(--bg-tertiary);
-            border-left: 1px solid var(--border-color);
-            padding: 15px;
-            overflow-y: auto;
-            font-size: 11px;
-        }
-
-        .mock-chat-panel {
-            background: var(--bg-light);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(77, 139, 255, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .mock-chat-header {
-            background: rgba(77, 139, 255, 0.1);
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(77, 139, 255, 0.2);
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 12px;
-        }
-
-        .mock-chat-content {
-            flex: 1;
-            padding: 12px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .mock-message {
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 11px;
-            line-height: 1.4;
-        }
-
-        .mock-message.user {
-            background: rgba(77, 139, 255, 0.2);
-            color: var(--text-primary);
-            align-self: flex-end;
-            max-width: 85%;
-        }
-
-        .mock-message.assistant {
-            background: rgba(124, 92, 252, 0.1);
-            color: var(--text-secondary);
-            align-self: flex-start;
-            max-width: 85%;
-        }
-
-        .mock-chat-input {
-            padding: 10px;
-            border-top: 1px solid rgba(77, 139, 255, 0.2);
-            background: var(--bg-tertiary);
-        }
-
-        .mock-input-field {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(77, 139, 255, 0.2);
-            padding: 8px 10px;
-            border-radius: 4px;
-            color: var(--text-secondary);
-            font-size: 11px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 120px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Providers Section */
-        .providers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .provider-card {
-            background: linear-gradient(135deg, rgba(77, 139, 255, 0.05) 0%, rgba(124, 92, 252, 0.05) 100%);
-            border: 1px solid rgba(77, 139, 255, 0.2);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .provider-card::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            right: 0;
-            height: 200%;
-            background: linear-gradient(135deg, transparent 0%, rgba(77, 139, 255, 0.1) 50%, transparent 100%);
-            transition: top 0.5s ease;
-            pointer-events: none;
-        }
-
-        .provider-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(77, 139, 255, 0.2);
-        }
-
-        .provider-card:hover::before {
-            top: 0;
-        }
-
-        .provider-name {
-            font-family: 'Instrument Serif', serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .provider-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(124, 92, 252, 0.2);
-            border: 1px solid var(--accent-purple);
-            border-radius: 12px;
-            font-size: 11px;
-            color: var(--accent-purple);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .provider-description {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: rgba(77, 139, 255, 0.08);
-            border-color: rgba(77, 139, 255, 0.3);
-            transform: translateY(-8px);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .feature-name {
-            font-family: 'Instrument Serif', serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
-
-        .feature-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Tools Section */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--accent-blue);
-            border-radius: 8px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .tool-card:hover {
-            border-left-color: var(--accent-cyan);
-            transform: translateX(8px);
-            background: rgba(0, 217, 255, 0.05);
-        }
-
-        .tool-name {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--accent-cyan);
-            margin-bottom: 10px;
-        }
-
-        .tool-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Architecture Section */
-        .architecture-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-            align-items: start;
-        }
-
-        .architecture-diagram {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            line-height: 1.8;
-            color: var(--accent-cyan);
-            overflow-x: auto;
-            box-shadow: inset 0 0 30px rgba(0, 217, 255, 0.05);
-        }
-
-        .architecture-text h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .architecture-text p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .file-tree {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-secondary);
-            overflow-x: auto;
-            margin-top: 40px;
-        }
-
-        .file-tree-item {
-            line-height: 1.8;
-        }
-
-        .file-tree-folder { color: var(--accent-blue); }
-        .file-tree-file { color: var(--accent-cyan); }
-        .file-tree-comment { color: var(--text-muted); }
-
-        /* Documentation Section */
-        .docs-container {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 60px;
-        }
-
-        .docs-sidebar {
-            position: sticky;
-            top: 120px;
-            height: fit-content;
-        }
-
-        .docs-nav {
-            list-style: none;
-        }
-
-        .docs-nav li {
-            margin-bottom: 10px;
-        }
-
-        .docs-nav button {
-            width: 100%;
-            padding: 12px 16px;
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid transparent;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-family: 'DM Sans', sans-serif;
-            position: relative;
-        }
-
-        .docs-nav button:hover {
-            background: rgba(77, 139, 255, 0.1);
-            color: var(--text-primary);
-        }
-
-        .docs-nav button.active {
-            background: rgba(77, 139, 255, 0.15);
-            color: var(--accent-blue);
-            border-color: var(--accent-blue);
-        }
-
-        .docs-content {
-            display: none;
-        }
-
-        .docs-content.active {
-            display: block;
-            animation: fadeInUp 0.5s ease;
-        }
-
-        .docs-content h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--text-primary);
-        }
-
-        .docs-content h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-        }
-
-        .docs-content p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .docs-step {
-            background: rgba(77, 139, 255, 0.05);
-            border-left: 3px solid var(--accent-blue);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .docs-step strong {
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .code-block {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            overflow-x: auto;
-            margin: 20px 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .code-block code {
-            color: var(--text-secondary);
-        }
-
-        .keyword { color: var(--accent-blue); }
-        .type { color: var(--accent-cyan); }
-        .string { color: #a8d976; }
-        .comment { color: var(--text-muted); }
-
-        .settings-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .settings-table th,
-        .settings-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .settings-table th {
-            background: rgba(77, 139, 255, 0.1);
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .settings-table td {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .settings-table code {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-cyan);
-        }
-
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
-
-        .footer-description {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-bottom: 30px;
-        }
-
-        .footer-copyright {
-            color: var(--text-muted);
-            font-size: 13px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero .tagline {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .providers-grid,
-            .features-grid,
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .architecture-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .docs-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .docs-sidebar {
-                position: static;
-            }
-
-            .mock-editor {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .mock-sidebar,
-            .mock-properties {
-                display: none;
-            }
-
-            .hero {
-                padding: 100px 20px 40px;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-content">
-            <div class="logo">MUDFLOOD</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#architecture">Architecture</a></li>
-                <li><a href="#documentation">Documentation</a></li>
-            </ul>
-            <button class="cta-btn">Get Started</button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>MUDFLOOD AI</h1>
-            <div class="tagline">Multi-LLM AI Assistant for Unreal Engine 5</div>
-
-            <p class="hero-subtitle">
-                A native Slate-based plugin that integrates the world's most advanced language models directly into the Unreal Editor. Seamlessly introspect your projects, analyze blueprints, search code, and accelerate development with real-time AI assistance powered by Claude, GPT-4, Gemini, or local models.
-            </p>
-
-            <div class="hero-badges">
-                <span class="badge">UE 5.4+</span>
-                <span class="badge">Claude Â· OpenAI Â· Gemini</span>
-                <span class="badge">33 Source Files</span>
-                <span class="badge">11 Tools</span>
-                <span class="badge">Native Slate UI</span>
-            </div>
-
-            <div class="hero-cta">
-                <button class="btn btn-primary">Get Started</button>
-                <a href="#" class="btn btn-secondary">View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="mock-screenshot">
-            <div class="mock-title-bar">Unreal Editor 5.4.0 | Mudflood AI Preview</div>
-            <div class="mock-editor">
-                <div class="mock-sidebar">
-                    <div class="mock-panel-tab">Content Browser</div>
-                    <div class="mock-panel-tab">Details</div>
-                    <div class="mock-panel-tab" style="background: rgba(77, 139, 255, 0.15); border-left-color: var(--accent-cyan); color: var(--accent-cyan);">Mudflood AI</div>
-                </div>
-                <div class="mock-viewport">
-                    [3D Viewport - Level Editor]
-                </div>
-                <div class="mock-properties">
-                    <div style="color: var(--text-primary); font-weight: 600; margin-bottom: 15px;">Details</div>
-                    <div style="color: var(--text-muted); margin-bottom: 8px;">Transform</div>
-                    <div style="color: var(--text-muted); margin-bottom: 8px;">Visibility</div>
-                    <div style="color: var(--text-muted);">Rendering</div>
-                </div>
-            </div>
-            <div class="mock-chat-panel">
-                <div class="mock-chat-header">Mudflood AI Chat</div>
-                <div class="mock-chat-content">
-                    <div class="mock-message user">What blueprint variables are in BP_Character?</div>
-                    <div class="mock-message assistant">Found BP_Character with 8 variables:<br>- Health (float)<br>- MaxHealth (float)<br>- Speed (float)</div>
-                    <div class="mock-message user">Show me the construction script</div>
-                </div>
-                <div class="mock-chat-input">
-                    <input type="text" class="mock-input-field" placeholder="Ask anything about your project..." readonly>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Providers Section -->
-    <section id="providers">
-        <h2 class="section-title">LLM Providers</h2>
-        <p class="section-subtitle">Choose from the world's most advanced language models, or run locally for complete privacy</p>
-
-        <div class="providers-grid">
-            <div class="provider-card reveal">
-                <div class="provider-badge recommended">RECOMMENDED</div>
-                <div class="provider-name">Claude</div>
-                <p class="provider-description">
-                    Best-in-class reasoning with native tool use. The Anthropic Messages API provides the most robust streaming, structured tool responses, and content block architecture. Claude consistently delivers the most accurate project analysis and code understanding across complex codebases. Default model: claude-sonnet-4-5-20250514 with extended thinking capabilities for advanced problem-solving.
-                </p>
-            </div>
-
-            <div class="provider-card reveal">
-                <div class="provider-name">OpenAI GPT-4</div>
-                <p class="provider-description">
-                    Powerful function calling with Chat Completions API. Full support for GPT-4o with multimodal capabilities and advanced reasoning. Streaming responses with chunked message delivery. Perfect balance of capability and speed for rapid iteration and creative problem-solving in development workflows.
-                </p>
-            </div>
-
-            <div class="provider-card reveal">
-                <div class="provider-name">Google Gemini</div>
-                <p class="provider-description">
-                    Fast inference with Generative AI API and function declarations. Excellent for context understanding and project introspection. Competitive pricing with strong performance on code analysis and technical documentation tasks. Supports long context windows for comprehensive project analysis.
-                </p>
-            </div>
-
-            <div class="provider-card reveal">
-                <div class="provider-name">Local Models</div>
-                <p class="provider-description">
-                    Run any OpenAI-compatible endpoint: Ollama, LM Studio, or your own inference server. Zero API costs, complete privacy, and offline capability. Perfect for proprietary projects or teams with data sovereignty requirements. Full streaming support with any local model.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features">
-        <h2 class="section-title">Powerful Features</h2>
-        <p class="section-subtitle">Everything you need to revolutionize your development workflow</p>
-
-        <div class="features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ”</div>
-                <div class="feature-name">Deep Project Introspection</div>
-                <p class="feature-description">
-                    Access 11 specialized tools that introspect your entire project. Read asset metadata, analyze blueprint graphs, enumerate world actors, search source code, and retrieve class hierarchies. Complete visibility into your project structure.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ”—</div>
-                <div class="feature-name">Multi-Provider Architecture</div>
-                <p class="feature-description">
-                    Unified interface for Claude, GPT-4, Gemini, and local models. Hot-swap providers without closing the editor. Extensible provider pattern makes adding custom endpoints effortless. Choose the best model for each task.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">âš¡</div>
-                <div class="feature-name">Real-time Streaming</div>
-                <p class="feature-description">
-                    See responses appear instantly as they stream. Native implementation for Claude/OpenAI with chunked Gemini support. Progressive UI updates create a responsive, interactive experience. No waiting for complete responses.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ› ï¸</div>
-                <div class="feature-name">Native Tool Use</div>
-                <p class="feature-description">
-                    Integrated function calling system. The AI automatically selects and chains tools to answer complex questions. Supports parameter inference and structured JSON responses. Tools work seamlessly with conversation context.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ“Œ</div>
-                <div class="feature-name">Dockable Chat Panel</div>
-                <p class="feature-description">
-                    Native Slate widget docks anywhere in the editor interface. Open with Ctrl+Shift+M or from the Tools menu. Persists position and state across editor sessions. Fully integrated with UE5's UI paradigms.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ“Š</div>
-                <div class="feature-name">Blueprint Analysis</div>
-                <p class="feature-description">
-                    Deep inspection of blueprint variables, functions, event graphs, node connections, components, and interfaces. Understand blueprint logic, identify issues, and get optimization suggestions from the AI assistant.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ”</div>
-                <div class="feature-name">Code Search & Read</div>
-                <p class="feature-description">
-                    Full-text search across all .h and .cpp files in your project. Read source files with configurable line limits for efficient context. Automatically scoped to your project directory for safety and performance.
-                </p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon">ğŸ§©</div>
-                <div class="feature-name">Extensible Design</div>
-                <p class="feature-description">
-                    Add new LLM providers, create custom tools, build custom UI panels, and hook into delegates. Well-documented extension points and a clean architecture make extending functionality straightforward for C++ developers.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tools Section -->
-    <section id="tools">
-        <h2 class="section-title">11 Specialized Tools</h2>
-        <p class="section-subtitle">Comprehensive introspection capabilities for complete project understanding</p>
-
-        <div class="tools-grid">
-            <div class="tool-card reveal">
-                <div class="tool-name">search_assets</div>
-                <p class="tool-description">
-                    Search the Asset Registry by name and class. Returns matched assets with paths and metadata. Essential for finding blueprints, materials, and other project assets by partial name matching or filter criteria.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_blueprint_details</div>
-                <p class="tool-description">
-                    Retrieve complete information about a blueprint including variables, functions, event graph connections, components, and interfaces. Essential for understanding blueprint structure and logic flow.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">read_source_file</div>
-                <p class="tool-description">
-                    Read C++ source files (.h, .cpp) with configurable line limits. Returns code with line numbers and proper context. Automatically enforces safety boundaries to prevent reading outside the project.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">search_code</div>
-                <p class="tool-description">
-                    Full-text search across all C++ source files in your project. Returns matching lines with file paths and line numbers. Perfect for finding functions, classes, and specific code patterns across large codebases.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_project_info</div>
-                <p class="tool-description">
-                    Retrieve high-level project information including name, version, target engine version, and paths. Get summary statistics about blueprints, C++ classes, and project plugins.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">list_world_actors</div>
-                <p class="tool-description">
-                    Enumerate all actors in the current level with their classes, locations, and components. Understand the level composition and actor relationships for the current working context.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_class_hierarchy</div>
-                <p class="tool-description">
-                    Retrieve inheritance hierarchies for C++ classes and blueprints. Understand parent-child relationships and see what classes inherit from a given base. Essential for API exploration.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_material_details</div>
-                <p class="tool-description">
-                    Inspect material instances and master materials. Retrieve parameters, scalar values, vector values, and texture assignments. Understand material shader graphs and parameter relationships.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_selected_actors</div>
-                <p class="tool-description">
-                    Get information about currently selected actors in the editor. Retrieve properties, components, and transforms. Provides context about what you're actively working on in the viewport.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">get_level_info</div>
-                <p class="tool-description">
-                    Retrieve information about the current level including name, actor count, static mesh count, and other statistics. Get a comprehensive overview of level composition and streaming volumes.
-                </p>
-            </div>
-
-            <div class="tool-card reveal">
-                <div class="tool-name">execute_console_command</div>
-                <p class="tool-description">
-                    Execute editor console commands safely with whitelist validation. Useful for gameplay debugging, profiling commands, and editor state manipulation. Prevents dangerous or destructive commands.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Architecture Section -->
-    <section id="architecture">
-        <h2 class="section-title">Architecture & Design</h2>
-        <p class="section-subtitle">A clean, extensible architecture built for maximum flexibility</p>
-
-        <div class="architecture-content">
-            <div>
-                <div class="architecture-diagram">
-<span class="type">ULLMProvider</span> (Abstract)
-  â”œâ”€ <span class="type">UClaudeProvider</span>
-  â”‚  â””â”€ Anthropic Messages API
-  â”œâ”€ <span class="type">UOpenAIProvider</span>
-  â”‚  â””â”€ Chat Completions API
-  â”œâ”€ <span class="type">UGeminiProvider</span>
-  â”‚  â””â”€ Generative AI API
-  â””â”€ <span class="type">ULocalProvider</span>
-     â””â”€ OpenAI-compatible
-
-<span class="keyword">class</span> <span class="type">FConversationMessage</span>
-  â”œâ”€ Role (User/Assistant)
-  â”œâ”€ Content (<span class="type">TArray</span>&lt;<span class="type">FContentBlock</span>&gt;)
-  â”œâ”€ Tools
-  â””â”€ Metadata
-
-<span class="keyword">class</span> <span class="type">FLLMTool</span>
-  â”œâ”€ Name
-  â”œâ”€ Description
-  â”œâ”€ InputProperties
-  â””â”€ RequiredProperties
-                </div>
-            </div>
-
-            <div>
-                <div class="architecture-text">
-                    <h3>Two-Module Architecture</h3>
-                    <p>
-                        Mudflood AI is structured as two complementary modules working in perfect harmony. The <strong>MudfloodAICore</strong> runtime module contains all provider implementations, conversation management, streaming logic, and tool execution systems. The <strong>MudfloodAIEditor</strong> module provides the native Slate UI, tool handler, project introspection systems, and editor integration hooks.
-                    </p>
-
-                    <h3>Provider Pattern</h3>
-                    <p>
-                        The abstract <code>ULLMProvider</code> base class defines the interface for all LLM integrations. Each provider implements streaming, tool handling, and response parsing. The plugin ships with four providers (Claude, OpenAI, Gemini, Local), but you can easily add custom providers by subclassing <code>ULLMProvider</code>.
-                    </p>
-
-                    <h3>Tool System</h3>
-                    <p>
-                        Tools are registered in the <code>MudfloodToolHandler</code> as structured metadata. When the LLM requests a tool call, the handler validates parameters and executes the appropriate function. Results are serialized to JSON and returned to the conversation context for multi-turn reasoning.
-                    </p>
-
-                    <h3>Conversation Management</h3>
-                    <p>
-                        All messages are tracked in a conversation history with automatic context management. The system includes configurable message limits, system prompt generation, and conversation state persistence. Tools are automatically included in the system context so the AI knows what it can do.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="file-tree">
-            <div style="margin-bottom: 20px; color: var(--accent-blue); font-weight: 600;">Mudflood AI Plugin Structure (33 Files)</div>
-
-            <div class="file-tree-item"><span class="file-tree-folder">Source/</span></div>
-            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">MudfloodAICore/</span> <span class="file-tree-comment">(Runtime Module)</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-folder">Public/</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LLMProvider.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ClaudeProvider.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">OpenAIProvider.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">GeminiProvider.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LocalProvider.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ConversationManager.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">StreamingManager.h</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">MudfloodAICoreModule.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-folder">Private/</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ClaudeProvider.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">OpenAIProvider.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">GeminiProvider.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LocalProvider.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ConversationManager.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">StreamingManager.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">MudfloodAICoreModule.cpp</span></div>
-
-            <div class="file-tree-item" style="margin-top: 15px;"><span class="file-tree-folder">MudfloodAIEditor/</span> <span class="file-tree-comment">(Editor Module)</span></div>
-            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">Public/</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodChatPanel.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodStyle.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodCommands.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">ProjectContextGatherer.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodToolHandler.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodEditorSettings.h</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodAIEditorModule.h</span></div>
-            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">Private/</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodChatPanel.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodStyle.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodCommands.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">ProjectContextGatherer.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodToolHandler.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodEditorSettings.cpp</span></div>
-            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodAIEditorModule.cpp</span></div>
-
-            <div class="file-tree-item" style="margin-top: 15px;"><span class="file-tree-file">Mudflood.uplugin</span></div>
-        </div>
-    </section>
-
-    <!-- Documentation Section -->
-    <section id="documentation">
-        <h2 class="section-title">Documentation</h2>
-
-        <div class="docs-container">
-            <nav class="docs-sidebar">
-                <ul class="docs-nav">
-                    <li><button class="docs-btn active" data-tab="quickstart">Quick Start</button></li>
-                    <li><button class="docs-btn" data-tab="configuration">Configuration</button></li>
-                    <li><button class="docs-btn" data-tab="providers">LLM Providers</button></li>
-                    <li><button class="docs-btn" data-tab="introspection">Introspection System</button></li>
-                    <li><button class="docs-btn" data-tab="tools">Tool System</button></li>
-                    <li><button class="docs-btn" data-tab="ui">Editor UI</button></li>
-                    <li><button class="docs-btn" data-tab="extending">Extending</button></li>
-                </ul>
-            </nav>
-
-            <div class="docs-main">
-                <!-- Quick Start -->
-                <div class="docs-content active" data-content="quickstart">
-                    <h2>Quick Start</h2>
-
-                    <div class="docs-step">
-                        <strong>Step 1: Install the Plugin</strong>
-                        Clone the Mudflood AI repository into your project's Plugins folder. Regenerate Visual Studio project files and recompile. The plugin will appear in the Installed Plugins list.
-                    </div>
-
-                    <div class="docs-step">
-                        <strong>Step 2: Configure Your Provider</strong>
-                        Go to Edit â†’ Project Settings â†’ Mudflood AI. Select your preferred LLM provider (Claude recommended) and enter your API key. You can change providers anytime without restarting.
-                        <div class="code-block">
-[/Script/MudfloodAIEditor.MudfloodEditorSettings]
-SelectedProvider=Claude
-ClaudeAPIKey=sk-ant-...
-OpenAIAPIKey=
-GeminiAPIKey=
-LocalBaseURL=http://localhost:11434
-                        </div>
-                    </div>
-
-                    <div class="docs-step">
-                        <strong>Step 3: Open the Chat Panel</strong>
-                        Press <code>Ctrl+Shift+M</code> or go to Tools â†’ Mudflood AI â†’ Open Chat. The panel will dock in your editor interface. Pin it to keep it visible while you work.
-                    </div>
-
-                    <div class="docs-step">
-                        <strong>Step 4: Start Asking Questions</strong>
-                        Type questions about your project naturally. The AI will automatically use its tools to inspect your code, analyze blueprints, search assets, and provide detailed answers. Examples:
-                        <div class="code-block">
-"What blueprints inherit from Character?"
-"Show me the implementation of the Jump function"
-"List all materials using the M_Metallic master"
-"Find todos in my C++ code"
-                        </div>
-                    </div>
-
-                    <div class="docs-step">
-                        <strong>Step 5: Extend with Custom Tools (Optional)</strong>
-                        Add custom tools by subclassing <code>UMudfloodToolHandler</code> and registering them in the constructor. The AI will automatically include your tools in its context and use them when appropriate.
-                    </div>
-                </div>
-
-                <!-- Configuration -->
-                <div class="docs-content" data-content="configuration">
-                    <h2>Configuration Settings</h2>
-                    <p>All settings are configured in Project Settings â†’ Mudflood AI. Changes take effect immediately without restarting.</p>
-
-                    <h3>Provider Selection</h3>
-                    <p>Select which LLM provider to use: Claude (recommended), OpenAI, Gemini, or Local.</p>
-
-                    <table class="settings-table">
-                        <thead>
-                            <tr>
-                                <th>Setting</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>SelectedProvider</code></td>
-                                <td>ELLMProvider</td>
-                                <td>Claude</td>
-                                <td>Active LLM provider for conversations</td>
-                            </tr>
-                            <tr>
-                                <td><code>ClaudeAPIKey</code></td>
-                                <td>FString</td>
-                                <td>Empty</td>
-                                <td>API key from console.anthropic.com</td>
-                            </tr>
-                            <tr>
-                                <td><code>OpenAIAPIKey</code></td>
-                                <td>FString</td>
-                                <td>Empty</td>
-                                <td>API key from platform.openai.com</td>
-                            </tr>
-                            <tr>
-                                <td><code>GeminiAPIKey</code></td>
-                                <td>FString</td>
-                                <td>Empty</td>
-                                <td>API key from aistudio.google.com</td>
-                            </tr>
-                            <tr>
-                                <td><code>LocalBaseURL</code></td>
-                                <td>FString</td>
-                                <td>http://localhost:11434</td>
-                                <td>Base URL for local/custom OpenAI-compatible endpoints</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>Model Configuration</h3>
-                    <table class="settings-table">
-                        <thead>
-                            <tr>
-                                <th>Setting</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>ModelName</code></td>
-                                <td>FString</td>
-                                <td>Empty (uses provider default)</td>
-                                <td>Specific model to use (e.g., gpt-4o for OpenAI)</td>
-                            </tr>
-                            <tr>
-                                <td><code>MaxTokens</code></td>
-                                <td>int32</td>
-                                <td>8192</td>
-                                <td>Maximum tokens per response (256-128000)</td>
-                            </tr>
-                            <tr>
-                                <td><code>Temperature</code></td>
-                                <td>float</td>
-                                <td>0.7</td>
-                                <td>Response randomness (0.0-2.0, higher = more creative)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>Behavior Settings</h3>
-                    <table class="settings-table">
-                        <thead>
-                            <tr>
-                                <th>Setting</th>
-                                <th>Type</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>bEnableStreaming</code></td>
-                                <td>bool</td>
-                                <td>true</td>
-                                <td>Show responses in real-time as they stream</td>
-                            </tr>
-                            <tr>
-                                <td><code>bEnableToolUse</code></td>
-                                <td>bool</td>
-                                <td>true</td>
-                                <td>Allow the AI to use introspection tools</td>
-                            </tr>
-                            <tr>
-                                <td><code>bAutoIncludeProjectContext</code></td>
-                                <td>bool</td>
-                                <td>true</td>
-                                <td>Automatically include project info in system prompt</td>
-                            </tr>
-                            <tr>
-                                <td><code>MaxContextMessages</code></td>
-                                <td>int32</td>
-                                <td>50</td>
-                                <td>Maximum conversation history to maintain (5-200)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- LLM Providers -->
-                <div class="docs-content" data-content="providers">
-                    <h2>LLM Providers</h2>
-
-                    <h3>Claude (Anthropic) - RECOMMENDED</h3>
-                    <p>Claude provides the best reasoning capability, native tool use, and most reliable code analysis. Go to <a href="https://console.anthropic.com" style="color: var(--accent-blue);">console.anthropic.com</a>, create an API key, and enter it in the settings.</p>
-                    <div class="code-block">
-SelectedProvider=Claude
-ClaudeAPIKey=sk-ant-xxxxxxxxxxxx
-<span class="comment">// Uses claude-sonnet-4-5-20250514 by default</span>
-<span class="comment">// 200K context window, native tool use, extended thinking</span>
-                    </div>
-
-                    <h3>OpenAI GPT-4</h3>
-                    <p>Get your API key from <a href="https://platform.openai.com" style="color: var(--accent-blue);">platform.openai.com</a>. Supports GPT-4o with multimodal capabilities and function calling.</p>
-                    <div class="code-block">
-SelectedProvider=OpenAI
-OpenAIAPIKey=sk-proj-xxxxxxxxxxxx
-ModelName=gpt-4o
-<span class="comment">// Or use gpt-4-turbo for lower cost</span>
-                    </div>
-
-                    <h3>Google Gemini</h3>
-                    <p>Get a free API key from <a href="https://aistudio.google.com" style="color: var(--accent-blue);">aistudio.google.com</a>. Fast inference with strong code understanding.</p>
-                    <div class="code-block">
-SelectedProvider=Gemini
-GeminiAPIKey=AIzaSyxxxxxxxxxxxxxx
-<span class="comment">// Uses latest Gemini model by default</span>
-<span class="comment">// Excellent for rapid iteration and testing</span>
-                    </div>
-
-                    <h3>Local Models</h3>
-                    <p>Run any OpenAI-compatible endpoint locally. Use Ollama or LM Studio for complete privacy and offline capability.</p>
-                    <div class="code-block">
-SelectedProvider=Local
-LocalBaseURL=http://localhost:11434
-<span class="comment">// For Ollama: run `ollama serve` then pull a model</span>
-<span class="comment">// Ollama models: ollama pull mistral, ollama pull llama2, etc.</span>
-<span class="comment">// Zero API costs, complete data privacy</span>
-                    </div>
-
-                    <h3>Custom OpenAI-Compatible Endpoints</h3>
-                    <p>Use any OpenAI-compatible endpoint. Many services offer this (Groq, Together, Fireworks, etc.).</p>
-                    <div class="code-block">
-SelectedProvider=Local
-LocalBaseURL=https://api.fireworks.ai/inference/v1
-<span class="comment">// Configure with your provider's API key in the endpoint URL</span>
-<span class="comment">// Works with any OpenAI-compatible API</span>
-                    </div>
-                </div>
-
-                <!-- Introspection System -->
-                <div class="docs-content" data-content="introspection">
-                    <h2>Introspection System</h2>
-                    <p>The ProjectContextGatherer scans your entire Unreal project and provides detailed information to the LLM. This enables the AI to understand your project structure, architecture, and code.</p>
-
-                    <h3>Asset Registry Integration</h3>
-                    <p>The introspection system uses Unreal's Asset Registry to enumerate all assets in your project. This includes blueprints, materials, meshes, textures, sounds, and all other project assets. The system extracts metadata like asset type, class, and path.</p>
-
-                    <h3>Blueprint Reflection</h3>
-                    <p>For blueprint assets, the system reflects on the blueprint graph structure, variables (with types and defaults), functions, event implementations, and component hierarchies. This allows the AI to understand your blueprint logic and architecture.</p>
-
-                    <div class="code-block">
-<span class="keyword">class</span> <span class="type">UBlueprint</span>
-  â”œâ”€ <span class="type">UEdGraph</span> <span class="keyword">for</span> EventGraph
-  â”œâ”€ <span class="type">UEdGraph</span> <span class="keyword">for</span> ConstructionScript
-  â”œâ”€ <span class="type">FBlueprintVariableDescription</span> []
-  â”œâ”€ <span class="type">FProperty</span> [] <span class="keyword">for</span> Components
-  â””â”€ <span class="type">FImplementedInterface</span> []
-                    </div>
-
-                    <h3>World Actor Enumeration</h3>
-                    <p>When a level is open, the system enumerates all actors in the world using TActorIterator. For each actor, it retrieves the class, location, rotation, components, and other relevant properties. This provides context about what's in the current level.</p>
-
-                    <h3>Source File Access</h3>
-                    <p>The system has safe, validated access to all C++ source files in your project's Source folder. Files are read with configurable line limits to prevent excessive context sizes. All file paths are validated to ensure they're within the project folder.</p>
-
-                    <h3>System Prompt Generation</h3>
-                    <p>All gathered context is intelligently formatted into a system prompt that tells the LLM about your project. This includes project metadata, available assets, blueprints, classes, and tools. The system prompt is automatically updated as you work.</p>
-                </div>
-
-                <!-- Tool System -->
-                <div class="docs-content" data-content="tools">
-                    <h2>Tool System</h2>
-                    <p>The tool system allows the LLM to call specialized functions to introspect your project. Tools are defined as structured metadata and executed by the tool handler.</p>
-
-                    <h3>Tool Structure</h3>
-                    <div class="code-block">
-<span class="keyword">struct</span> <span class="type">FLLMTool</span>
-{
-    <span class="type">FString</span> Name;
-    <span class="type">FString</span> Description;
-    <span class="type">TArray</span>&lt;<span class="type">FToolProperty</span>&gt; InputProperties;
-    <span class="type">TArray</span>&lt;<span class="type">FString</span>&gt; RequiredProperties;
-};
-
-<span class="keyword">struct</span> <span class="type">FToolProperty</span>
-{
-    <span class="type">FString</span> Name;
-    <span class="type">FString</span> Type;
-    <span class="type">FString</span> Description;
-    <span class="type">TArray</span>&lt;<span class="type">FString</span>&gt; EnumValues;
-};
-                    </div>
-
-                    <h3>Tool Registration</h3>
-                    <p>Tools are registered in the MudfloodToolHandler constructor. Each tool maps a name to an execution function. When the LLM requests a tool, the handler validates the request, executes the function, and returns the result as JSON.</p>
-
-                    <div class="code-block">
-<span class="keyword">void</span> <span class="type">FMudfloodToolHandler</span>::RegisterTools()
-{
-    RegisterTool(
-        <span class="string">"search_assets"</span>,
-        <span class="string">"Search the Asset Registry by name"</span>,
-        [<span class="keyword">this</span>](<span class="keyword">const</span> <span class="type">FString</span>&amp; Query) {
-            <span class="keyword">return</span> HandleSearchAssets(Query);
-        }
-    );
-}
-                    </div>
-
-                    <h3>Tool Execution Flow</h3>
-                    <p>When the LLM decides to use a tool, this sequence occurs:</p>
-                    <ol style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
-                        <li>LLM returns tool_use content block with name and parameters</li>
-                        <li>Handler validates tool exists and parameters are valid</li>
-                        <li>Handler executes the tool function with provided parameters</li>
-                        <li>Result is serialized to JSON</li>
-                        <li>Tool result is added to conversation history</li>
-                        <li>LLM sees result and continues reasoning to answer your question</li>
-                        <li>Multi-tool chaining: LLM can request multiple tools in sequence</li>
-                    </ol>
-
-                    <h3>Adding Custom Tools</h3>
-                    <p>To add a custom tool, subclass FMudfloodToolHandler and register your tool:</p>
-                    <div class="code-block">
-<span class="keyword">void</span> <span class="type">FMyCustomToolHandler</span>::RegisterTools()
-{
-    <span class="type">Super</span>::RegisterTools();
-
-    RegisterTool(
-        <span class="string">"get_actor_count"</span>,
-        <span class="string">"Get total actor count in level"</span>,
-        [<span class="keyword">this</span>]() {
-            <span class="keyword">int32</span> Count = 0;
-            <span class="keyword">for</span> (<span class="type">TActorIterator</span>&lt;<span class="type">AActor</span>&gt; It(World); It; ++It) {
-                Count++;
-            }
-            <span class="keyword">return</span> <span class="type">FString</span>::FromInt(Count);
-        }
-    );
-}
-                    </div>
-                </div>
-
-                <!-- Editor UI -->
-                <div class="docs-content" data-content="ui">
-                    <h2>Editor UI Architecture</h2>
-
-                    <h3>Chat Panel Layout</h3>
-                    <p>The SMudfloodChatPanel is a native Slate widget with this hierarchy:</p>
-                    <div class="code-block">
-<span class="type">SVerticalBox</span>
-â”œâ”€ <span class="type">SHorizontalBox</span> (Header)
-â”‚  â”œâ”€ Title
-â”‚  â”œâ”€ Provider selector
-â”‚  â””â”€ Settings button
-â”œâ”€ <span class="type">SScrollBox</span> (Messages)
-â”‚  â””â”€ <span class="type">SMudfloodChatMessage</span> []
-â”œâ”€ <span class="type">SHorizontalBox</span> (Input)
-â”‚  â”œâ”€ <span class="type">SMultiLineEditableTextBox</span>
-â”‚  â””â”€ Send button
-â””â”€ <span class="type">STextBlock</span> (Status)
-                    </div>
-
-                    <h3>Message Display</h3>
-                    <p>SMudfloodChatMessage handles displaying both user and assistant messages. It automatically detects code blocks and renders them with syntax highlighting. Streaming messages update in real-time as tokens arrive.</p>
-
-                    <h3>Streaming Text Display</h3>
-                    <p>Text is displayed progressively as it streams from the LLM. The widget uses an FString that grows with each update and automatically reformats for word wrapping. Streaming status is shown to the user.</p>
-
-                    <h3>Tool Use Visualization</h3>
-                    <p>When the AI uses a tool, the panel shows which tool is being called and with what parameters. Tool results are displayed in a collapsible format so you can understand what data the AI is working with.</p>
-
-                    <h3>Styling System</h3>
-                    <p>FMudfloodAIStyle defines all colors, fonts, and visual properties. Extend or override the style by subclassing FMudfloodAIStyle and registering your custom style.</p>
-
-                    <div class="code-block">
-<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentBlue = <span class="type">FLinearColor</span>(0.302f, 0.545f, 1.0f);
-<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentPurple = <span class="type">FLinearColor</span>(0.486f, 0.361f, 0.988f);
-<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentCyan = <span class="type">FLinearColor</span>(0.0f, 0.851f, 1.0f);
-                    </div>
-
-                    <h3>Keyboard Shortcuts</h3>
-                    <p>FMudfloodAICommands defines editor shortcuts:</p>
-                    <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
-                        <li><code>Ctrl+Shift+M</code> - Toggle Mudflood AI panel</li>
-                        <li><code>Ctrl+Enter</code> - Send message from input box</li>
-                        <li><code>Shift+Enter</code> - New line in input box</li>
-                    </ul>
-                </div>
-
-                <!-- Extending -->
-                <div class="docs-content" data-content="extending">
-                    <h2>Extending Mudflood AI</h2>
-
-                    <h3>Creating a New LLM Provider</h3>
-                    <p>Subclass ULLMProvider and implement the required virtual functions:</p>
-                    <div class="code-block">
-<span class="keyword">class</span> <span class="type">UMyCustomProvider</span> : <span class="keyword">public</span> <span class="type">ULLMProvider</span>
-{
-    <span class="keyword">virtual</span> <span class="type">void</span> SendMessage(...) <span class="keyword">override</span>;
-    <span class="keyword">virtual</span> <span class="type">void</span> ProcessResponse(...) <span class="keyword">override</span>;
-    <span class="keyword">virtual</span> <span class="type">bool</span> SupportsStreaming() <span class="keyword">override</span>;
-};
-                    </div>
-
-                    <h3>Creating Custom Tools</h3>
-                    <p>Register tools by subclassing the tool handler or by adding to the global tool registry:</p>
-                    <div class="code-block">
-<span class="keyword">void</span> RegisterMyTool()
-{
-    <span class="type">FMudfloodToolHandler</span>::GetInstance()->RegisterTool(
-        <span class="string">"my_tool"</span>,
-        <span class="string">"My custom tool description"</span>,
-        [](){ <span class="keyword">return</span> <span class="string">"Tool result"</span>; }
-    );
-}
-                    </div>
-
-                    <h3>Customizing the UI</h3>
-                    <p>Create a custom Slate widget that inherits from SMudfloodChatPanel. Override the layout, styling, or message rendering to match your preferences.</p>
-
-                    <h3>Hooking into Delegates</h3>
-                    <p>The system provides delegates for key events:</p>
-                    <div class="code-block">
-<span class="comment">// Called when a message is sent</span>
-<span class="type">FMudfloodAI</span>::OnMessageSent.AddDynamic(...);
-
-<span class="comment">// Called when a tool is executed</span>
-<span class="type">FMudfloodToolHandler</span>::OnToolExecuted.AddDynamic(...);
-
-<span class="comment">// Called when response streaming completes</span>
-<span class="type">FStreamingManager</span>::OnStreamingComplete.AddDynamic(...);
-                    </div>
-
-                    <h3>Extending Project Context</h3>
-                    <p>Override ProjectContextGatherer to add custom project information to the system prompt. This allows the AI to know about custom project structures or metadata.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">MUDFLOOD AI</div>
-            <p class="footer-description">
-                Advanced multi-LLM assistant for Unreal Engine 5. Seamlessly integrate Claude, GPT-4, Gemini, or local models directly into your editor workflow.
-            </p>
-            <div class="footer-copyright">
-                Â© 2025 Mudflood AI. All rights reserved. | Built for Unreal Engine 5.4+
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Documentation tab switching
-        const docsBtns = document.querySelectorAll('.docs-btn');
-        const docsContents = document.querySelectorAll('.docs-content');
-
-        docsBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabName = btn.getAttribute('data-tab');
-
-                // Remove active class from all buttons and contents
-                docsBtns.forEach(b => b.classList.remove('active'));
-                docsContents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked button and corresponding content
-                btn.classList.add('active');
-                document.querySelector(`[data-content="${tabName}"]`).classList.add('active');
-            });
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+BˆÈÂˆÜXÚ]NˆNÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJ
+NÂˆBˆB‚ˆš\›ÈHÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆÂˆ›Û]ÙZYÚˆÌÂˆ[™KZZYÚˆNÂˆX\™Ú[‹X›İÛNˆŒÂˆ]\‹\ÜXÚ[™ÎˆLœÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYËÍ™™ˆ	KÍØÍXÙ˜ÈL	KÌY™ˆL	JNÂˆ]ÙXšÚ]X˜XÚÙÜ›İ[™XÛ\ˆ^Âˆ]ÙXšÚ]]^Yš[XÛÛÜˆ˜[œÜ\™[Âˆ˜XÚÙÜ›İ[™XÛ\ˆ^Âˆ^\ÚYİÎˆŒ™Ø˜JÍËLÎKMKŒÊNÂˆB‚ˆš\›ÈYÛ[™HÂˆ›Û\Ú^™NˆÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆX\™Ú[‹X›İÛNˆŒÂˆ›Û]ÙZYÚˆLÂˆB‚ˆš\›Ë\İX]HÂˆ›Û\Ú^™NˆMœÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÂˆX\™Ú[‹X›İÛNˆLÂˆX^]ÚYˆÌÂˆB‚ˆš\›ËX˜YÙ\ÈÂˆ\Ü^Nˆ›^Âˆ›^]Ü˜\ˆÜ˜\ÂˆØ\ˆM\Âˆ\İYKXÛÛ[ˆÙ[\ÂˆX\™Ú[‹X›İÛNˆÂˆ[š[X][Ûˆ˜YR[•\\ÈX\ÙHÈ›İÂˆB‚ˆ˜˜YÙHÂˆ\Ü^Nˆ[›[™KX›ØÚÎÂˆY[™ÎˆMœÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒJNÂˆ›Ü™\ˆ\ÛÛY™Ø˜JÍËLÎKMKŒÊNÂˆ›Ü™\‹\˜Y]\ÎˆŒÂˆ›Û\Ú^™NˆLœÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ›Û]ÙZYÚˆŒÂˆ˜[œÚ][Ûˆ[ŒÜÈX\ÙNÂˆB‚ˆ˜˜YÙNšİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆ›Ü™\‹XÛÛÜˆ˜\ŠKXXØÙ[X›YJNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ˜˜YÙKœ™XÛÛ[Y[™YÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JLL‹L‹ŒJNÂˆ›Ü™\‹XÛÛÜˆ˜\ŠKXXØÙ[\\œJNÂˆÛÛÜˆ˜\ŠKXXØÙ[\\œJNÂˆB‚ˆš\›ËXİHÂˆ\Ü^Nˆ›^ÂˆØ\ˆŒÂˆ\İYKXÛÛ[ˆÙ[\Âˆ[š[X][Ûˆ˜YR[•\\ÈX\ÙHœÈ›İÂˆX\™Ú[‹X›İÛNˆÂˆB‚ˆ˜ˆÂˆY[™ÎˆMÍœÂˆ›Ü™\ˆ›Û™NÂˆ›Ü™\‹\˜Y]\ÎˆÂˆ›Û\Ú^™NˆM\Âˆ›Û]ÙZYÚˆŒÂˆİ\œÛÜˆÚ[\Âˆ˜[œÚ][Ûˆ[ŒÜÈİXšXËX™^šY\ŠŒ‹JNÂˆ›ÛY˜[Z[Nˆ	ÑHØ[œÉËØ[œË\Ù\šYÂˆ^YXÛÜ˜][Ûˆ›Û™NÂˆ\Ü^Nˆ[›[™KX›ØÚÎÂˆB‚ˆ˜‹\š[X\HÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË˜\ŠKXXØÙ[X›YJH	K˜\ŠKXXØÙ[\\œJHL	JNÂˆÛÛÜˆÚ]NÂˆ›Ş\ÚYİÎˆÌœ™Ø˜JÍËLÎKMKŒÊNÂˆB‚ˆ˜‹\š[X\Nšİ™\ˆÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJM
+NÂˆ›Ş\ÚYİÎˆLœ™Ø˜JÍËLÎKMKJNÂˆB‚ˆ˜‹\ÙXÛÛ™\HÂˆ˜XÚÙÜ›İ[™ˆ˜[œÜ\™[ÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ›Ü™\ˆK\ÛÛY™Ø˜JMKMKMKŒŠNÂˆB‚ˆ˜‹\ÙXÛÛ™\Nšİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒJNÂˆ›Ü™\‹XÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆB‚ˆÊˆ[ØÚÈØÜ™Y[œÚİ
+‹Âˆ›[ØÚË\ØÜ™Y[œÚİÂˆÜÚ][Ûˆ™[]]™NÂˆÚYˆL	NÂˆX^]ÚYˆLÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë\ÙXÛÛ™\JNÂˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆİ™\™›İÎˆY[Âˆ›Ş\ÚYİÎˆL™Ø˜J
+NÂˆ[š[X][Ûˆ˜YR[•\\ÈX\ÙHÈ›İÂˆB‚ˆ›[ØÚË]]KX˜\ˆÂˆZYÚˆÌÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë]\X\JNÂˆ›Ü™\‹X›İÛNˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ\Ü^Nˆ›^Âˆ[YÛ‹Z][\ÎˆÙ[\ÂˆY[™ÎˆM\Âˆ›Û\Ú^™NˆLœÂˆÛÛÜˆ˜\ŠK]^[]]Y
+NÂˆB‚ˆ›[ØÚËYY]ÜˆÂˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆLYœˆÌÂˆZYÚˆÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë\ÙXÛÛ™\JNÂˆB‚ˆ›[ØÚË\ÚYX˜\ˆÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë]\X\JNÂˆ›Ü™\‹\šYÚˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆY[™ÎˆM\Âˆİ™\™›İË^Nˆ]]ÎÂˆ›Û\Ú^™NˆLœÂˆB‚ˆ›[ØÚË\[™[]XˆÂˆY[™ÎˆLM\ÂˆX\™Ú[‹X›İÛNˆ\Âˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆ›Ü™\‹[YˆÜÛÛY˜\ŠKXXØÙ[X›YJNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆİ\œÛÜˆÚ[\Âˆ˜[œÚ][Ûˆ[ŒœÈX\ÙNÂˆ›Ü™\‹\˜Y]\ÎˆÂˆB‚ˆ›[ØÚË\[™[]Xšİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒŠNÂˆB‚ˆ›[ØÚË]šY]ÜÜÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë\š[X\JNÂˆ›Ü™\‹\šYÚˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆY[™ÎˆŒÂˆ\Ü^Nˆ›^Âˆ[YÛ‹Z][\ÎˆÙ[\Âˆ\İYKXÛÛ[ˆÙ[\ÂˆÛÛÜˆ˜\ŠK]^[]]Y
+NÂˆ›Û\Ú^™NˆLÜÂˆB‚ˆ›[ØÚË\›Ü\Y\ÈÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë]\X\JNÂˆ›Ü™\‹[Yˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆY[™ÎˆM\Âˆİ™\™›İË^Nˆ]]ÎÂˆ›Û\Ú^™NˆL\ÂˆB‚ˆ›[ØÚËXÚ]\[™[Âˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ\Ü^Nˆ›^Âˆ›^Y\™Xİ[ÛˆÛÛ[[Âˆ›Ü™\ˆ\ÛÛY™Ø˜JÍËLÎKMKŒŠNÂˆ›Ü™\‹\˜Y]\ÎˆÂˆİ™\™›İÎˆY[ÂˆX\™Ú[‹]ÜˆLÂˆB‚ˆ›[ØÚËXÚ]ZXY\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆY[™ÎˆLœM\Âˆ›Ü™\‹X›İÛNˆ\ÛÛY™Ø˜JÍËLÎKMKŒŠNÂˆ›Û]ÙZYÚˆŒÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ›Û\Ú^™NˆLœÂˆB‚ˆ›[ØÚËXÚ]XÛÛ[Âˆ›^ˆNÂˆY[™ÎˆLœÂˆİ™\™›İË^Nˆ]]ÎÂˆ\Ü^Nˆ›^Âˆ›^Y\™Xİ[ÛˆÛÛ[[ÂˆØ\ˆLÂˆB‚ˆ›[ØÚË[Y\ÜØYÙHÂˆY[™ÎˆLœÂˆ›Ü™\‹\˜Y]\ÎˆœÂˆ›Û\Ú^™NˆL\Âˆ[™KZZYÚˆKÂˆB‚ˆ›[ØÚË[Y\ÜØYÙK\Ù\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒŠNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ[YÛ‹\Ù[ˆ›^Y[™ÂˆX^]ÚYˆINÂˆB‚ˆ›[ØÚË[Y\ÜØYÙK˜\ÜÚ\İ[Âˆ˜XÚÙÜ›İ[™ˆ™Ø˜JLL‹L‹ŒJNÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[YÛ‹\Ù[ˆ›^\İ\ÂˆX^]ÚYˆINÂˆB‚ˆ›[ØÚËXÚ]Z[œ]ÂˆY[™ÎˆLÂˆ›Ü™\‹]Üˆ\ÛÛY™Ø˜JÍËLÎKMKŒŠNÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë]\X\JNÂˆB‚ˆ›[ØÚËZ[œ]YšY[ÂˆÚYˆL	NÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒJNÂˆ›Ü™\ˆ\ÛÛY™Ø˜JÍËLÎKMKŒŠNÂˆY[™ÎˆLÂˆ›Ü™\‹\˜Y]\ÎˆÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ›Û\Ú^™NˆL\Âˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆB‚ˆÊˆÙXİ[Ûˆİ[\È
+‹ÂˆÙXİ[ÛˆÂˆY[™ÎˆLŒÂˆX^]ÚYˆMÂˆX\™Ú[ˆ]]ÎÂˆB‚ˆœÙXİ[Û‹]]HÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹X›İÛNˆŒÂˆ^X[YÛˆÙ[\Âˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË˜\ŠKXXØÙ[X›YJH	K˜\ŠKXXØÙ[\\œJHL	K˜\ŠKXXØÙ[XŞX[ŠHL	JNÂˆ]ÙXšÚ]X˜XÚÙÜ›İ[™XÛ\ˆ^Âˆ]ÙXšÚ]]^Yš[XÛÛÜˆ˜[œÜ\™[Âˆ˜XÚÙÜ›İ[™XÛ\ˆ^ÂˆB‚ˆœÙXİ[Û‹\İX]HÂˆ›Û\Ú^™NˆNÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ^X[YÛˆÙ[\ÂˆX\™Ú[‹X›İÛNˆLÂˆX^]ÚYˆÌÂˆX\™Ú[‹[Yˆ]]ÎÂˆX\™Ú[‹\šYÚˆ]]ÎÂˆB‚ˆÊˆ›İšY\œÈÙXİ[Ûˆ
+‹Âˆœ›İšY\œËYÜšYÂˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆ™\X]
+]]ËYš]Z[›X^
+ÌYœŠJNÂˆØ\ˆÌÂˆX\™Ú[‹X›İÛNˆÂˆB‚ˆœ›İšY\‹XØ\™Âˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË™Ø˜JÍËLÎKMKŒJH	K™Ø˜JLL‹L‹ŒJHL	JNÂˆ›Ü™\ˆ\ÛÛY™Ø˜JÍËLÎKMKŒŠNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆY[™ÎˆÌÂˆ˜[œÚ][Ûˆ[ŒÜÈİXšXËX™^šY\ŠŒ‹JNÂˆÜÚ][Ûˆ™[]]™NÂˆİ™\™›İÎˆY[ÂˆB‚ˆœ›İšY\‹XØ\™˜™Y›Ü™HÂˆÛÛ[ˆ	ÉÎÂˆÜÚ][ÛˆXœÛÛ]NÂˆÜˆLL	NÂˆYˆÂˆšYÚˆÂˆZYÚˆŒ	NÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË˜[œÜ\™[	K™Ø˜JÍËLÎKMKŒJHL	K˜[œÜ\™[L	JNÂˆ˜[œÚ][ÛˆÜ\ÈX\ÙNÂˆÚ[\‹Y]™[Îˆ›Û™NÂˆB‚ˆœ›İšY\‹XØ\™šİ™\ˆÂˆ›Ü™\‹XÛÛÜˆ˜\ŠKXXØÙ[X›YJNÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJN
+NÂˆ›Ş\ÚYİÎˆŒŒ™Ø˜JÍËLÎKMKŒŠNÂˆB‚ˆœ›İšY\‹XØ\™šİ™\˜™Y›Ü™HÂˆÜˆÂˆB‚ˆœ›İšY\‹[˜[YHÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹X›İÛNˆLÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆÜÚ][Ûˆ™[]]™NÂˆ‹Z[™^ˆNÂˆB‚ˆœ›İšY\‹X˜YÙHÂˆ\Ü^Nˆ[›[™KX›ØÚÎÂˆY[™ÎˆLœÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JLL‹L‹ŒŠNÂˆ›Ü™\ˆ\ÛÛY˜\ŠKXXØÙ[\\œJNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆ›Û\Ú^™NˆL\ÂˆÛÛÜˆ˜\ŠKXXØÙ[\\œJNÂˆ›Û]ÙZYÚˆŒÂˆX\™Ú[‹X›İÛNˆM\ÂˆB‚ˆœ›İšY\‹Y\ØÜš\[ÛˆÂˆ›Û\Ú^™NˆM\ÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÎÂˆÜÚ][Ûˆ™[]]™NÂˆ‹Z[™^ˆNÂˆB‚ˆÊˆ™X]\™\ÈÙXİ[Ûˆ
+‹Âˆ™™X]\™\ËYÜšYÂˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆ™\X]
+]]ËYš]Z[›X^
+YœŠJNÂˆØ\ˆÌÂˆB‚ˆ™™X]\™KXØ\™Âˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒŠNÂˆ›Ü™\ˆ\ÛÛY™Ø˜JMKMKMKŒJNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆY[™ÎˆÌÂˆ˜[œÚ][Ûˆ[ŒÜÈX\ÙNÂˆÜÚ][Ûˆ™[]]™NÂˆİ™\™›İÎˆY[ÂˆB‚ˆ™™X]\™KXØ\™˜™Y›Ü™HÂˆÛÛ[ˆ	ÉÎÂˆÜÚ][ÛˆXœÛÛ]NÂˆÜˆÂˆYˆÂˆšYÚˆÂˆZYÚˆÜÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LYË˜\ŠKXXØÙ[X›YJK˜\ŠKXXØÙ[\\œJK˜\ŠKXXØÙ[XŞX[ŠJNÂˆ˜[œÙ›Ü›NˆØØ[V
+
+NÂˆ˜[œÙ›Ü›K[ÜšYÚ[ˆYÂˆ˜[œÚ][Ûˆ˜[œÙ›Ü›HŒÜÈX\ÙNÂˆB‚ˆ™™X]\™KXØ\™šİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒ
+NÂˆ›Ü™\‹XÛÛÜˆ™Ø˜JÍËLÎKMKŒÊNÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJN
+NÂˆB‚ˆ™™X]\™KXØ\™šİ™\˜™Y›Ü™HÂˆ˜[œÙ›Ü›NˆØØ[V
+JNÂˆB‚ˆ™™X]\™KZXÛÛˆÂˆÚYˆLÂˆZYÚˆLÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË˜\ŠKXXØÙ[X›YJK˜\ŠKXXØÙ[\\œJJNÂˆ›Ü™\‹\˜Y]\ÎˆLÂˆ\Ü^Nˆ›^Âˆ[YÛ‹Z][\ÎˆÙ[\Âˆ\İYKXÛÛ[ˆÙ[\ÂˆX\™Ú[‹X›İÛNˆŒÂˆ›Û\Ú^™NˆÂˆB‚ˆ™™X]\™K[˜[YHÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆNÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹X›İÛNˆLœÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ™™X]\™KY\ØÜš\[ÛˆÂˆ›Û\Ú^™NˆMÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÂˆB‚ˆÊˆÛÛÈÙXİ[Ûˆ
+‹ÂˆÛÛËYÜšYÂˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆ™\X]
+]]ËYš]Z[›X^
+ÌŒYœŠJNÂˆØ\ˆ\ÂˆB‚ˆÛÛXØ\™Âˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ›Ü™\‹[YˆÜÛÛY˜\ŠKXXØÙ[X›YJNÂˆ›Ü™\‹\˜Y]\ÎˆÂˆY[™Îˆ\Âˆ˜[œÚ][Ûˆ[ŒÜÈX\ÙNÂˆB‚ˆÛÛXØ\™šİ™\ˆÂˆ›Ü™\‹[YXÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]V
+
+NÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JŒMËMKŒJNÂˆB‚ˆÛÛ[˜[YHÂˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆ›Û\Ú^™NˆM\Âˆ›Û]ÙZYÚˆŒÂˆÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆX\™Ú[‹X›İÛNˆLÂˆB‚ˆÛÛY\ØÜš\[ÛˆÂˆ›Û\Ú^™NˆMÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÂˆB‚ˆÊˆ\˜Ú]Xİ\™HÙXİ[Ûˆ
+‹Âˆ˜\˜Ú]Xİ\™KXÛÛ[Âˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆYœˆYœÂˆØ\ˆŒÂˆX\™Ú[‹X›İÛNˆŒÂˆ[YÛ‹Z][\Îˆİ\ÂˆB‚ˆ˜\˜Ú]Xİ\™KYXYÜ˜[HÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆY[™ÎˆÂˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆ›Û\Ú^™NˆLœÂˆ[™KZZYÚˆKÂˆÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆİ™\™›İË^ˆ]]ÎÂˆ›Ş\ÚYİÎˆ[œÙ]Ì™Ø˜JŒMËMKŒJNÂˆB‚ˆ˜\˜Ú]Xİ\™K]^ÈÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆŒœÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹X›İÛNˆŒÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ˜\˜Ú]Xİ\™K]^Âˆ›Û\Ú^™NˆM\ÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÂˆX\™Ú[‹X›İÛNˆŒÂˆB‚ˆ™š[K]™YHÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆY[™ÎˆÌÂˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆ›Û\Ú^™NˆLœÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆİ™\™›İË^ˆ]]ÎÂˆX\™Ú[‹]ÜˆÂˆB‚ˆ™š[K]™YKZ][HÂˆ[™KZZYÚˆKÂˆB‚ˆ™š[K]™YKY›Û\ˆÈÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈBˆ™š[K]™YKYš[HÈÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÈBˆ™š[K]™YKXÛÛ[Y[ÈÛÛÜˆ˜\ŠK]^[]]Y
+NÈB‚ˆÊˆØİ[Y[][ÛˆÙXİ[Ûˆ
+‹Âˆ™ØÜËXÛÛZ[™\ˆÂˆ\Ü^NˆÜšYÂˆÜšY][\]KXÛÛ[[œÎˆLYœÂˆØ\ˆŒÂˆB‚ˆ™ØÜË\ÚYX˜\ˆÂˆÜÚ][ÛˆİXÚŞNÂˆÜˆLŒÂˆZYÚˆš]XÛÛ[ÂˆB‚ˆ™ØÜË[˜]ˆÂˆ\İ\İ[Nˆ›Û™NÂˆB‚ˆ™ØÜË[˜]ˆHÂˆX\™Ú[‹X›İÛNˆLÂˆB‚ˆ™ØÜË[˜]ˆ]ÛˆÂˆÚYˆL	NÂˆY[™ÎˆLœMœÂˆ˜XÚÙÜ›İ[™ˆ˜[œÜ\™[ÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ›Ü™\ˆ\ÛÛY˜[œÜ\™[Âˆ›Ü™\‹\˜Y]\ÎˆœÂˆİ\œÛÜˆÚ[\Âˆ^X[YÛˆYÂˆ›Û\Ú^™NˆMÂˆ›Û]ÙZYÚˆLÂˆ˜[œÚ][Ûˆ[ŒÜÈX\ÙNÂˆ›ÛY˜[Z[Nˆ	ÑHØ[œÉËØ[œË\Ù\šYÂˆÜÚ][Ûˆ™[]]™NÂˆB‚ˆ™ØÜË[˜]ˆ]Ûšİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ™ØÜË[˜]ˆ]Û‹˜Xİ]™HÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒMJNÂˆÛÛÜˆ˜\ŠKXXØÙ[X›YJNÂˆ›Ü™\‹XÛÛÜˆ˜\ŠKXXØÙ[X›YJNÂˆB‚ˆ™ØÜËXÛÛ[Âˆ\Ü^Nˆ›Û™NÂˆB‚ˆ™ØÜËXÛÛ[˜Xİ]™HÂˆ\Ü^Nˆ›ØÚÎÂˆ[š[X][Ûˆ˜YR[•\\ÈX\ÙNÂˆB‚ˆ™ØÜËXÛÛ[ˆÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆÌœÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹X›İÛNˆÌÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ™ØÜËXÛÛ[ÈÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆŒÂˆ›Û]ÙZYÚˆÌÂˆX\™Ú[‹]ÜˆÌÂˆX\™Ú[‹X›İÛNˆM\ÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆB‚ˆ™ØÜËXÛÛ[Âˆ›Û\Ú^™NˆM\ÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ[™KZZYÚˆKÂˆX\™Ú[‹X›İÛNˆŒÂˆB‚ˆ™ØÜË\İ\Âˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆ›Ü™\‹[YˆÜÛÛY˜\ŠKXXØÙ[X›YJNÂˆ›Ü™\‹\˜Y]\ÎˆÂˆY[™ÎˆŒÂˆX\™Ú[‹X›İÛNˆŒÂˆB‚ˆ™ØÜË\İ\İ›Û™ÈÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ\Ü^Nˆ›ØÚÎÂˆX\™Ú[‹X›İÛNˆLÂˆB‚ˆ˜ÛÙKX›ØÚÈÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆ›Ü™\‹\˜Y]\ÎˆÂˆY[™ÎˆŒÂˆİ™\™›İË^ˆ]]ÎÂˆX\™Ú[ˆŒÂˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆ›Û\Ú^™NˆLÜÂˆ[™KZZYÚˆKÂˆB‚ˆ˜ÛÙKX›ØÚÈÛÙHÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆB‚ˆšÙ^]ÛÜ™ÈÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈBˆ\HÈÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÈBˆœİš[™ÈÈÛÛÜˆØNMÍÈBˆ˜ÛÛ[Y[ÈÛÛÜˆ˜\ŠK]^[]]Y
+NÈB‚ˆœÙ][™ÜË]X›HÂˆÚYˆL	NÂˆ›Ü™\‹XÛÛ\ÙNˆÛÛ\ÙNÂˆX\™Ú[ˆŒÂˆB‚ˆœÙ][™ÜË]X›HˆœÙ][™ÜË]X›HÂˆY[™ÎˆM\Âˆ^X[YÛˆYÂˆ›Ü™\‹X›İÛNˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆB‚ˆœÙ][™ÜË]X›HÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ›Û]ÙZYÚˆŒÂˆB‚ˆœÙ][™ÜË]X›HÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ›Û\Ú^™NˆMÂˆB‚ˆœÙ][™ÜË]X›HÛÙHÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒJNÂˆY[™ÎˆÂˆ›Ü™\‹\˜Y]\ÎˆÂˆ›ÛY˜[Z[Nˆ	Ò™]œ˜Z[œÈ[Û›ÉË[Û›ÜÜXÙNÂˆÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÂˆB‚ˆÊˆÛÛ\\š\ÛÛˆÙXİ[Ûˆ
+‹Âˆ˜ÛÛ\\š\ÛÛ‹\ÙXİ[ÛˆÂˆY[™ÎˆLŒÂˆX^]ÚYˆMÂˆX\™Ú[ˆ]]ÎÂˆB‚ˆ˜ÛÛ\\š\ÛÛ‹]X›HÂˆÚYˆL	NÂˆ›Ü™\‹XÛÛ\ÙNˆÛÛ\ÙNÂˆX\™Ú[ˆÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë[YÚ
+NÂˆ›Ü™\‹\˜Y]\ÎˆLœÂˆİ™\™›İÎˆY[Âˆ›Ü™\ˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆB‚ˆ˜ÛÛ\\š\ÛÛ‹]X›HÂˆY[™ÎˆŒ\Âˆ^X[YÛˆYÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒMJNÂˆÛÛÜˆ˜\ŠK]^\š[X\JNÂˆ›Û]ÙZYÚˆÌÂˆ›Û\Ú^™NˆMÂˆ›Ü™\‹X›İÛNˆœÛÛY˜\ŠKXXØÙ[X›YJNÂˆB‚ˆ˜ÛÛ\\š\ÛÛ‹]X›H™š\œİXÚ[ÂˆÚYˆÍINÂˆB‚ˆ˜ÛÛ\\š\ÛÛ‹]X›HÂˆY[™ÎˆMœ\Âˆ›Ü™\‹X›İÛNˆ\ÛÛY™Ø˜JMKMKMKŒJNÂˆ›Û\Ú^™NˆMÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆB‚ˆ˜ÛÛ\\š\ÛÛ‹]X›Hšİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒJNÂˆB‚ˆ˜ÚXÚË^Y\ÈÂˆÛÛÜˆÌŒ˜ÍMYNÂˆ›Û]ÙZYÚˆÌÂˆB‚ˆ˜ÚXÚË[›ÈÂˆÛÛÜˆÙYÂˆ›Û]ÙZYÚˆÌÂˆB‚ˆ˜ÚXÚË\\X[ÂˆÛÛÜˆÙNYLÂˆ›Û]ÙZYÚˆÌÂˆB‚ˆÊˆØÜ›Û™]™X[[š[X][Ûˆ
+‹Âˆœ™]™X[ÂˆÜXÚ]NˆÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJÌ
+NÂˆ˜[œÚ][ÛˆÜXÚ]HœÈX\ÙK˜[œÙ›Ü›HœÈX\ÙNÂˆB‚ˆœ™]™X[˜Xİ]™HÂˆÜXÚ]NˆNÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJ
+NÂˆB‚ˆÊˆ›Ûİ\ˆ
+‹Âˆ›Ûİ\ˆÂˆ˜XÚÙÜ›İ[™ˆ˜\ŠKX™Ë\ÙXÛÛ™\JNÂˆ›Ü™\‹]Üˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆY[™ÎˆŒÂˆ^X[YÛˆÙ[\ÂˆB‚ˆ™›Ûİ\‹XÛÛ[ÂˆX^]ÚYˆMÂˆX\™Ú[ˆ]]ÎÂˆB‚ˆ™›Ûİ\‹[ÙÛÈÂˆ›ÛY˜[Z[Nˆ	Ò[œİ[Y[Ù\šY‰ËÙ\šYÂˆ›Û\Ú^™NˆÂˆ›Û]ÙZYÚˆÌÂˆ˜XÚÙÜ›İ[™ˆ[™X\‹YÜ˜YY[
+LÍYYË˜\ŠKXXØÙ[X›YJH	K˜\ŠKXXØÙ[\\œJHL	JNÂˆ]ÙXšÚ]X˜XÚÙÜ›İ[™XÛ\ˆ^Âˆ]ÙXšÚ]]^Yš[XÛÛÜˆ˜[œÜ\™[Âˆ˜XÚÙÜ›İ[™XÛ\ˆ^ÂˆX\™Ú[‹X›İÛNˆŒÂˆB‚ˆ™›Ûİ\‹Y\ØÜš\[ÛˆÂˆÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÂˆ›Û\Ú^™NˆM\ÂˆX\™Ú[‹X›İÛNˆÌÂˆB‚ˆ™›Ûİ\‹XÛÜ\šYÚÂˆÛÛÜˆ˜\ŠK]^[]]Y
+NÂˆ›Û\Ú^™NˆLÜÂˆ›Ü™\‹]Üˆ\ÛÛY˜\ŠKX›Ü™\‹XÛÛÜŠNÂˆY[™Ë]ÜˆÌÂˆB‚ˆÊˆ™\ÜÛœÚ]™H
+‹ÂˆYYXH
+X^]ÚYˆÍ
+HÂˆ›˜]‹[[šÜÈÂˆ\Ü^Nˆ›Û™NÂˆB‚ˆš\›ÈHÂˆ›Û\Ú^™NˆÂˆB‚ˆš\›ÈYÛ[™HÂˆ›Û\Ú^™NˆŒÂˆB‚ˆœÙXİ[Û‹]]HÂˆ›Û\Ú^™NˆÍœÂˆB‚ˆœ›İšY\œËYÜšYˆ™™X]\™\ËYÜšYˆÛÛËYÜšYÂˆÜšY][\]KXÛÛ[[œÎˆYœÂˆB‚ˆ˜\˜Ú]Xİ\™KXÛÛ[ÂˆÜšY][\]KXÛÛ[[œÎˆYœÂˆØ\ˆÂˆB‚ˆ™ØÜËXÛÛZ[™\ˆÂˆÜšY][\]KXÛÛ[[œÎˆYœÂˆØ\ˆÂˆB‚ˆ™ØÜË\ÚYX˜\ˆÂˆÜÚ][Ûˆİ]XÎÂˆB‚ˆ›[ØÚËYY]ÜˆÂˆÜšY][\]KXÛÛ[[œÎˆYœÂˆZYÚˆ]]ÎÂˆB‚ˆ›[ØÚË\ÚYX˜\‹ˆ›[ØÚË\›Ü\Y\ÈÂˆ\Ü^Nˆ›Û™NÂˆB‚ˆš\›ÈÂˆY[™ÎˆLŒÂˆB‚ˆÙXİ[ÛˆÂˆY[™ÎˆŒÂˆBˆBˆÜİ[O‚ÚXY‚›ÙO‚ˆKKH˜]šYØ][ÛˆKO‚ˆ˜]ˆYH›˜]˜˜\ˆ‚ˆ]ˆÛ\ÜÏH›˜]‹XÛÛ[‚ˆ]ˆÛ\ÜÏH›ÙÛÈ“UQ“ÓÑÙ]‚ˆ[Û\ÜÏH›˜]‹[[šÜÈ‚ˆOH™YHˆÙ™X]\™\È‘™X]\™\ÏØOÛO‚ˆOH™YHˆİÛÛÈ•ÛÛÏØOÛO‚ˆOH™YHˆØ\˜Ú]Xİ\™H\˜Ú]Xİ\™OØOÛO‚ˆOH™YHˆÙØİ[Y[][Ûˆ‘Øİ[Y[][ÛØOÛO‚ˆOH™YHˆØÛÛ\\š\ÛÛˆÛÛ\\š\ÛÛØOÛO‚ˆİ[‚ˆ]ÛˆÛ\ÜÏH˜İKXˆ‘Ù]İ\YØ]Û‚ˆÙ]‚ˆÛ˜]‚‚ˆKKH\›ÈÙXİ[ÛˆKO‚ˆÙXİ[ÛˆÛ\ÜÏHš\›È‚ˆ]ˆÛ\ÜÏHš\›ËXÛÛ[‚ˆO“UQ“ÓÑROÚO‚ˆ]ˆÛ\ÜÏHYÛ[™H“][KSHRH\ÜÚ\İ[›Üˆ[œ™X[[™Ú[™HOÙ]‚‚ˆÛ\ÜÏHš\›Ë\İX]H‚ˆH[ÜİÛÛ\™Z[œÚ]™HRH\ÜÚ\İ[›Üˆ[œ™X[[™Ú[™HKˆY\›Ú™Xİ[›ÜÜXİ[ÛˆÚ]ŒZ[Z[ˆÛÛË\œÚ\İ[Y[[ÜK™X[][YHXYÙÚ[™Ë›Y\š[ÛÛ^]Ø\™[™\ÜË[™ÛÙHÙ[™\˜][Ûˆ8 %[İÙ\™YHÛ]YKÔMÙ[Z[šKÜˆØØ[[Ù[Ë‚ˆÜ‚‚ˆ]ˆÛ\ÜÏHš\›ËX˜YÙ\È‚ˆÜ[ˆÛ\ÜÏH˜˜YÙH•QHK
+ÏÜÜ[‚ˆÜ[ˆÛ\ÜÏH˜˜YÙHÛ]YH0­ÈÜ[RH0­ÈÙ[Z[šOÜÜ[‚ˆÜ[ˆÛ\ÜÏH˜˜YÙHÈÛİ\˜ÙHš[\ÏÜÜ[‚ˆÜ[ˆÛ\ÜÏH˜˜YÙHŒŒÛÛÏÜÜ[‚ˆÜ[ˆÛ\ÜÏH˜˜YÙHHRHŞ\İ[\ÏÜÜ[‚ˆÜ[ˆÛ\ÜÏH˜˜YÙH“˜]]™HÛ]HROÜÜ[‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHš\›ËXİH‚ˆ]ÛˆÛ\ÜÏH˜ˆ‹\š[X\H‘Ù]İ\YØ]Û‚ˆH™YHˆÈˆÛ\ÜÏH˜ˆ‹\ÙXÛÛ™\H•šY]ÈÛˆÚ]XØO‚ˆÙ]‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH›[ØÚË\ØÜ™Y[œÚİ‚ˆ]ˆÛ\ÜÏH›[ØÚË]]KX˜\ˆ•[œ™X[Y]ÜˆKŒ]Y›ÛÙRH™]šY]ÏÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚËYY]Üˆ‚ˆ]ˆÛ\ÜÏH›[ØÚË\ÚYX˜\ˆ‚ˆ]ˆÛ\ÜÏH›[ØÚË\[™[]XˆÛÛ[œ›İÜÙ\Ù]‚ˆ]ˆÛ\ÜÏH›[ØÚË\[™[]Xˆ‘]Z[ÏÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚË\[™[]Xˆˆİ[OH˜˜XÚÙÜ›İ[™ˆ™Ø˜JÍËLÎKMKŒMJNÈ›Ü™\‹[YXÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÈÛÛÜˆ˜\ŠKXXØÙ[XŞX[ŠNÈ“]Y›ÛÙROÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚË]šY]ÜÜ‚ˆÌÑšY]ÜÜH]™[Y]Ü—BˆÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚË\›Ü\Y\È‚ˆ]ˆİ[OH˜ÛÛÜˆ˜\ŠK]^\š[X\JNÈ›Û]ÙZYÚˆŒÈX\™Ú[‹X›İÛNˆM\È‘]Z[ÏÙ]‚ˆ]ˆİ[OH˜ÛÛÜˆ˜\ŠK]^[]]Y
+NÈX\™Ú[‹X›İÛNˆÈ•˜[œÙ›Ü›OÙ]‚ˆ]ˆİ[OH˜ÛÛÜˆ˜\ŠK]^[]]Y
+NÈX\™Ú[‹X›İÛNˆÈ•š\ÚXš[]OÙ]‚ˆ]ˆİ[OH˜ÛÛÜˆ˜\ŠK]^[]]Y
+NÈ”™[™\š[™ÏÙ]‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚËXÚ]\[™[‚ˆ]ˆÛ\ÜÏH›[ØÚËXÚ]ZXY\ˆ“]Y›ÛÙRHÚ]Ù]‚ˆ]ˆÛ\ÜÏH›[ØÚËXÚ]XÛÛ[‚ˆ]ˆÛ\ÜÏH›[ØÚË[Y\ÜØYÙH\Ù\ˆ•Ú]›Y\š[˜\šXX›\È\™H[ˆ”ĞÚ\˜Xİ\ÏÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚË[Y\ÜØYÙH\ÜÚ\İ[‘›İ[™”ĞÚ\˜Xİ\ˆÚ]˜\šXX›\Îœ‹HX[
+›Ø]
+Oœ‹HX^X[
+›Ø]
+Oœ‹HÜYY
+›Ø]
+OÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚË[Y\ÜØYÙH\Ù\ˆ”ÚİÈYHHÛÛœİXİ[ÛˆØÜš\Ù]‚ˆÙ]‚ˆ]ˆÛ\ÜÏH›[ØÚËXÚ]Z[œ]‚ˆ[œ]\OH^ˆÛ\ÜÏH›[ØÚËZ[œ]YšY[ˆXÙZÛ\H\ÚÈ[][™ÈX›İ][İ\ˆ›Ú™Xİ‹‹ˆˆ™XYÛ›O‚ˆÙ]‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKH›İšY\œÈÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYHœ›İšY\œÈ‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]H“H›İšY\œÏÚ‚ˆÛ\ÜÏHœÙXİ[Û‹\İX]HÚÛÜÙHœ›ÛHHÛÜ›	ÜÈ[ÜİY˜[˜ÙY[™İXYÙH[Ù[ËÜˆ[ˆØØ[H›ÜˆÛÛ\]Hš]˜XŞOÜ‚‚ˆ]ˆÛ\ÜÏHœ›İšY\œËYÜšY‚ˆ]ˆÛ\ÜÏHœ›İšY\‹XØ\™™]™X[‚ˆ]ˆÛ\ÜÏHœ›İšY\‹X˜YÙH™XÛÛ[Y[™Y”‘PÓÓSQS‘QÙ]‚ˆ]ˆÛ\ÜÏHœ›İšY\‹[˜[YHÛ]YOÙ]‚ˆÛ\ÜÏHœ›İšY\‹Y\ØÜš\[Ûˆ‚ˆ™\İZ[‹XÛ\ÜÈ™X\ÛÛš[™ÈÚ]˜]]™HÛÛ\ÙKˆH[›ÜXÈY\ÜØYÙ\ÈTH›İšY\ÈH[Üİ›Ø\İİ™X[Z[™ËİXİ\™YÛÛ™\ÜÛœÙ\Ë[™ÛÛ[›ØÚÈ\˜Ú]Xİ\™KˆÛ]YHÛÛœÚ\İ[H[]™\œÈH[ÜİXØİ\˜]H›Ú™Xİ[˜[\Ú\È[™ÛÙH[™\œİ[™[™ÈXÜ›ÜÜÈÛÛ\^ÛÙX˜\Ù\ËˆY˜][[Ù[ˆÛ]YK\ÛÛ›™]MMKLŒLLMÚ]^[™Y[šÚ[™ÈØ\Xš[]Y\È›ÜˆY˜[˜ÙY›Ø›[K\ÛÛš[™Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHœ›İšY\‹XØ\™™]™X[‚ˆ]ˆÛ\ÜÏHœ›İšY\‹[˜[YH“Ü[RHÔMÙ]‚ˆÛ\ÜÏHœ›İšY\‹Y\ØÜš\[Ûˆ‚ˆİÙ\™[[˜İ[ÛˆØ[[™ÈÚ]Ú]ÛÛ\][ÛœÈTKˆ[İ\Ü›ÜˆÔMÈÚ]][[[Ù[Ø\Xš[]Y\È[™Y˜[˜ÙY™X\ÛÛš[™Ëˆİ™X[Z[™È™\ÜÛœÙ\ÈÚ]Ú[šÙYY\ÜØYÙH[]™\Kˆ\™™Xİ˜[[˜ÙHÙˆØ\Xš[]H[™ÜYY›Üˆ˜\Y]\˜][Ûˆ[™Ü™X]]™H›Ø›[K\ÛÛš[™È[ˆ]™[ÜY[ÛÜšÙ›İÜË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHœ›İšY\‹XØ\™™]™X[‚ˆ]ˆÛ\ÜÏHœ›İšY\‹[˜[YH‘ÛÛÙÛHÙ[Z[šOÙ]‚ˆÛ\ÜÏHœ›İšY\‹Y\ØÜš\[Ûˆ‚ˆ˜\İ[™™\™[˜ÙHÚ]Ù[™\˜]]™HRHTH[™[˜İ[ÛˆXÛ\˜][ÛœËˆ^Ù[[›ÜˆÛÛ^[™\œİ[™[™È[™›Ú™Xİ[›ÜÜXİ[Û‹ˆÛÛ\]]]™HšXÚ[™ÈÚ]İ›Û™È\™›Ü›X[˜ÙHÛˆÛÙH[˜[\Ú\È[™XÚšXØ[Øİ[Y[][Ûˆ\ÚÜËˆİ\ÜÈÛ™ÈÛÛ^Ú[™İÜÈ›ÜˆÛÛ\™Z[œÚ]™H›Ú™Xİ[˜[\Ú\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHœ›İšY\‹XØ\™™]™X[‚ˆ]ˆÛ\ÜÏHœ›İšY\‹[˜[YH“ØØ[[Ù[ÏÙ]‚ˆÛ\ÜÏHœ›İšY\‹Y\ØÜš\[Ûˆ‚ˆ[ˆ[HÜ[RKXÛÛ\]X›H[™Ú[ˆÛ[XKHİY[ËÜˆ[İ\ˆİÛˆ[™™\™[˜ÙHÙ\™\‹ˆ™\›ÈTHÛÜİËÛÛ\]Hš]˜XŞK[™Ù™›[™HØ\Xš[]Kˆ\™™Xİ›Üˆ›ÜšY]\H›Ú™XİÈÜˆX[\ÈÚ]]HÛİ™\™ZYÛH™\]Z\™[Y[Ëˆ[İ™X[Z[™Èİ\ÜÚ][HØØ[[Ù[‚ˆÜ‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKH™X]\™\ÈÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYH™™X]\™\È‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]H”İÙ\™[™X]\™\ÏÚ‚ˆÛ\ÜÏHœÙXİ[Û‹\İX]H‘]™\][™È[İH™YYÈ™]›Û][Ûš^™H[İ\ˆ]™[ÜY[ÛÜšÙ›İÏÜ‚‚ˆ]ˆÛ\ÜÏH™™X]\™\ËYÜšY‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'å#OÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH‘Y\›Ú™Xİ[›ÜÜXİ[ÛÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆXØÙ\ÜÈLHÜXÚX[^™YÛÛÈ][›ÜÜXİ[İ\ˆ[\™H›Ú™Xİˆ™XY\ÜÙ]Y]Y]K[˜[^™H›Y\š[Ü˜\Ë[[Y\˜]HÛÜ›XİÜœËÙX\˜ÚÛİ\˜ÙHÛÙK[™™]šY]™HÛ\ÜÈY\˜\˜ÚY\ËˆÛÛ\]Hš\ÚXš[]H[È[İ\ˆ›Ú™XİİXİ\™K‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'å%ÏÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH“][KT›İšY\ˆ\˜Ú]Xİ\™OÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆ[šYšYY[\™˜XÙH›ÜˆÛ]YKÔMÙ[Z[šK[™ØØ[[Ù[Ëˆİ\İØ\›İšY\œÈÚ]İ]ÛÜÚ[™ÈHY]Ü‹ˆ^[œÚX›H›İšY\ˆ]\›ˆXZÙ\ÈY[™Èİ\İÛH[™Ú[ÈY™›Ü\ÜËˆÚÛÜÙHH™\İ[Ù[›ÜˆXXÚ\ÚË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¸¦¨OÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH”™X[][YHİ™X[Z[™ÏÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆÙYH™\ÜÛœÙ\È\X\ˆ[œİ[H\È^Hİ™X[Kˆ˜]]™H[\[Y[][Ûˆ›ÜˆÛ]YKÓÜ[RHÚ]Ú[šÙYÙ[Z[šHİ\Üˆ›ÙÜ™\ÜÚ]™HRH\]\ÈÜ™X]HH™\ÜÛœÚ]™K[\˜Xİ]™H^\šY[˜ÙKˆ›ÈØZ][™È›ÜˆÛÛ\]H™\ÜÛœÙ\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'æè;î#ÏÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH“˜]]™HÛÛ\ÙOÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆ[YÜ˜]Y[˜İ[ÛˆØ[[™ÈŞ\İ[KˆHRH]]ÛX]XØ[HÙ[XİÈ[™ÚZ[œÈÛÛÈÈ[œİÙ\ˆÛÛ\^]Y\İ[ÛœËˆİ\ÜÈ\˜[Y]\ˆ[™™\™[˜ÙH[™İXİ\™Y”ÓÓˆ™\ÜÛœÙ\ËˆÛÛÈÛÜšÈÙX[[\ÜÛHÚ]ÛÛ™\œØ][ÛˆÛÛ^‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'äãÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH‘ØÚØX›HÚ][™[Ù]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆ˜]]™HÛ]HÚYÙ]ØÚÜÈ[]Ú\™H[ˆHY]Üˆ[\™˜XÙKˆÜ[ˆÚ]İ›
+ÔÚY
+ÓHÜˆœ›ÛHHÛÛÈY[Kˆ\œÚ\İÈÜÚ][Ûˆ[™İ]HXÜ›ÜÜÈY]ÜˆÙ\ÜÚ[ÛœËˆ[H[YÜ˜]YÚ]QMIÜÈRH\˜YYÛ\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'äâÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH›Y\š[[˜[\Ú\ÏÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆY\[œÜXİ[ÛˆÙˆ›Y\š[˜\šXX›\Ë[˜İ[ÛœË]™[Ü˜\Ë›ÙHÛÛ›™Xİ[ÛœËÛÛ\Û™[Ë[™[\™˜XÙ\Ëˆ[™\œİ[™›Y\š[ÙÚXËY[YH\ÜİY\Ë[™Ù]Ü[Z^˜][ÛˆİYÙÙ\İ[ÛœÈœ›ÛHHRH\ÜÚ\İ[‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'å#Ù]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YHÛÙHÙX\˜Ú	ˆ™XYÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆ[]^ÙX\˜ÚXÜ›ÜÜÈ[š[™˜Üš[\È[ˆ[İ\ˆ›Ú™Xİˆ™XYÛİ\˜ÙHš[\ÈÚ]ÛÛ™šYİ\˜X›H[™H[Z]È›ÜˆY™šXÚY[ÛÛ^ˆ]]ÛX]XØ[HØÛÜYÈ[İ\ˆ›Ú™Xİ\™XİÜH›ÜˆØY™]H[™\™›Ü›X[˜ÙK‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'éêOÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH‘^[œÚX›H\ÚYÛÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆY™]ÈH›İšY\œËÜ™X]Hİ\İÛHÛÛËZ[İ\İÛHRH[™[Ë[™ÛÚÈ[È[YØ]\ËˆÙ[YØİ[Y[Y^[œÚ[ÛˆÚ[È[™HÛX[ˆ\˜Ú]Xİ\™HXZÙH^[™[™È[˜İ[Û˜[]Hİ˜ZYÚ›ÜØ\™›ÜˆÊÊÈ]™[Ü\œË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'éèÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH›Y\š[ÛÛ^Ş\İ[OÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆšYÚXÛXÚÈ[H›Y\š[›ÙHÈY]\ÈRHÛÛ^ˆÙ[Xİ[\™HÜ˜\ÈÜˆ›Y\š[È›ÜˆY\[˜[\Ú\ËˆHRHÙY\È^XİHÚ][İIÜ™HÛÜšÚ[™ÈÛ‹›İšY[™È\™Ù]YİYÙÙ\İ[ÛœÈ[™[™\œİ[™[™È[İ\ˆ[[[ˆ™X[][YK‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'ä¯Ù]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YH”\œÚ\İ[›Ú™XİY[[ÜOÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆHRH™[Y[X™\œÈ[İ\ˆÛÙ[™Èİ[K\˜Ú]Xİ\™HXÚ\Ú[ÛœË[™›Ú™Xİ]\›œÈXÜ›ÜÜÈÙ\ÜÚ[ÛœËˆ]]ÛX]XØ[HX\›œÈœ›ÛH[İ\ˆÛÜšÙ›İÈ[™Z[ÈH›Ú™Xİ›Ùš[Kˆ^ÜÚ[\ÜY[[ÜH›ÜˆX[HÚ\š[™Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'ä&ÏÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YHRKTİÙ\™YXYÙÙ\Ù]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆ™X[][YH[Ûš]Üš[™ÈÙˆÛÛ\[][Ûˆ\œ›ÜœËØ\›š[™ÜË[™\™›Ü›X[˜ÙH\ÜİY\ËˆHRH[˜[^™\È[İ\ˆİ]]ÙË]XİÈ]\›œË[™›İšY\ÈXİ[Û˜X›Hš^\È™Y›Ü™H[İH]™[ˆ›İXÙH›Ø›[\ËˆY[[ÜHXZÈ[™\™›Ü›X[˜ÙH›İ[™XÚÈ]Xİ[ÛˆZ[[‹‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¸¦¦{î#ÏÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YHÛÙH	ˆ\ÜÙ]Ù[™\˜]ÜÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆÙ[™\˜]HÊÊÈÛ\ÜÙ\Ë›Y\š[ËX]\šX[Ë[™]HX›\È\™XİHœ›ÛHRHÛÛ™\œØ][ÛœËˆÜ™X]HÛÛ\]H[\[Y[][ÛœÈÚ]›Ü\ˆQMHXXÜ›ÜËÛÛ\[H›Y\š[Ë[™Y˜\šXX›\ËÙ[˜İ[ÛœÈ8 %[Ú]İ]X]š[™ÈHÚ]‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™™X]\™KXØ\™™]™X[‚ˆ]ˆÛ\ÜÏH™™X]\™KZXÛÛˆ¼'ã«OÙ]‚ˆ]ˆÛ\ÜÏH™™X]\™K[˜[YHY˜[˜ÙY\ÜÙ][›ÜÜXİ[ÛÙ]‚ˆÛ\ÜÏH™™X]\™KY\ØÜš\[Ûˆ‚ˆY\[œÜXİ[ÛˆÙˆ™Z]š[Üˆ™Y\ËÚYÙ]›Y\š[Ë[š[X][Ûˆ›Y\š[ËšXYØ\˜HŞ\İ[\Ë[™]HX›\ËˆHRH[™\œİ[™È]™\H\ÜÙ]\H[ˆ[İ\ˆ›Ú™Xİ›İ\İ›Y\š[È[™ÊÊÈÛÙK‚ˆÜ‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKHÛÛÈÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYHÛÛÈ‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]HŒŒÜXÚX[^™YÛÛÏÚ‚ˆÛ\ÜÏHœÙXİ[Û‹\İX]H•H[ÜİÛÛ\™Z[œÚ]™HÛÛÙ]Ùˆ[HQMHRHYÚ[ˆ8 %ÛÛ\]H›Ú™Xİ[›ÜÜXİ[Û‹Ü™X][Û‹[™XYÙÚ[™ÏÜ‚‚ˆ]ˆÛ\ÜÏHÛÛËYÜšY‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YHœÙX\˜ÚØ\ÜÙ]ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆÙX\˜ÚH\ÜÙ]™YÚ\İHH˜[YH[™Û\ÜËˆ™]\›œÈX]ÚY\ÜÙ]ÈÚ]]È[™Y]Y]Kˆ\ÜÙ[X[›Üˆš[™[™È›Y\š[ËX]\šX[Ë[™İ\ˆ›Ú™Xİ\ÜÙ]ÈH\X[˜[YHX]Ú[™ÈÜˆš[\ˆÜš]\šXK‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ø›Y\š[Ù]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™]šY]™HÛÛ\]H[™›Ü›X][ÛˆX›İ]H›Y\š[[˜ÛY[™È˜\šXX›\Ë[˜İ[ÛœË]™[Ü˜\ÛÛ›™Xİ[ÛœËÛÛ\Û™[Ë[™[\™˜XÙ\Ëˆ\ÜÙ[X[›Üˆ[™\œİ[™[™È›Y\š[İXİ\™H[™ÙÚXÈ›İË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YHœ™XYÜÛİ\˜ÙWÙš[OÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™XYÊÊÈÛİ\˜ÙHš[\È
+š˜Ü
+HÚ]ÛÛ™šYİ\˜X›H[™H[Z]Ëˆ™]\›œÈÛÙHÚ][™H[X™\œÈ[™›Ü\ˆÛÛ^ˆ]]ÛX]XØ[H[™›Ü˜Ù\ÈØY™]H›İ[™\šY\ÈÈ™]™[™XY[™Èİ]ÚYHH›Ú™Xİ‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YHœÙX\˜ÚØÛÙOÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[]^ÙX\˜ÚXÜ›ÜÜÈ[ÊÊÈÛİ\˜ÙHš[\È[ˆ[İ\ˆ›Ú™Xİˆ™]\›œÈX]Ú[™È[™\ÈÚ]š[H]È[™[™H[X™\œËˆ\™™Xİ›Üˆš[™[™È[˜İ[ÛœËÛ\ÜÙ\Ë[™ÜXÚYšXÈÛÙH]\›œÈXÜ›ÜÜÈ\™ÙHÛÙX˜\Ù\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ü›Ú™XİÚ[™›ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™]šY]™HYÚ[]™[›Ú™Xİ[™›Ü›X][Ûˆ[˜ÛY[™È˜[YK™\œÚ[Û‹\™Ù][™Ú[™H™\œÚ[Û‹[™]ËˆÙ]İ[[X\Hİ]\İXÜÈX›İ]›Y\š[ËÊÊÈÛ\ÜÙ\Ë[™›Ú™XİYÚ[œË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH›\İİÛÜ›ØXİÜœÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[[Y\˜]H[XİÜœÈ[ˆHİ\œ™[]™[Ú]Z\ˆÛ\ÜÙ\ËØØ][ÛœË[™ÛÛ\Û™[Ëˆ[™\œİ[™H]™[ÛÛ\ÜÚ][Ûˆ[™XİÜˆ™[][ÛœÚ\È›ÜˆHİ\œ™[ÛÜšÚ[™ÈÛÛ^‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]ØÛ\Ü×ÚY\˜\˜ÚOÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™]šY]™H[š\š][˜ÙHY\˜\˜ÚY\È›ÜˆÊÊÈÛ\ÜÙ\È[™›Y\š[Ëˆ[™\œİ[™\™[XÚ[™[][ÛœÚ\È[™ÙYHÚ]Û\ÜÙ\È[š\š]œ›ÛHHÚ]™[ˆ˜\ÙKˆ\ÜÙ[X[›ÜˆTH^Ü˜][Û‹‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]ÛX]\šX[Ù]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[œÜXİX]\šX[[œİ[˜Ù\È[™X\İ\ˆX]\šX[Ëˆ™]šY]™H\˜[Y]\œËØØ[\ˆ˜[Y\Ë™XİÜˆ˜[Y\Ë[™^\™H\ÜÚYÛ›Y[Ëˆ[™\œİ[™X]\šX[ÚY\ˆÜ˜\È[™\˜[Y]\ˆ™[][ÛœÚ\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]ÜÙ[XİYØXİÜœÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆÙ][™›Ü›X][ÛˆX›İ]İ\œ™[HÙ[XİYXİÜœÈ[ˆHY]Ü‹ˆ™]šY]™H›Ü\Y\ËÛÛ\Û™[Ë[™˜[œÙ›Ü›\Ëˆ›İšY\ÈÛÛ^X›İ]Ú][İIÜ™HXİ]™[HÛÜšÚ[™ÈÛˆ[ˆHšY]ÜÜ‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Û]™[Ú[™›ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™]šY]™H[™›Ü›X][ÛˆX›İ]Hİ\œ™[]™[[˜ÛY[™È˜[YKXİÜˆÛİ[İ]XÈY\ÚÛİ[[™İ\ˆİ]\İXÜËˆÙ]HÛÛ\™Z[œÚ]™Hİ™\šY]ÈÙˆ]™[ÛÛ\ÜÚ][Ûˆ[™İ™X[Z[™È›Û[Y\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™^Xİ]WØÛÛœÛÛWØÛÛ[X[™Ù]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ^Xİ]HY]ÜˆÛÛœÛÛHÛÛ[X[™ÈØY™[HÚ]Ú][\İ˜[Y][Û‹ˆ\ÙY[›ÜˆØ[Y\^HXYÙÚ[™Ë›Ùš[[™ÈÛÛ[X[™Ë[™Y]Üˆİ]HX[š\[][Û‹ˆ™]™[È[™Ù\›İ\ÈÜˆ\İXİ]™HÛÛ[X[™Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ø™Z]š[Ü—İ™YWÙ]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[œÜXİ™Z]š[Üˆ™Y\È[˜ÛY[™È\ÚÜËXÛÜ˜]ÜœËÙ\šXÙ\Ë[™™YHİXİ\™Kˆ[™\œİ[™RHXÚ\Ú[Ûˆ›İÜÈ[™Ù]Ü[Z^˜][ÛˆİYÙÙ\İ[ÛœÈ›Üˆ[İ\ˆØ[YHRHŞ\İ[\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]İÚYÙ]Ù]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[˜[^™HÚYÙ]›Y\š[È[™Z\ˆY\˜\˜ÚKˆ[œÜXİš[™[™ÜË]™[[™\œË[š[X][ÛœË[™^[İ]İXİ\™Kˆ[™\œİ[™[™Ü[Z^™H[İ\ˆRH\˜Ú]Xİ\™K‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ø[š[X][Û—Ù]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[œÜXİ[š[X][Ûˆ›Y\š[Ëİ]HXXÚ[™\Ë›[™ÜXÙ\Ë[™[ÛYÙ\Ëˆ[™\œİ[™[š[X][ÛˆÜ˜\›İË˜[œÚ][ÛœË[™›İYH]™[È›ÜˆÚ\˜Xİ\ˆ[š[X][ÛˆŞ\İ[\Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ù]WİX›WÙ]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™XY[™[˜[^™H]HX›\ÈÚ]›İÈš[\š[™È[™ÙX\˜Úˆ\™™Xİ›Üˆ[œÜXİ[™ÈØ[YHÛÛ™šYİ\˜][Û‹˜[[˜Ú[™È]KÛİX›\Ë[™[HİXİ\™Y]H\ÜÙ]Ë‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]ÛšXYØ\˜WÙ]Z[ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ[œÜXİšXYØ\˜H\XÛHŞ\İ[\È[˜ÛY[™È[Z]\œË[Ù[\Ë\˜[Y]\œË[™™[™\™\œËˆ[™\œİ[™[™Ü[Z^™H[İ\ˆš\İX[Y™™XİÈ\[[™K‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH˜Ü™X]WØ\ÜÙ]Ù]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆÜ™X]H™]È›Y\š[ËÊÊÈÛ\ÜÙ\ËX]\šX[Ë[™]HX›\È›ÙÜ˜[[X]XØ[KˆHRHÙ[™\˜]\ÈÛÛ\]KÛÛ\[X›H[\[Y[][ÛœÈÚ]›Ü\ˆQMH]\›œÈ[™ÛÛ™[[ÛœË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH›[ÙYWØ›Y\š[Ù]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆY˜\šXX›\Ë[˜İ[ÛœË[™ÛÛ\Û™[ÈÈ^\İ[™È›Y\š[Ëˆ[ÙYH›Ü\Y\È[™ÛÛ\[HÚ[™Ù\Ëˆ[›ÙÜ˜[[X]XÈ›Y\š[X[š\[][Ûˆœ›ÛHÛÛ™\œØ][Û‹‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ü\™›Ü›X[˜ÙWÜİ]ÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆ™]šY]™H™X[][YH”Ëœ˜[YH[YKY[[ÜH\ØYÙK˜]ÈØ[Ë[™šX[™ÛHÛİ[ËˆY[YH\™›Ü›X[˜ÙH›İ[™XÚÜÈ[™Ù]RK\İÙ\™YÜ[Z^˜][Ûˆ™XÛÛ[Y[™][ÛœË‚ˆÜ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏHÛÛXØ\™™]™X[‚ˆ]ˆÛ\ÜÏHÛÛ[˜[YH™Ù]Ûİ]]ÛÙÏÙ]‚ˆÛ\ÜÏHÛÛY\ØÜš\[Ûˆ‚ˆXØÙ\ÜÈ™XÙ[\œ›ÜœËØ\›š[™ÜË[™ÙÈ[šY\ÈÚ]Ø]YÛÜH[™Ù]™\š]Hš[\š[™ËˆRK\İÙ\™Y[˜[\Ú\ÈÙˆÛÛ\[][Ûˆ\œ›ÜœÈ[™[[YH\ÜİY\ÈÚ]İYÙÙ\İYš^\Ë‚ˆÜ‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKH\˜Ú]Xİ\™HÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYH˜\˜Ú]Xİ\™H‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]H\˜Ú]Xİ\™H	ˆ\ÚYÛÚ‚ˆÛ\ÜÏHœÙXİ[Û‹\İX]HHÛX[‹^[œÚX›H\˜Ú]Xİ\™HZ[›ÜˆX^[][H›^Xš[]OÜ‚‚ˆ]ˆÛ\ÜÏH˜\˜Ú]Xİ\™KXÛÛ[‚ˆ]‚ˆ]ˆÛ\ÜÏH˜\˜Ú]Xİ\™KYXYÜ˜[H‚Ü[ˆÛ\ÜÏH\H•ST›İšY\ÜÜ[ˆ
+Xœİ˜Xİ
+Bˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H•PÛ]YT›İšY\ÜÜ[‚ˆ8¥ ˆ8¥%8¥ [›ÜXÈY\ÜØYÙ\ÈTBˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H•SÜ[RT›İšY\ÜÜ[‚ˆ8¥ ˆ8¥%8¥ Ú]ÛÛ\][ÛœÈTBˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H•QÙ[Z[šT›İšY\ÜÜ[‚ˆ8¥ ˆ8¥%8¥ Ù[™\˜]]™HRHTBˆ8¥%8¥ Ü[ˆÛ\ÜÏH\H•SØØ[›İšY\ÜÜ[‚ˆ8¥%8¥ Ü[RKXÛÛ\]X›B‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™˜Û\ÜÏÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘ÛÛ™\œØ][Û“Y\ÜØYÙOÜÜ[‚ˆ8¥'8¥ ›ÛH
+\Ù\‹Ğ\ÜÚ\İ[
+Bˆ8¥'8¥ ÛÛ[
+Ü[ˆÛ\ÜÏH\H•\œ˜^OÜÜ[‰›ÏÜ[ˆÛ\ÜÏH\H‘ÛÛ[›ØÚÏÜÜ[‰™İÊBˆ8¥'8¥ ÛÛÂˆ8¥%8¥ Y]Y]B‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™˜Û\ÜÏÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“UÛÛÜÜ[‚ˆ8¥'8¥ ˜[YBˆ8¥'8¥ \ØÜš\[Û‚ˆ8¥'8¥ [œ]›Ü\Y\Âˆ8¥%8¥ ™\]Z\™Y›Ü\Y\ÂˆÙ]‚ˆÙ]‚‚ˆ]‚ˆ]ˆÛ\ÜÏH˜\˜Ú]Xİ\™K]^‚ˆÏ•ÛËS[Ù[H\˜Ú]Xİ\™OÚÏ‚ˆ‚ˆ]Y›ÛÙRH\ÈİXİ\™Y\ÈÛÈÛÛ\[Y[\H[Ù[\ÈÛÜšÚ[™È[ˆ\™™Xİ\›[ÛKˆHİ›Û™Ï“]Y›ÛÙRPÛÜ™OÜİ›Û™Ïˆ[[YH[Ù[HÛÛZ[œÈ[›İšY\ˆ[\[Y[][ÛœËÛÛ™\œØ][ÛˆX[˜YÙ[Y[İ™X[Z[™ÈÙÚXË[™ÛÛ^Xİ][ÛˆŞ\İ[\ËˆHİ›Û™Ï“]Y›ÛÙRQY]ÜÜİ›Û™Ïˆ[Ù[H›İšY\ÈH˜]]™HÛ]HRKÛÛ[™\‹›Ú™Xİ[›ÜÜXİ[ÛˆŞ\İ[\Ë[™Y]Üˆ[YÜ˜][ÛˆÛÚÜË‚ˆÜ‚‚ˆÏ”›İšY\ˆ]\›ÚÏ‚ˆ‚ˆHXœİ˜XİÛÙO•ST›İšY\ØÛÙOˆ˜\ÙHÛ\ÜÈYš[™\ÈH[\™˜XÙH›Üˆ[H[YÜ˜][ÛœËˆXXÚ›İšY\ˆ[\[Y[Èİ™X[Z[™ËÛÛ[™[™Ë[™™\ÜÛœÙH\œÚ[™ËˆHYÚ[ˆÚ\ÈÚ]›İ\ˆ›İšY\œÈ
+Û]YKÜ[RKÙ[Z[šKØØ[
+K][İHØ[ˆX\Ú[HYİ\İÛH›İšY\œÈHİX˜Û\ÜÚ[™ÈÛÙO•ST›İšY\ØÛÙO‹‚ˆÜ‚‚ˆÏ•ÛÛŞ\İ[OÚÏ‚ˆ‚ˆÛÛÈ\™H™YÚ\İ\™Y[ˆHÛÙO“]Y›ÛÙÛÛ[™\ØÛÙOˆ\ÈİXİ\™YY]Y]KˆÚ[ˆHH™\]Y\İÈHÛÛØ[H[™\ˆ˜[Y]\È\˜[Y]\œÈ[™^Xİ]\ÈH\›ÜšX]H[˜İ[Û‹ˆ™\İ[È\™HÙ\šX[^™YÈ”ÓÓˆ[™™]\›™YÈHÛÛ™\œØ][ÛˆÛÛ^›Üˆ][K]\›ˆ™X\ÛÛš[™Ë‚ˆÜ‚‚ˆÏÛÛ™\œØ][ÛˆX[˜YÙ[Y[ÚÏ‚ˆ‚ˆ[Y\ÜØYÙ\È\™H˜XÚÙY[ˆHÛÛ™\œØ][Ûˆ\İÜHÚ]]]ÛX]XÈÛÛ^X[˜YÙ[Y[ˆHŞ\İ[H[˜ÛY\ÈÛÛ™šYİ\˜X›HY\ÜØYÙH[Z]ËŞ\İ[H›Û\Ù[™\˜][Û‹[™ÛÛ™\œØ][Ûˆİ]H\œÚ\İ[˜ÙKˆÛÛÈ\™H]]ÛX]XØ[H[˜ÛYY[ˆHŞ\İ[HÛÛ^ÛÈHRHÛ›İÜÈÚ]]Ø[ˆË‚ˆÜ‚ˆÙ]‚ˆÙ]‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™š[K]™YH‚ˆ]ˆİ[OH›X\™Ú[‹X›İÛNˆŒÈÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈ›Û]ÙZYÚˆŒÈ“]Y›ÛÙRHYÚ[ˆİXİ\™H
+Èš[\ÊOÙ]‚‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][HÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ”Ûİ\˜ÙKÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ“]Y›ÛÙRPÛÜ™KÏÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š[[YH[Ù[JOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ”X›XËÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“T›İšY\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛ]YT›İšY\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“Ü[RT›İšY\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H‘Ù[Z[šT›İšY\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“ØØ[›İšY\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛÛ™\œØ][Û“X[˜YÙ\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”İ™X[Z[™ÓX[˜YÙ\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”›Ú™XİÛÛ^Ø]\™\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”›Ú™XİY[[ÜSX[˜YÙ\‹šÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HRQXYÙÙ\‹šÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙY][Û˜[ÛÛËšÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÛÛ[™\‹šÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[ŠTUQ
+OÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙRPÛÜ™S[Ù[KšÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ”š]˜]KÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛ]YT›İšY\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“Ü[RT›İšY\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H‘Ù[Z[šT›İšY\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“ØØ[›İšY\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛÛ™\œØ][Û“X[˜YÙ\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”İ™X[Z[™ÓX[˜YÙ\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”›Ú™XİY[[ÜSX[˜YÙ\‹˜ÜÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HRQXYÙÙ\‹˜ÜÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙRPÛÜ™S[Ù[K˜ÜÜÜ[Ù]‚‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹]ÜˆM\ÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ“]Y›ÛÙRQY]Ü‹ÏÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[ŠY]Üˆ[Ù[JOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ”X›XËÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÚ][™[šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙİ[KšÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÛÛ[X[™ËšÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”›Ú™XİÛÛ^Ø]\™\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÛÛ[™\‹šÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙY]Ü”Ù][™ÜËšÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H›Y\š[ÛÛ^X[˜YÙ\‹šÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛÙQÙ[™\˜]Ü‹šÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙRQY]Ü“[Ù[KšÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆŒÈÜ[ˆÛ\ÜÏH™š[K]™YKY›Û\ˆ”š]˜]KÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÚ][™[˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙİ[K˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÛÛ[X[™Ë˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H”›Ú™XİÛÛ^Ø]\™\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙÛÛ[™\‹˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙY]Ü”Ù][™ÜË˜ÜÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H›Y\š[ÛÛ^X[˜YÙ\‹˜ÜÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[HÛÙQÙ[™\˜]Ü‹˜ÜÜÜ[ˆÜ[ˆÛ\ÜÏH™š[K]™YKXÛÛ[Y[Š‘UÊOÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹[YˆÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙRQY]Ü“[Ù[K˜ÜÜÜ[Ù]‚‚ˆ]ˆÛ\ÜÏH™š[K]™YKZ][Hˆİ[OH›X\™Ú[‹]ÜˆM\ÈÜ[ˆÛ\ÜÏH™š[K]™YKYš[H“]Y›ÛÙ\YÚ[ÜÜ[Ù]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKHØİ[Y[][ÛˆÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYH™Øİ[Y[][Ûˆ‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]H‘Øİ[Y[][ÛÚ‚‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛZ[™\ˆ‚ˆ˜]ˆÛ\ÜÏH™ØÜË\ÚYX˜\ˆ‚ˆ[Û\ÜÏH™ØÜË[˜]ˆ‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆXİ]™Hˆ]K]XHœ]ZXÚÜİ\”]ZXÚÈİ\Ø]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XH˜ÛÛ™šYİ\˜][ÛˆÛÛ™šYİ\˜][ÛØ]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XHœ›İšY\œÈ“H›İšY\œÏØ]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XHš[›ÜÜXİ[Ûˆ’[›ÜÜXİ[ÛˆŞ\İ[OØ]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XHÛÛÈ•ÛÛŞ\İ[OØ]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XHZH‘Y]ÜˆROØ]ÛÛO‚ˆO]ÛˆÛ\ÜÏH™ØÜËXˆˆ]K]XH™^[™[™È‘^[™[™ÏØ]ÛÛO‚ˆİ[‚ˆÛ˜]‚‚ˆ]ˆÛ\ÜÏH™ØÜË[XZ[ˆ‚ˆKKH]ZXÚÈİ\KO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[Xİ]™Hˆ]KXÛÛ[Hœ]ZXÚÜİ\‚ˆ”]ZXÚÈİ\Ú‚‚ˆ]ˆÛ\ÜÏH™ØÜË\İ\‚ˆİ›Û™Ï”İ\Nˆ[œİ[HYÚ[Üİ›Û™Ï‚ˆÛÛ™HH]Y›ÛÙRH™\ÜÚ]ÜH[È[İ\ˆ›Ú™Xİ	ÜÈYÚ[œÈ›Û\‹ˆ™YÙ[™\˜]Hš\İX[İY[È›Ú™Xİš[\È[™™XÛÛ\[KˆHYÚ[ˆÚ[\X\ˆ[ˆH[œİ[YYÚ[œÈ\İ‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™ØÜË\İ\‚ˆİ›Û™Ï”İ\ˆÛÛ™šYİ\™H[İ\ˆ›İšY\Üİ›Û™Ï‚ˆÛÈÈY]8¡¤ˆ›Ú™XİÙ][™ÜÈ8¡¤ˆ]Y›ÛÙRKˆÙ[Xİ[İ\ˆ™Y™\œ™YH›İšY\ˆ
+Û]YH™XÛÛ[Y[™Y
+H[™[\ˆ[İ\ˆTHÙ^Kˆ[İHØ[ˆÚ[™ÙH›İšY\œÈ[][YHÚ]İ]™\İ\[™Ë‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚–ËÔØÜš\Ó]Y›ÛÙRQY]Ü‹“]Y›ÛÙY]Ü”Ù][™Ü×B”Ù[XİY›İšY\PÛ]YBÛ]YPTRÙ^O\ÚËX[K‹‹‚“Ü[RPTRÙ^OB‘Ù[Z[šPTRÙ^OB“ØØ[˜\ÙUT“Z‹ËÛØØ[ÜİŒLMÍˆÙ]‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™ØÜË\İ\‚ˆİ›Û™Ï”İ\ÎˆÜ[ˆHÚ][™[Üİ›Û™Ï‚ˆ™\ÜÈÛÙOİ›
+ÔÚY
+ÓOØÛÙOˆÜˆÛÈÈÛÛÈ8¡¤ˆ]Y›ÛÙRH8¡¤ˆÜ[ˆÚ]ˆH[™[Ú[ØÚÈ[ˆ[İ\ˆY]Üˆ[\™˜XÙKˆ[ˆ]ÈÙY\]š\ÚX›HÚ[H[İHÛÜšË‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™ØÜË\İ\‚ˆİ›Û™Ï”İ\ˆİ\\ÚÚ[™È]Y\İ[ÛœÏÜİ›Û™Ï‚ˆ\H]Y\İ[ÛœÈX›İ][İ\ˆ›Ú™Xİ˜]\˜[KˆHRHÚ[]]ÛX]XØ[H\ÙH]ÈÛÛÈÈ[œÜXİ[İ\ˆÛÙK[˜[^™H›Y\š[ËÙX\˜Ú\ÜÙ]Ë[™›İšYH]Z[Y[œİÙ\œËˆ^[\\Î‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚ˆ•Ú]›Y\š[È[š\š]œ›ÛHÚ\˜Xİ\È‚ˆ”ÚİÈYHH[\[Y[][ÛˆÙˆH[\[˜İ[Ûˆ‚ˆ“\İ[X]\šX[È\Ú[™ÈHWÓY][XÈX\İ\ˆ‚ˆ‘š[™ÙÜÈ[ˆ^HÊÊÈÛÙH‚ˆÙ]‚ˆÙ]‚‚ˆ]ˆÛ\ÜÏH™ØÜË\İ\‚ˆİ›Û™Ï”İ\Nˆ^[™Ú]İ\İÛHÛÛÈ
+Ü[Û˜[
+OÜİ›Û™Ï‚ˆYİ\İÛHÛÛÈHİX˜Û\ÜÚ[™ÈÛÙO•S]Y›ÛÙÛÛ[™\ØÛÙOˆ[™™YÚ\İ\š[™È[H[ˆHÛÛœİXİÜ‹ˆHRHÚ[]]ÛX]XØ[H[˜ÛYH[İ\ˆÛÛÈ[ˆ]ÈÛÛ^[™\ÙH[HÚ[ˆ\›ÜšX]K‚ˆÙ]‚ˆÙ]‚‚ˆKKHÛÛ™šYİ\˜][ÛˆKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[H˜ÛÛ™šYİ\˜][Ûˆ‚ˆÛÛ™šYİ\˜][ÛˆÙ][™ÜÏÚ‚ˆ[Ù][™ÜÈ\™HÛÛ™šYİ\™Y[ˆ›Ú™XİÙ][™ÜÈ8¡¤ˆ]Y›ÛÙRKˆÚ[™Ù\ÈZÙHY™™Xİ[[YYX][HÚ]İ]™\İ\[™ËÜ‚‚ˆÏ”›İšY\ˆÙ[Xİ[ÛÚÏ‚ˆ”Ù[XİÚXÚH›İšY\ˆÈ\ÙNˆÛ]YH
+™XÛÛ[Y[™Y
+KÜ[RKÙ[Z[šKÜˆØØ[Ü‚‚ˆX›HÛ\ÜÏHœÙ][™ÜË]X›H‚ˆXY‚ˆ‚ˆ”Ù][™Ïİ‚ˆ•\Oİ‚ˆ‘Y˜][İ‚ˆ‘\ØÜš\[Ûİ‚ˆİ‚ˆİXY‚ˆ›ÙO‚ˆ‚ˆÛÙO”Ù[XİY›İšY\ØÛÙOİ‚ˆ‘ST›İšY\İ‚ˆÛ]YOİ‚ˆXİ]™HH›İšY\ˆ›ÜˆÛÛ™\œØ][ÛœÏİ‚ˆİ‚ˆ‚ˆÛÙOÛ]YPTRÙ^OØÛÙOİ‚ˆ‘”İš[™Ïİ‚ˆ‘[\Oİ‚ˆTHÙ^Hœ›ÛHÛÛœÛÛK˜[›ÜXË˜ÛÛOİ‚ˆİ‚ˆ‚ˆÛÙO“Ü[RPTRÙ^OØÛÙOİ‚ˆ‘”İš[™Ïİ‚ˆ‘[\Oİ‚ˆTHÙ^Hœ›ÛH]›Ü›K›Ü[˜ZK˜ÛÛOİ‚ˆİ‚ˆ‚ˆÛÙO‘Ù[Z[šPTRÙ^OØÛÙOİ‚ˆ‘”İš[™Ïİ‚ˆ‘[\Oİ‚ˆTHÙ^Hœ›ÛHZ\İY[Ë™ÛÛÙÛK˜ÛÛOİ‚ˆİ‚ˆ‚ˆÛÙO“ØØ[˜\ÙUT“ØÛÙOİ‚ˆ‘”İš[™Ïİ‚ˆš‹ËÛØØ[ÜİŒLMÍİ‚ˆ˜\ÙHT“›ÜˆØØ[Øİ\İÛHÜ[RKXÛÛ\]X›H[™Ú[Ïİ‚ˆİ‚ˆİ›ÙO‚ˆİX›O‚‚ˆÏ“[Ù[ÛÛ™šYİ\˜][ÛÚÏ‚ˆX›HÛ\ÜÏHœÙ][™ÜË]X›H‚ˆXY‚ˆ‚ˆ”Ù][™Ïİ‚ˆ•\Oİ‚ˆ‘Y˜][İ‚ˆ‘\ØÜš\[Ûİ‚ˆİ‚ˆİXY‚ˆ›ÙO‚ˆ‚ˆÛÙO“[Ù[˜[YOØÛÙOİ‚ˆ‘”İš[™Ïİ‚ˆ‘[\H
+\Ù\È›İšY\ˆY˜][
+Oİ‚ˆ”ÜXÚYšXÈ[Ù[È\ÙH
+K™Ë‹ÜMÈ›ÜˆÜ[RJOİ‚ˆİ‚ˆ‚ˆÛÙO“X^ÚÙ[œÏØÛÙOİ‚ˆš[Ìİ‚ˆNLİ‚ˆ“X^[][HÚÙ[œÈ\ˆ™\ÜÛœÙH
+M‹LL
+Oİ‚ˆİ‚ˆ‚ˆÛÙO•[\\˜]\™OØÛÙOİ‚ˆ™›Ø]İ‚ˆŒÏİ‚ˆ”™\ÜÛœÙH˜[™Û[™\ÜÈ
+ŒL‹ŒYÚ\ˆH[Ü™HÜ™X]]™JOİ‚ˆİ‚ˆİ›ÙO‚ˆİX›O‚‚ˆÏ™Z]š[ÜˆÙ][™ÜÏÚÏ‚ˆX›HÛ\ÜÏHœÙ][™ÜË]X›H‚ˆXY‚ˆ‚ˆ”Ù][™Ïİ‚ˆ•\Oİ‚ˆ‘Y˜][İ‚ˆ‘\ØÜš\[Ûİ‚ˆİ‚ˆİXY‚ˆ›ÙO‚ˆ‚ˆÛÙO˜‘[˜X›Tİ™X[Z[™ÏØÛÙOİ‚ˆ˜›ÛÛİ‚ˆYOİ‚ˆ”ÚİÈ™\ÜÛœÙ\È[ˆ™X[][YH\È^Hİ™X[Oİ‚ˆİ‚ˆ‚ˆÛÙO˜‘[˜X›UÛÛ\ÙOØÛÙOİ‚ˆ˜›ÛÛİ‚ˆYOİ‚ˆ[İÈHRHÈ\ÙH[›ÜÜXİ[ÛˆÛÛÏİ‚ˆİ‚ˆ‚ˆÛÙO˜]]Ò[˜ÛYT›Ú™XİÛÛ^ØÛÙOİ‚ˆ˜›ÛÛİ‚ˆYOİ‚ˆ]]ÛX]XØ[H[˜ÛYH›Ú™Xİ[™›È[ˆŞ\İ[H›Û\İ‚ˆİ‚ˆ‚ˆÛÙO“X^ÛÛ^Y\ÜØYÙ\ÏØÛÙOİ‚ˆš[Ìİ‚ˆLİ‚ˆ“X^[][HÛÛ™\œØ][Ûˆ\İÜHÈXZ[Z[ˆ
+KLŒ
+Oİ‚ˆİ‚ˆİ›ÙO‚ˆİX›O‚ˆÙ]‚‚ˆKKHH›İšY\œÈKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[Hœ›İšY\œÈ‚ˆ“H›İšY\œÏÚ‚‚ˆÏÛ]YH
+[›ÜXÊHH‘PÓÓSQS‘QÚÏ‚ˆÛ]YH›İšY\ÈH™\İ™X\ÛÛš[™ÈØ\Xš[]K˜]]™HÛÛ\ÙK[™[Üİ™[XX›HÛÙH[˜[\Ú\ËˆÛÈÈH™YHšÎ‹ËØÛÛœÛÛK˜[›ÜXË˜ÛÛHˆİ[OH˜ÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈ˜ÛÛœÛÛK˜[›ÜXË˜ÛÛOØO‹Ü™X]H[ˆTHÙ^K[™[\ˆ][ˆHÙ][™ÜËÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚”Ù[XİY›İšY\PÛ]YBÛ]YPTRÙ^O\ÚËX[^Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈ\Ù\ÈÛ]YK\ÛÛ›™]MMKLŒLLMHY˜][ÜÜ[‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈŒÈÛÛ^Ú[™İË˜]]™HÛÛ\ÙK^[™Y[šÚ[™ÏÜÜ[‚ˆÙ]‚‚ˆÏ“Ü[RHÔMÚÏ‚ˆ‘Ù][İ\ˆTHÙ^Hœ›ÛHH™YHšÎ‹ËÜ]›Ü›K›Ü[˜ZK˜ÛÛHˆİ[OH˜ÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈœ]›Ü›K›Ü[˜ZK˜ÛÛOØO‹ˆİ\ÜÈÔMÈÚ]][[[Ù[Ø\Xš[]Y\È[™[˜İ[ÛˆØ[[™ËÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚”Ù[XİY›İšY\SÜ[RB“Ü[RPTRÙ^O\ÚË\›Ú‹^“[Ù[˜[YOYÜMÂÜ[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈÜˆ\ÙHÜM]\˜›È›ÜˆİÙ\ˆÛÜİÜÜ[‚ˆÙ]‚‚ˆÏ‘ÛÛÙÛHÙ[Z[šOÚÏ‚ˆ‘Ù]Hœ™YHTHÙ^Hœ›ÛHH™YHšÎ‹ËØZ\İY[Ë™ÛÛÙÛK˜ÛÛHˆİ[OH˜ÛÛÜˆ˜\ŠKXXØÙ[X›YJNÈ˜Z\İY[Ë™ÛÛÙÛK˜ÛÛOØO‹ˆ˜\İ[™™\™[˜ÙHÚ]İ›Û™ÈÛÙH[™\œİ[™[™ËÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚”Ù[XİY›İšY\QÙ[Z[šB‘Ù[Z[šPTRÙ^OPR^˜TŞ^Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈ\Ù\È]\İÙ[Z[šH[Ù[HY˜][ÜÜ[‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈ^Ù[[›Üˆ˜\Y]\˜][Ûˆ[™\İ[™ÏÜÜ[‚ˆÙ]‚‚ˆÏ“ØØ[[Ù[ÏÚÏ‚ˆ”[ˆ[HÜ[RKXÛÛ\]X›H[™Ú[ØØ[Kˆ\ÙHÛ[XHÜˆHİY[È›ÜˆÛÛ\]Hš]˜XŞH[™Ù™›[™HØ\Xš[]KÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚”Ù[XİY›İšY\SØØ[“ØØ[˜\ÙUT“Z‹ËÛØØ[ÜİŒLMÍÜ[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈ›ÜˆÛ[XNˆ[ˆÛ[XHÙ\™X[ˆ[H[Ù[ÜÜ[‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈÛ[XH[Ù[ÎˆÛ[XH[Z\İ˜[Û[XH[[XL‹]ËÜÜ[‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈ™\›ÈTHÛÜİËÛÛ\]H]Hš]˜XŞOÜÜ[‚ˆÙ]‚‚ˆÏİ\İÛHÜ[RKPÛÛ\]X›H[™Ú[ÏÚÏ‚ˆ•\ÙH[HÜ[RKXÛÛ\]X›H[™Ú[ˆX[HÙ\šXÙ\ÈÙ™™\ˆ\È
+Ü›ÜKÙÙ]\‹š\™]ÛÜšÜË]ËŠKÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚”Ù[XİY›İšY\SØØ[“ØØ[˜\ÙUT“ZÎ‹ËØ\K™š\™]ÛÜšÜË˜ZKÚ[™™\™[˜ÙKİŒBÜ[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈÛÛ™šYİ\™HÚ][İ\ˆ›İšY\‰ÜÈTHÙ^H[ˆH[™Ú[T“ÜÜ[‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈÛÜšÜÈÚ][HÜ[RKXÛÛ\]X›HTOÜÜ[‚ˆÙ]‚ˆÙ]‚‚ˆKKH[›ÜÜXİ[ÛˆŞ\İ[HKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[Hš[›ÜÜXİ[Ûˆ‚ˆ’[›ÜÜXİ[ÛˆŞ\İ[OÚ‚ˆ•H›Ú™XİÛÛ^Ø]\™\ˆØØ[œÈ[İ\ˆ[\™H[œ™X[›Ú™Xİ[™›İšY\È]Z[Y[™›Ü›X][ÛˆÈHKˆ\È[˜X›\ÈHRHÈ[™\œİ[™[İ\ˆ›Ú™XİİXİ\™K\˜Ú]Xİ\™K[™ÛÙKÜ‚‚ˆÏ\ÜÙ]™YÚ\İH[YÜ˜][ÛÚÏ‚ˆ•H[›ÜÜXİ[ÛˆŞ\İ[H\Ù\È[œ™X[	ÜÈ\ÜÙ]™YÚ\İHÈ[[Y\˜]H[\ÜÙ]È[ˆ[İ\ˆ›Ú™Xİˆ\È[˜ÛY\È›Y\š[ËX]\šX[ËY\Ú\Ë^\™\ËÛİ[™Ë[™[İ\ˆ›Ú™Xİ\ÜÙ]ËˆHŞ\İ[H^˜XİÈY]Y]HZÙH\ÜÙ]\KÛ\ÜË[™]Ü‚‚ˆÏ›Y\š[™Y›Xİ[ÛÚÏ‚ˆ‘›Üˆ›Y\š[\ÜÙ]ËHŞ\İ[H™Y›XİÈÛˆH›Y\š[Ü˜\İXİ\™K˜\šXX›\È
+Ú]\\È[™Y˜][ÊK[˜İ[ÛœË]™[[\[Y[][ÛœË[™ÛÛ\Û™[Y\˜\˜ÚY\Ëˆ\È[İÜÈHRHÈ[™\œİ[™[İ\ˆ›Y\š[ÙÚXÈ[™\˜Ú]Xİ\™KÜ‚‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™˜Û\ÜÏÜÜ[ˆÜ[ˆÛ\ÜÏH\H•P›Y\š[ÜÜ[‚ˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H•QYÜ˜\ÜÜ[ˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™™›ÜÜÜ[ˆ]™[Ü˜\ˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H•QYÜ˜\ÜÜ[ˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™™›ÜÜÜ[ˆÛÛœİXİ[Û”ØÜš\ˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H‘›Y\š[˜\šXX›Q\ØÜš\[ÛÜÜ[ˆ×Bˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H‘”›Ü\OÜÜ[ˆ×HÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™™›ÜÜÜ[ˆÛÛ\Û™[Âˆ8¥%8¥ Ü[ˆÛ\ÜÏH\H‘’[\[Y[Y[\™˜XÙOÜÜ[ˆ×BˆÙ]‚‚ˆÏ•ÛÜ›XİÜˆ[[Y\˜][ÛÚÏ‚ˆ•Ú[ˆH]™[\ÈÜ[‹HŞ\İ[H[[Y\˜]\È[XİÜœÈ[ˆHÛÜ›\Ú[™ÈXİÜ’]\˜]Ü‹ˆ›ÜˆXXÚXİÜ‹]™]šY]™\ÈHÛ\ÜËØØ][Û‹›İ][Û‹ÛÛ\Û™[Ë[™İ\ˆ™[]˜[›Ü\Y\Ëˆ\È›İšY\ÈÛÛ^X›İ]Ú]	ÜÈ[ˆHİ\œ™[]™[Ü‚‚ˆÏ”Ûİ\˜ÙHš[HXØÙ\ÜÏÚÏ‚ˆ•HŞ\İ[H\ÈØY™K˜[Y]YXØÙ\ÜÈÈ[ÊÊÈÛİ\˜ÙHš[\È[ˆ[İ\ˆ›Ú™Xİ	ÜÈÛİ\˜ÙH›Û\‹ˆš[\È\™H™XYÚ]ÛÛ™šYİ\˜X›H[™H[Z]ÈÈ™]™[^Ù\ÜÚ]™HÛÛ^Ú^™\Ëˆ[š[H]È\™H˜[Y]YÈ[œİ\™H^IÜ™HÚ][ˆH›Ú™Xİ›Û\‹Ü‚‚ˆÏ”Ş\İ[H›Û\Ù[™\˜][ÛÚÏ‚ˆ[Ø]\™YÛÛ^\È[[YÙ[H›Ü›X]Y[ÈHŞ\İ[H›Û\][ÈHHX›İ][İ\ˆ›Ú™Xİˆ\È[˜ÛY\È›Ú™XİY]Y]K]˜Z[X›H\ÜÙ]Ë›Y\š[ËÛ\ÜÙ\Ë[™ÛÛËˆHŞ\İ[H›Û\\È]]ÛX]XØ[H\]Y\È[İHÛÜšËÜ‚ˆÙ]‚‚ˆKKHÛÛŞ\İ[HKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[HÛÛÈ‚ˆ•ÛÛŞ\İ[OÚ‚ˆ•HÛÛŞ\İ[H[İÜÈHHÈØ[ÜXÚX[^™Y[˜İ[ÛœÈÈ[›ÜÜXİ[İ\ˆ›Ú™XİˆÛÛÈ\™HYš[™Y\ÈİXİ\™YY]Y]H[™^Xİ]YHHÛÛ[™\‹Ü‚‚ˆÏ•ÛÛİXİ\™OÚÏ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™œİXİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“UÛÛÜÜ[‚ÂˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[ˆ˜[YNÂˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[ˆ\ØÜš\[ÛÂˆÜ[ˆÛ\ÜÏH\H•\œ˜^OÜÜ[‰›ÏÜ[ˆÛ\ÜÏH\H‘•ÛÛ›Ü\OÜÜ[‰™İÈ[œ]›Ü\Y\ÎÂˆÜ[ˆÛ\ÜÏH\H•\œ˜^OÜÜ[‰›ÏÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[‰™İÈ™\]Z\™Y›Ü\Y\ÎÂŸNÂ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™œİXİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘•ÛÛ›Ü\OÜÜ[‚ÂˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[ˆ˜[YNÂˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[ˆ\NÂˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[ˆ\ØÜš\[ÛÂˆÜ[ˆÛ\ÜÏH\H•\œ˜^OÜÜ[‰›ÏÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[‰™İÈ[[U˜[Y\ÎÂŸNÂˆÙ]‚‚ˆÏ•ÛÛ™YÚ\İ˜][ÛÚÏ‚ˆ•ÛÛÈ\™H™YÚ\İ\™Y[ˆH]Y›ÛÙÛÛ[™\ˆÛÛœİXİÜ‹ˆXXÚÛÛX\ÈH˜[YHÈ[ˆ^Xİ][Ûˆ[˜İ[Û‹ˆÚ[ˆHH™\]Y\İÈHÛÛH[™\ˆ˜[Y]\ÈH™\]Y\İ^Xİ]\ÈH[˜İ[Û‹[™™]\›œÈH™\İ[\È”ÓÓ‹Ü‚‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™›ÚYÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“]Y›ÛÙÛÛ[™\ÜÜ[”™YÚ\İ\•ÛÛÊ
+BÂˆ™YÚ\İ\•ÛÛ
+ˆÜ[ˆÛ\ÜÏHœİš[™ÈˆœÙX\˜ÚØ\ÜÙ]ÈÜÜ[‹ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ”ÙX\˜ÚH\ÜÙ]™YÚ\İHH˜[YHÜÜ[‹ˆÏÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™\ÏÜÜ[—JÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™˜ÛÛœİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[‰˜[\È]Y\JHÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™œ™]\›ÜÜ[ˆ[™TÙX\˜Ú\ÜÙ]Ê]Y\JNÂˆBˆ
+NÂŸBˆÙ]‚‚ˆÏ•ÛÛ^Xİ][Ûˆ›İÏÚÏ‚ˆ•Ú[ˆHHXÚY\ÈÈ\ÙHHÛÛ\ÈÙ\]Y[˜ÙHØØİ\œÎÜ‚ˆÛİ[OH˜ÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÈX\™Ú[‹[YˆŒÈX\™Ú[‹X›İÛNˆŒÈ‚ˆO“H™]\›œÈÛÛİ\ÙHÛÛ[›ØÚÈÚ]˜[YH[™\˜[Y]\œÏÛO‚ˆO’[™\ˆ˜[Y]\ÈÛÛ^\İÈ[™\˜[Y]\œÈ\™H˜[YÛO‚ˆO’[™\ˆ^Xİ]\ÈHÛÛ[˜İ[ÛˆÚ]›İšYY\˜[Y]\œÏÛO‚ˆO”™\İ[\ÈÙ\šX[^™YÈ”ÓÓÛO‚ˆO•ÛÛ™\İ[\ÈYYÈÛÛ™\œØ][Ûˆ\İÜOÛO‚ˆO“HÙY\È™\İ[[™ÛÛ[Y\È™X\ÛÛš[™ÈÈ[œİÙ\ˆ[İ\ˆ]Y\İ[ÛÛO‚ˆO“][K]ÛÛÚZ[š[™ÎˆHØ[ˆ™\]Y\İ][\HÛÛÈ[ˆÙ\]Y[˜ÙOÛO‚ˆÛÛ‚‚ˆÏY[™Èİ\İÛHÛÛÏÚÏ‚ˆ•ÈYHİ\İÛHÛÛİX˜Û\ÜÈ“]Y›ÛÙÛÛ[™\ˆ[™™YÚ\İ\ˆ[İ\ˆÛÛÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™›ÚYÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“^Pİ\İÛUÛÛ[™\ÜÜ[”™YÚ\İ\•ÛÛÊ
+BÂˆÜ[ˆÛ\ÜÏH\H”İ\\ÜÜ[”™YÚ\İ\•ÛÛÊ
+NÂ‚ˆ™YÚ\İ\•ÛÛ
+ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ™Ù]ØXİÜ—ØÛİ[ÜÜ[‹ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ‘Ù]İ[XİÜˆÛİ[[ˆ]™[ÜÜ[‹ˆÏÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™\ÏÜÜ[—J
+HÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™š[ÌÜÜ[ˆÛİ[HÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™™›ÜÜÜ[ˆ
+Ü[ˆÛ\ÜÏH\H•XİÜ’]\˜]ÜÜÜ[‰›ÏÜ[ˆÛ\ÜÏH\HPXİÜÜÜ[‰™İÈ]
+ÛÜ›
+NÈ]È
+ÊÒ]
+HÂˆÛİ[
+ÊÎÂˆBˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™œ™]\›ÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘”İš[™ÏÜÜ[‘œ›ÛR[
+Ûİ[
+NÂˆBˆ
+NÂŸBˆÙ]‚ˆÙ]‚‚ˆKKHY]ÜˆRHKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[HZH‚ˆ‘Y]ÜˆRH\˜Ú]Xİ\™OÚ‚‚ˆÏÚ][™[^[İ]ÚÏ‚ˆ•HÓ]Y›ÛÙÚ][™[\ÈH˜]]™HÛ]HÚYÙ]Ú]\ÈY\˜\˜ÚNÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏH\H”Õ™\XØ[›ŞÜÜ[‚¸¥'8¥ Ü[ˆÛ\ÜÏH\H”ÒÜš^›Û[›ŞÜÜ[ˆ
+XY\ŠB¸¥ ˆ8¥'8¥ ]B¸¥ ˆ8¥'8¥ ›İšY\ˆÙ[XİÜ‚¸¥ ˆ8¥%8¥ Ù][™ÜÈ]Û‚¸¥'8¥ Ü[ˆÛ\ÜÏH\H”ÔØÜ›Û›ŞÜÜ[ˆ
+Y\ÜØYÙ\ÊB¸¥ ˆ8¥%8¥ Ü[ˆÛ\ÜÏH\H”Ó]Y›ÛÙÚ]Y\ÜØYÙOÜÜ[ˆ×B¸¥'8¥ Ü[ˆÛ\ÜÏH\H”ÒÜš^›Û[›ŞÜÜ[ˆ
+[œ]
+B¸¥ ˆ8¥'8¥ Ü[ˆÛ\ÜÏH\H”Ó][S[™QY]X›U^›ŞÜÜ[‚¸¥ ˆ8¥%8¥ Ù[™]Û‚¸¥%8¥ Ü[ˆÛ\ÜÏH\H”Õ^›ØÚÏÜÜ[ˆ
+İ]\ÊBˆÙ]‚‚ˆÏ“Y\ÜØYÙH\Ü^OÚÏ‚ˆ”Ó]Y›ÛÙÚ]Y\ÜØYÙH[™\È\Ü^Z[™È›İ\Ù\ˆ[™\ÜÚ\İ[Y\ÜØYÙ\Ëˆ]]]ÛX]XØ[H]XİÈÛÙH›ØÚÜÈ[™™[™\œÈ[HÚ]Ş[^YÚYÚ[™Ëˆİ™X[Z[™ÈY\ÜØYÙ\È\]H[ˆ™X[][YH\ÈÚÙ[œÈ\œš]™KÜ‚‚ˆÏ”İ™X[Z[™È^\Ü^OÚÏ‚ˆ•^\È\Ü^YY›ÙÜ™\ÜÚ]™[H\È]İ™X[\Èœ›ÛHHKˆHÚYÙ]\Ù\È[ˆ”İš[™È]Ü›İÜÈÚ]XXÚ\]H[™]]ÛX]XØ[H™Y›Ü›X]È›ÜˆÛÜ™Ü˜\[™Ëˆİ™X[Z[™Èİ]\È\ÈÚİÛˆÈH\Ù\‹Ü‚‚ˆÏ•ÛÛ\ÙHš\İX[^˜][ÛÚÏ‚ˆ•Ú[ˆHRH\Ù\ÈHÛÛH[™[ÚİÜÈÚXÚÛÛ\È™Z[™ÈØ[Y[™Ú]Ú]\˜[Y]\œËˆÛÛ™\İ[È\™H\Ü^YY[ˆHÛÛ\ÚX›H›Ü›X]ÛÈ[İHØ[ˆ[™\œİ[™Ú]]HHRH\ÈÛÜšÚ[™ÈÚ]Ü‚‚ˆÏ”İ[[™ÈŞ\İ[OÚÏ‚ˆ‘“]Y›ÛÙRTİ[HYš[™\È[ÛÛÜœË›ÛË[™š\İX[›Ü\Y\Ëˆ^[™Üˆİ™\œšYHHİ[HHİX˜Û\ÜÚ[™È“]Y›ÛÙRTİ[H[™™YÚ\İ\š[™È[İ\ˆİ\İÛHİ[KÜ‚‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™˜ÛÛœİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[ˆXØÙ[›YHHÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[ŠŒÌ™‹MY‹KŒŠNÂÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™˜ÛÛœİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[ˆXØÙ[\œHHÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[Š™‹ŒÍŒY‹NŠNÂÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™˜ÛÛœİÜÜ[ˆÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[ˆXØÙ[ŞX[ˆHÜ[ˆÛ\ÜÏH\H‘“[™X\ÛÛÜÜÜ[ŠŒ‹LY‹KŒŠNÂˆÙ]‚‚ˆÏ’Ù^X›Ø\™ÚÜİ]ÏÚÏ‚ˆ‘“]Y›ÛÙRPÛÛ[X[™ÈYš[™\ÈY]ÜˆÚÜİ]ÎÜ‚ˆ[İ[OH˜ÛÛÜˆ˜\ŠK]^\ÙXÛÛ™\JNÈX\™Ú[‹[YˆŒÈX\™Ú[‹X›İÛNˆŒÈ‚ˆOÛÙOİ›
+ÔÚY
+ÓOØÛÙOˆHÙÙÛH]Y›ÛÙRH[™[ÛO‚ˆOÛÙOİ›
+Ñ[\ØÛÙOˆHÙ[™Y\ÜØYÙHœ›ÛH[œ]›ŞÛO‚ˆOÛÙO”ÚY
+Ñ[\ØÛÙOˆH™]È[™H[ˆ[œ]›ŞÛO‚ˆİ[‚ˆÙ]‚‚ˆKKH^[™[™ÈKO‚ˆ]ˆÛ\ÜÏH™ØÜËXÛÛ[ˆ]KXÛÛ[H™^[™[™È‚ˆ‘^[™[™È]Y›ÛÙROÚ‚‚ˆÏÜ™X][™ÈH™]ÈH›İšY\ÚÏ‚ˆ”İX˜Û\ÜÈST›İšY\ˆ[™[\[Y[H™\]Z\™Yš\X[[˜İ[ÛœÎÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™˜Û\ÜÏÜÜ[ˆÜ[ˆÛ\ÜÏH\H•S^Pİ\İÛT›İšY\ÜÜ[ˆˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™œX›XÏÜÜ[ˆÜ[ˆÛ\ÜÏH\H•ST›İšY\ÜÜ[‚ÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™š\X[ÜÜ[ˆÜ[ˆÛ\ÜÏH\H›ÚYÜÜ[ˆÙ[™Y\ÜØYÙJ‹‹ŠHÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™›İ™\œšYOÜÜ[ÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™š\X[ÜÜ[ˆÜ[ˆÛ\ÜÏH\H›ÚYÜÜ[ˆ›ØÙ\ÜÔ™\ÜÛœÙJ‹‹ŠHÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™›İ™\œšYOÜÜ[ÂˆÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™š\X[ÜÜ[ˆÜ[ˆÛ\ÜÏH\H˜›ÛÛÜÜ[ˆİ\ÜÔİ™X[Z[™Ê
+HÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™›İ™\œšYOÜÜ[ÂŸNÂˆÙ]‚‚ˆÏÜ™X][™Èİ\İÛHÛÛÏÚÏ‚ˆ”™YÚ\İ\ˆÛÛÈHİX˜Û\ÜÚ[™ÈHÛÛ[™\ˆÜˆHY[™ÈÈHÛØ˜[ÛÛ™YÚ\İNÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏHšÙ^]ÛÜ™›ÚYÜÜ[ˆ™YÚ\İ\“^UÛÛ
+
+BÂˆÜ[ˆÛ\ÜÏH\H‘“]Y›ÛÙÛÛ[™\ÜÜ[‘Ù][œİ[˜ÙJ
+KO”™YÚ\İ\•ÛÛ
+ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ›^WİÛÛÜÜ[‹ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ“^Hİ\İÛHÛÛ\ØÜš\[ÛˆÜÜ[‹ˆ×J
+^ÈÜ[ˆÛ\ÜÏHšÙ^]ÛÜ™œ™]\›ÜÜ[ˆÜ[ˆÛ\ÜÏHœİš[™Èˆ•ÛÛ™\İ[ÜÜ[ÈBˆ
+NÂŸBˆÙ]‚‚ˆÏİ\İÛZ^š[™ÈHROÚÏ‚ˆÜ™X]HHİ\İÛHÛ]HÚYÙ]][š\š]Èœ›ÛHÓ]Y›ÛÙÚ][™[ˆİ™\œšYHH^[İ]İ[[™ËÜˆY\ÜØYÙH™[™\š[™ÈÈX]Ú[İ\ˆ™Y™\™[˜Ù\ËÜ‚‚ˆÏ’ÛÚÚ[™È[È[YØ]\ÏÚÏ‚ˆ•HŞ\İ[H›İšY\È[YØ]\È›ÜˆÙ^H]™[ÎÜ‚ˆ]ˆÛ\ÜÏH˜ÛÙKX›ØÚÈ‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈØ[YÚ[ˆHY\ÜØYÙH\ÈÙ[ÜÜ[‚Ü[ˆÛ\ÜÏH\H‘“]Y›ÛÙROÜÜ[“Û“Y\ÜØYÙTÙ[Y[˜[ZXÊ‹‹ŠNÂ‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈØ[YÚ[ˆHÛÛ\È^Xİ]YÜÜ[‚Ü[ˆÛ\ÜÏH\H‘“]Y›ÛÙÛÛ[™\ÜÜ[“Û•ÛÛ^Xİ]YY[˜[ZXÊ‹‹ŠNÂ‚Ü[ˆÛ\ÜÏH˜ÛÛ[Y[‹ËÈØ[YÚ[ˆ™\ÜÛœÙHİ™X[Z[™ÈÛÛ\]\ÏÜÜ[‚Ü[ˆÛ\ÜÏH\H‘”İ™X[Z[™ÓX[˜YÙ\ÜÜ[“Û”İ™X[Z[™ĞÛÛ\]KY[˜[ZXÊ‹‹ŠNÂˆÙ]‚‚ˆÏ‘^[™[™È›Ú™XİÛÛ^ÚÏ‚ˆ“İ™\œšYH›Ú™XİÛÛ^Ø]\™\ˆÈYİ\İÛH›Ú™Xİ[™›Ü›X][ÛˆÈHŞ\İ[H›Û\ˆ\È[İÜÈHRHÈÛ›İÈX›İ]İ\İÛH›Ú™XİİXİ\™\ÈÜˆY]Y]KÜ‚ˆÙ]‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆKKHÛÛ\\š\ÛÛˆÙXİ[ÛˆKO‚ˆÙXİ[ÛˆYH˜ÛÛ\\š\ÛÛˆˆÛ\ÜÏH˜ÛÛ\\š\ÛÛ‹\ÙXİ[Ûˆ‚ˆˆÛ\ÜÏHœÙXİ[Û‹]]H•ÚH]Y›ÛÙROÏÚ‚ˆÛ\ÜÏHœÙXİ[Û‹\İX]H”ÙYHİÈ]Y›ÛÙRHÛÛ\\™\ÈÈHÛÛ\]][ÛÜ‚‚ˆX›HÛ\ÜÏH˜ÛÛ\\š\ÛÛ‹]X›H™]™X[‚ˆXY‚ˆ‚ˆ‘™X]\™Oİ‚ˆ“]Y›ÛÙROİ‚ˆÛÛ\]]ÜœÏİ‚ˆİ‚ˆİXY‚ˆ›ÙO‚ˆ‚ˆ“][KSH›İšY\ˆİ\Üİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È›İšY\œÈ
+Û]YKÔMÙ[Z[šKØØ[
+Oİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[ŒKLˆ›İšY\œÏİ‚ˆİ‚ˆ‚ˆZ[Z[ˆÛÛÏİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\ÈŒŒÜXÚX[^™YÛÛÏİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[“[Z]YÛÛÙ]İ‚ˆİ‚ˆ‚ˆ›Y\š[ÛÛ^Ş\İ[Oİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È”šYÚXÛXÚÈ›ÙHÛÛ^
+ÈÜ˜\Ø›Y\š[ØÛÜOİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[˜\ÚXÈÛÛ^Û›Oİ‚ˆİ‚ˆ‚ˆ”\œÚ\İ[›Ú™XİY[[ÜOİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È’”ÓÓ‹X˜XÚÙY^ÜX›KX[K\Ú\˜X›Oİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[“[Z]YÙ\ÜÚ[ÛˆY[[ÜOİ‚ˆİ‚ˆ‚ˆRHXYÙÙ\İ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È”™X[][YHÙÈ[Ûš]Üš[™È
+È[˜[\Ú\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[˜\ÚXÈ\œ›Üˆ™\Ü[™Ïİ‚ˆİ‚ˆ‚ˆÛÙHÙ[™\˜][Ûİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\ÈÊÊË›Y\š[ËX]\šX[Ë]HX›\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[›Y\š[ĞÊÊÈÛ›Oİ‚ˆİ‚ˆ‚ˆ\ÜÙ][›ÜÜXİ[Ûˆ\İ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È•ÚYÙ]Ë[š[X][ÛœËšXYØ\˜K]UX›\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË[›È“[Z]Y\ÜÙ]\\Ïİ‚ˆİ‚ˆ‚ˆ“ØØ[ÓÙ™›[™H[Ù[Ïİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È‘[Û[XKÓHİY[Èİ\Üİ‚ˆÛ\ÜÏH˜ÚXÚË[›ÈÛİY[Û›Oİ‚ˆİ‚ˆ‚ˆ’İTİØ\›İšY\œÏİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È”İÚ]ÚÚ]İ]™\İ\[™Ïİ‚ˆÛ\ÜÏH˜ÚXÚË[›È”™\İ\™\]Z\™Yİ‚ˆİ‚ˆ‚ˆ“˜]]™HÛ]HROİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È‘ØÚØX›K\œÚ\İ[[™[İ‚ˆÛ\ÜÏH˜ÚXÚË\\X[“İ™\›^HÜˆÙ\\˜]HÚ[™İÏİ‚ˆİ‚ˆ‚ˆ”\™›Ü›X[˜ÙH[Ûš]Üš[™Ïİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\È‘”ËY[[ÜK˜]ÈØ[ËšX[™Û\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË[›È“›İ[˜ÛYYİ‚ˆİ‚ˆ‚ˆ”Ûİ\˜ÙHš[\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË^Y\ÈÈš[\Ëˆ[Ù[\Ïİ‚ˆÛ\ÜÏH˜ÚXÚË\\X[•˜\šY\Ïİ‚ˆİ‚ˆİ›ÙO‚ˆİX›O‚ˆÜÙXİ[Û‚‚ˆKKH›Ûİ\ˆKO‚ˆ›Ûİ\‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹XÛÛ[‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹[ÙÛÈ“UQ“ÓÑROÙ]‚ˆÛ\ÜÏH™›Ûİ\‹Y\ØÜš\[Ûˆ‚ˆY˜[˜ÙY][KSH\ÜÚ\İ[›Üˆ[œ™X[[™Ú[™HKˆÙX[[\ÜÛH[YÜ˜]HÛ]YKÔMÙ[Z[šKÜˆØØ[[Ù[È\™XİH[È[İ\ˆY]ÜˆÛÜšÙ›İË‚ˆÜ‚ˆ]ˆÛ\ÜÏH™›Ûİ\‹XÛÜ\šYÚ‚ˆ0ªHŒKLŒˆ]Y›ÛÙRKˆ[šYÚÈ™\Ù\™YˆZ[›Üˆ[œ™X[[™Ú[™HK
+ÂˆÙ]‚ˆÙ]‚ˆÙ›Ûİ\‚‚ˆØÜš\‚ˆËÈ˜]˜˜\ˆØÜ›ÛY™™XİˆÛÛœİ˜]˜˜\ˆHØİ[Y[™Ù][[Y[RY
+	Û˜]˜˜\‰ÊNÂˆÚ[™İË˜Y]™[\İ[™\Š	ÜØÜ›Û	Ë
+
+HOˆÂˆYˆ
+Ú[™İËœØÜ›ÛHˆL
+HÂˆ˜]˜˜\‹˜Û\ÜÓ\İ˜Y
+	ÜØÜ›ÛY	ÊNÂˆH[ÙHÂˆ˜]˜˜\‹˜Û\ÜÓ\İœ™[[İ™J	ÜØÜ›ÛY	ÊNÂˆBˆJNÂ‚ˆËÈØÜ›Û™]™X[[š[X][Û‚ˆÛÛœİØœÙ\™\“Ü[ÛœÈHÂˆ™\ÚÛˆŒKˆ›ÛİX\™Ú[ˆ	ÌML	ÂˆNÂ‚ˆÛÛœİØœÙ\™\ˆH™]È[\œÙXİ[Û“ØœÙ\™\Š
+[šY\ÊHOˆÂˆ[šY\Ë™›Ü‘XXÚ
+[HOˆÂˆYˆ
+[Kš\Ò[\œÙXİ[™ÊHÂˆ[K\™Ù]˜Û\ÜÓ\İ˜Y
+	ØXİ]™IÊNÂˆBˆJNÂˆKØœÙ\™\“Ü[ÛœÊNÂ‚ˆØİ[Y[œ]Y\TÙ[XİÜ[
+	Ëœ™]™X[	ÊK™›Ü‘XXÚ
+[OˆÂˆØœÙ\™\‹›ØœÙ\™J[
+NÂˆJNÂ‚ˆËÈØİ[Y[][ÛˆXˆİÚ]Ú[™ÂˆÛÛœİØÜĞœÈHØİ[Y[œ]Y\TÙ[XİÜ[
+	Ë™ØÜËX‰ÊNÂˆÛÛœİØÜĞÛÛ[ÈHØİ[Y[œ]Y\TÙ[XİÜ[
+	Ë™ØÜËXÛÛ[	ÊNÂ‚ˆØÜĞœË™›Ü‘XXÚ
+ˆOˆÂˆ‹˜Y]™[\İ[™\Š	ØÛXÚÉË
+
+HOˆÂˆÛÛœİX“˜[YHH‹™Ù]]šX]J	Ù]K]X‰ÊNÂ‚ˆËÈ™[[İ™HXİ]™HÛ\ÜÈœ›ÛH[]ÛœÈ[™ÛÛ[ÂˆØÜĞœË™›Ü‘XXÚ
+ˆOˆ‹˜Û\ÜÓ\İœ™[[İ™J	ØXİ]™IÊJNÂˆØÜĞÛÛ[Ë™›Ü‘XXÚ
+ÈOˆË˜Û\ÜÓ\İœ™[[İ™J	ØXİ]™IÊJNÂ‚ˆËÈYXİ]™HÛ\ÜÈÈÛXÚÙY]Ûˆ[™ÛÜœ™\ÜÛ™[™ÈÛÛ[ˆ‹˜Û\ÜÓ\İ˜Y
+	ØXİ]™IÊNÂˆØİ[Y[œ]Y\TÙ[XİÜŠÙ]KXÛÛ[H‰İX“˜[Y_H—X
+K˜Û\ÜÓ\İ˜Y
+	ØXİ]™IÊNÂˆJNÂˆJNÂ‚ˆËÈÛ[ÛİØÜ›Û›Üˆ˜]ˆ[šÜÂˆØİ[Y[œ]Y\TÙ[XİÜ[
+	ØVÚ™Y—HˆÈ—IÊK™›Ü‘XXÚ
+[˜ÚÜˆOˆÂˆ[˜ÚÜ‹˜Y]™[\İ[™\Š	ØÛXÚÉË[˜İ[Ûˆ
+JHÂˆÛÛœİ™YˆH\Ë™Ù]]šX]J	Ú™Y‰ÊNÂˆYˆ
+™YˆOOH	ÈÉÈ	‰ˆØİ[Y[œ]Y\TÙ[XİÜŠ™YŠJHÂˆKœ™]™[Y˜][
+
+NÂˆÛÛœİ\™Ù]HØİ[Y[œ]Y\TÙ[XİÜŠ™YŠNÂˆ\™Ù]œØÜ›Û[ÕšY]ÊÂˆ™Z]š[Üˆ	ÜÛ[Ûİ	Ëˆ›ØÚÎˆ	Üİ\	ÂˆJNÂˆBˆJNÂˆJNÂˆÜØÜš\‚Ø›ÙO‚Ú[‚
