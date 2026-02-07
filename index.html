@@ -1044,16 +1044,18 @@
             <div class="tagline">Multi-Agent AI Assistant for Unreal Engine</div>
 
             <p class="hero-subtitle">
-                The most comprehensive AI assistant for Unreal Engine. Multi-agent orchestration with 9 specialized AI agents, 30+ tools, RAG knowledge base, CLI agent bridge, level building, widget generation, and extended asset creation — all powered by Claude, GPT-4, Gemini, or local models. Supports UE 4.27 through 5.6.
+                The most comprehensive AI assistant for Unreal Engine. Multi-agent orchestration with 9 specialized AI agents, 35+ tools, C++ code generation, framework learning, RAG knowledge base, CLI agent bridge, level building, widget generation, and extended asset creation — all powered by Claude, GPT-4, Gemini, or local models. Supports UE 4.27 through 5.6.
             </p>
 
             <div class="hero-badges">
                 <span class="badge">UE 4.27 — 5.6</span>
                 <span class="badge">Claude · OpenAI · Gemini · Local</span>
-                <span class="badge">58 Source Files</span>
-                <span class="badge">30+ Tools</span>
+                <span class="badge">68 Source Files</span>
+                <span class="badge">35+ Tools</span>
                 <span class="badge">9 AI Agent Types</span>
                 <span class="badge">Multi-Agent Orchestration</span>
+                <span class="badge">C++ Code Generation</span>
+                <span class="badge">Framework Learning</span>
             </div>
 
             <div class="hero-cta">
@@ -1240,13 +1242,37 @@
                     Deep inspection of Behavior Trees, Widget Blueprints, Animation Blueprints, Niagara Systems, and Data Tables. The AI understands every asset type in your project, not just Blueprints and C++ code.
                 </p>
             </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">💻</div>
+                <div class="feature-name">C++ Code Generation</div>
+                <p class="feature-description">
+                    Full C++ code generation for Unreal Engine projects. Generate complete header and source files with proper UCLASS, UPROPERTY, UFUNCTION macros, correct naming conventions, and UE coding standards. Create Actors, Characters, Components, Widgets, AIControllers, and more from natural language prompts.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-name">Framework Learning</div>
+                <p class="feature-description">
+                    Automatically scan and learn any installed UE plugin or framework. Parse C++ headers to build knowledge graphs of classes, inheritance hierarchies, public APIs, and integration patterns. The AI understands your project's frameworks and generates code that works with them, not against them.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🎮</div>
+                <div class="feature-name">ACF Integration</div>
+                <p class="feature-description">
+                    First-class support for Ascent Combat Framework (ACF) with all 22 modules pre-indexed. Generate ACF-compatible characters, AI enemies, combat actions, inventory systems, spell projectiles, mount systems, and more. Built-in knowledge of ACFPlayerCharacter, ACFAIController, and 128+ ACF classes.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Tools Section -->
     <section id="tools">
-        <h2 class="section-title">30+ Specialized Tools</h2>
-        <p class="section-subtitle">The industry's most comprehensive UE AI toolset — project introspection, asset creation, level building, code generation, and multi-agent orchestration</p>
+        <h2 class="section-title">35+ Specialized Tools</h2>
+        <p class="section-subtitle">The industry's most comprehensive UE AI toolset — project introspection, asset generation, C++ code generation, framework learning, level building, widget creation, and intelligent code refactoring.</p>
 
         <div class="tools-grid">
             <div class="tool-card reveal">
@@ -1967,7 +1993,7 @@ LocalBaseURL=https://api.fireworks.ai/inference/v1
                 </tr>
                 <tr>
                     <td>Built-in Tools</td>
-                    <td class="check-yes">30+ specialized tools</td>
+                    <td class="check-yes">35+ specialized tools</td>
                     <td class="check-partial">Limited toolset</td>
                 </tr>
                 <tr>
@@ -2021,9 +2047,19 @@ LocalBaseURL=https://api.fireworks.ai/inference/v1
                     <td class="check-partial">Basic error reporting</td>
                 </tr>
                 <tr>
+                    <td>C++ Code Generation</td>
+                    <td class="check-yes">Full header/source generation with UE macros + natural language</td>
+                    <td class="check-partial">Limited code snippets</td>
+                </tr>
+                <tr>
                     <td>Code Generation</td>
                     <td class="check-yes">C++, Blueprints, Materials, Data Tables</td>
                     <td class="check-partial">Blueprint/C++ only</td>
+                </tr>
+                <tr>
+                    <td>Framework Learning</td>
+                    <td class="check-yes">Auto-scan any plugin, build knowledge graphs, 22 ACF modules indexed</td>
+                    <td class="check-no">No framework awareness</td>
                 </tr>
                 <tr>
                     <td>Local/Offline Models</td>
@@ -2031,8 +2067,13 @@ LocalBaseURL=https://api.fireworks.ai/inference/v1
                     <td class="check-no">Cloud-only</td>
                 </tr>
                 <tr>
+                    <td>Code Refactoring</td>
+                    <td class="check-yes">Analyze, migrate, refactor with framework-aware suggestions</td>
+                    <td class="check-partial">Basic text replacement</td>
+                </tr>
+                <tr>
                     <td>Source Files</td>
-                    <td class="check-yes">58 files, 2 modules</td>
+                    <td class="check-yes">68 files, 2 modules</td>
                     <td class="check-partial">Varies</td>
                 </tr>
             </tbody>
