@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudflood AI - Multi-LLM Assistant for Unreal Engine 5</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #050507;
+            --bg-tertiary: #12121a;
+            --bg-light: #1a1a25;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a8a8b8;
+            --text-muted: #787888;
+            --accent-blue: #4d8bff;
+            --accent-purple: #7c5cfc;
+            --accent-cyan: #00d9ff;
+            --border-color: #2a2a35;
+            --highlight: #ff6b9d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 15, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(77, 139, 255, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(77, 139, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 60px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(77, 139, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 92, 252, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 217, 255, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 30px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.03) 0px,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 30px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4d8bff 0%, #7c5cfc 50%, #00d9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(77, 139, 255, 0.3);
+        }
+
+        .hero .tagline {
+            font-size: 28px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 139, 255, 0.3);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(77, 139, 255, 0.1);
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+        }
+
+        .badge.recommended {
+            background: rgba(124, 92, 252, 0.1);
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+            margin-bottom: 80px;
+        }
+
+        .btn {
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'DM Sans', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(77, 139, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(77, 139, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Mock Screenshot */
+        .mock-screenshot {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .mock-title-bar {
+            height: 30px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .mock-editor {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            height: 400px;
+            background: var(--bg-secondary);
+        }
+
+        .mock-sidebar {
+            background: var(--bg-tertiary);
+            border-right: 1px solid var(--border-color);
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+
+        .mock-panel-tab {
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            background: rgba(77, 139, 255, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+        }
+
+        .mock-panel-tab:hover {
+            background: rgba(77, 139, 255, 0.2);
+        }
+
+        .mock-viewport {
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .mock-properties {
+            background: var(--bg-tertiary);
+            border-left: 1px solid var(--border-color);
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 11px;
+        }
+
+        .mock-chat-panel {
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(77, 139, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .mock-chat-header {
+            background: rgba(77, 139, 255, 0.1);
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(77, 139, 255, 0.2);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 12px;
+        }
+
+        .mock-chat-content {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mock-message {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .mock-message.user {
+            background: rgba(77, 139, 255, 0.2);
+            color: var(--text-primary);
+            align-self: flex-end;
+            max-width: 85%;
+        }
+
+        .mock-message.assistant {
+            background: rgba(124, 92, 252, 0.1);
+            color: var(--text-secondary);
+            align-self: flex-start;
+            max-width: 85%;
+        }
+
+        .mock-chat-input {
+            padding: 10px;
+            border-top: 1px solid rgba(77, 139, 255, 0.2);
+            background: var(--bg-tertiary);
+        }
+
+        .mock-input-field {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(77, 139, 255, 0.2);
+            padding: 8px 10px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Providers Section */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .provider-card {
+            background: linear-gradient(135deg, rgba(77, 139, 255, 0.05) 0%, rgba(124, 92, 252, 0.05) 100%);
+            border: 1px solid rgba(77, 139, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .provider-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 0%, rgba(77, 139, 255, 0.1) 50%, transparent 100%);
+            transition: top 0.5s ease;
+            pointer-events: none;
+        }
+
+        .provider-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(77, 139, 255, 0.2);
+        }
+
+        .provider-card:hover::before {
+            top: 0;
+        }
+
+        .provider-name {
+            font-family: 'Instrument Serif', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .provider-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(124, 92, 252, 0.2);
+            border: 1px solid var(--accent-purple);
+            border-radius: 12px;
+            font-size: 11px;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .provider-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(77, 139, 255, 0.08);
+            border-color: rgba(77, 139, 255, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-name {
+            font-family: 'Instrument Serif', serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            border-left-color: var(--accent-cyan);
+            transform: translateX(8px);
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        .tool-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+        }
+
+        .tool-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Architecture Section */
+        .architecture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        .architecture-diagram {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--accent-cyan);
+            overflow-x: auto;
+            box-shadow: inset 0 0 30px rgba(0, 217, 255, 0.05);
+        }
+
+        .architecture-text h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .architecture-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .file-tree {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            overflow-x: auto;
+            margin-top: 40px;
+        }
+
+        .file-tree-item {
+            line-height: 1.8;
+        }
+
+        .file-tree-folder { color: var(--accent-blue); }
+        .file-tree-file { color: var(--accent-cyan); }
+        .file-tree-comment { color: var(--text-muted); }
+
+        /* Documentation Section */
+        .docs-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 60px;
+        }
+
+        .docs-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .docs-nav {
+            list-style: none;
+        }
+
+        .docs-nav li {
+            margin-bottom: 10px;
+        }
+
+        .docs-nav button {
+            width: 100%;
+            padding: 12px 16px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+            position: relative;
+        }
+
+        .docs-nav button:hover {
+            background: rgba(77, 139, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .docs-nav button.active {
+            background: rgba(77, 139, 255, 0.15);
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .docs-content {
+            display: none;
+        }
+
+        .docs-content.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .docs-content h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .docs-content h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .docs-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .docs-step {
+            background: rgba(77, 139, 255, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .docs-step strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .code-block code {
+            color: var(--text-secondary);
+        }
+
+        .keyword { color: var(--accent-blue); }
+        .type { color: var(--accent-cyan); }
+        .string { color: #a8d976; }
+        .comment { color: var(--text-muted); }
+
+        .settings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .settings-table th,
+        .settings-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .settings-table th {
+            background: rgba(77, 139, 255, 0.1);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .settings-table td {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .settings-table code {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyan);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .tagline {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .providers-grid,
+            .features-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .docs-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .docs-sidebar {
+                position: static;
+            }
+
+            .mock-editor {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .mock-sidebar,
+            .mock-properties {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 40px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">MUDFLOOD</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+            </ul>
+            <button class="cta-btn">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>MUDFLOOD AI</h1>
+            <div class="tagline">Multi-LLM AI Assistant for Unreal Engine 5</div>
+
+            <p class="hero-subtitle">
+                A native Slate-based plugin that integrates the world's most advanced language models directly into the Unreal Editor. Seamlessly introspect your projects, analyze blueprints, search code, and accelerate development with real-time AI assistance powered by Claude, GPT-4, Gemini, or local models.
+            </p>
+
+            <div class="hero-badges">
+                <span class="badge">UE 5.4+</span>
+                <span class="badge">Claude · OpenAI · Gemini</span>
+                <span class="badge">33 Source Files</span>
+                <span class="badge">11 Tools</span>
+                <span class="badge">Native Slate UI</span>
+            </div>
+
+            <div class="hero-cta">
+                <button class="btn btn-primary">Get Started</button>
+                <a href="#" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="mock-screenshot">
+            <div class="mock-title-bar">Unreal Editor 5.4.0 | Mudflood AI Preview</div>
+            <div class="mock-editor">
+                <div class="mock-sidebar">
+                    <div class="mock-panel-tab">Content Browser</div>
+                    <div class="mock-panel-tab">Details</div>
+                    <div class="mock-panel-tab" style="background: rgba(77, 139, 255, 0.15); border-left-color: var(--accent-cyan); color: var(--accent-cyan);">Mudflood AI</div>
+                </div>
+                <div class="mock-viewport">
+                    [3D Viewport - Level Editor]
+                </div>
+                <div class="mock-properties">
+                    <div style="color: var(--text-primary); font-weight: 600; margin-bottom: 15px;">Details</div>
+                    <div style="color: var(--text-muted); margin-bottom: 8px;">Transform</div>
+                    <div style="color: var(--text-muted); margin-bottom: 8px;">Visibility</div>
+                    <div style="color: var(--text-muted);">Rendering</div>
+                </div>
+            </div>
+            <div class="mock-chat-panel">
+                <div class="mock-chat-header">Mudflood AI Chat</div>
+                <div class="mock-chat-content">
+                    <div class="mock-message user">What blueprint variables are in BP_Character?</div>
+                    <div class="mock-message assistant">Found BP_Character with 8 variables:<br>- Health (float)<br>- MaxHealth (float)<br>- Speed (float)</div>
+                    <div class="mock-message user">Show me the construction script</div>
+                </div>
+                <div class="mock-chat-input">
+                    <input type="text" class="mock-input-field" placeholder="Ask anything about your project..." readonly>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Providers Section -->
+    <section id="providers">
+        <h2 class="section-title">LLM Providers</h2>
+        <p class="section-subtitle">Choose from the world's most advanced language models, or run locally for complete privacy</p>
+
+        <div class="providers-grid">
+            <div class="provider-card reveal">
+                <div class="provider-badge recommended">RECOMMENDED</div>
+                <div class="provider-name">Claude</div>
+                <p class="provider-description">
+                    Best-in-class reasoning with native tool use. The Anthropic Messages API provides the most robust streaming, structured tool responses, and content block architecture. Claude consistently delivers the most accurate project analysis and code understanding across complex codebases. Default model: claude-sonnet-4-5-20250514 with extended thinking capabilities for advanced problem-solving.
+                </p>
+            </div>
+
+            <div class="provider-card reveal">
+                <div class="provider-name">OpenAI GPT-4</div>
+                <p class="provider-description">
+                    Powerful function calling with Chat Completions API. Full support for GPT-4o with multimodal capabilities and advanced reasoning. Streaming responses with chunked message delivery. Perfect balance of capability and speed for rapid iteration and creative problem-solving in development workflows.
+                </p>
+            </div>
+
+            <div class="provider-card reveal">
+                <div class="provider-name">Google Gemini</div>
+                <p class="provider-description">
+                    Fast inference with Generative AI API and function declarations. Excellent for context understanding and project introspection. Competitive pricing with strong performance on code analysis and technical documentation tasks. Supports long context windows for comprehensive project analysis.
+                </p>
+            </div>
+
+            <div class="provider-card reveal">
+                <div class="provider-name">Local Models</div>
+                <p class="provider-description">
+                    Run any OpenAI-compatible endpoint: Ollama, LM Studio, or your own inference server. Zero API costs, complete privacy, and offline capability. Perfect for proprietary projects or teams with data sovereignty requirements. Full streaming support with any local model.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2 class="section-title">Powerful Features</h2>
+        <p class="section-subtitle">Everything you need to revolutionize your development workflow</p>
+
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-name">Deep Project Introspection</div>
+                <p class="feature-description">
+                    Access 11 specialized tools that introspect your entire project. Read asset metadata, analyze blueprint graphs, enumerate world actors, search source code, and retrieve class hierarchies. Complete visibility into your project structure.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔗</div>
+                <div class="feature-name">Multi-Provider Architecture</div>
+                <p class="feature-description">
+                    Unified interface for Claude, GPT-4, Gemini, and local models. Hot-swap providers without closing the editor. Extensible provider pattern makes adding custom endpoints effortless. Choose the best model for each task.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-name">Real-time Streaming</div>
+                <p class="feature-description">
+                    See responses appear instantly as they stream. Native implementation for Claude/OpenAI with chunked Gemini support. Progressive UI updates create a responsive, interactive experience. No waiting for complete responses.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🛠️</div>
+                <div class="feature-name">Native Tool Use</div>
+                <p class="feature-description">
+                    Integrated function calling system. The AI automatically selects and chains tools to answer complex questions. Supports parameter inference and structured JSON responses. Tools work seamlessly with conversation context.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">📌</div>
+                <div class="feature-name">Dockable Chat Panel</div>
+                <p class="feature-description">
+                    Native Slate widget docks anywhere in the editor interface. Open with Ctrl+Shift+M or from the Tools menu. Persists position and state across editor sessions. Fully integrated with UE5's UI paradigms.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">📊</div>
+                <div class="feature-name">Blueprint Analysis</div>
+                <p class="feature-description">
+                    Deep inspection of blueprint variables, functions, event graphs, node connections, components, and interfaces. Understand blueprint logic, identify issues, and get optimization suggestions from the AI assistant.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔎</div>
+                <div class="feature-name">Code Search & Read</div>
+                <p class="feature-description">
+                    Full-text search across all .h and .cpp files in your project. Read source files with configurable line limits for efficient context. Automatically scoped to your project directory for safety and performance.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">🧩</div>
+                <div class="feature-name">Extensible Design</div>
+                <p class="feature-description">
+                    Add new LLM providers, create custom tools, build custom UI panels, and hook into delegates. Well-documented extension points and a clean architecture make extending functionality straightforward for C++ developers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools">
+        <h2 class="section-title">11 Specialized Tools</h2>
+        <p class="section-subtitle">Comprehensive introspection capabilities for complete project understanding</p>
+
+        <div class="tools-grid">
+            <div class="tool-card reveal">
+                <div class="tool-name">search_assets</div>
+                <p class="tool-description">
+                    Search the Asset Registry by name and class. Returns matched assets with paths and metadata. Essential for finding blueprints, materials, and other project assets by partial name matching or filter criteria.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_blueprint_details</div>
+                <p class="tool-description">
+                    Retrieve complete information about a blueprint including variables, functions, event graph connections, components, and interfaces. Essential for understanding blueprint structure and logic flow.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">read_source_file</div>
+                <p class="tool-description">
+                    Read C++ source files (.h, .cpp) with configurable line limits. Returns code with line numbers and proper context. Automatically enforces safety boundaries to prevent reading outside the project.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">search_code</div>
+                <p class="tool-description">
+                    Full-text search across all C++ source files in your project. Returns matching lines with file paths and line numbers. Perfect for finding functions, classes, and specific code patterns across large codebases.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_project_info</div>
+                <p class="tool-description">
+                    Retrieve high-level project information including name, version, target engine version, and paths. Get summary statistics about blueprints, C++ classes, and project plugins.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">list_world_actors</div>
+                <p class="tool-description">
+                    Enumerate all actors in the current level with their classes, locations, and components. Understand the level composition and actor relationships for the current working context.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_class_hierarchy</div>
+                <p class="tool-description">
+                    Retrieve inheritance hierarchies for C++ classes and blueprints. Understand parent-child relationships and see what classes inherit from a given base. Essential for API exploration.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_material_details</div>
+                <p class="tool-description">
+                    Inspect material instances and master materials. Retrieve parameters, scalar values, vector values, and texture assignments. Understand material shader graphs and parameter relationships.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_selected_actors</div>
+                <p class="tool-description">
+                    Get information about currently selected actors in the editor. Retrieve properties, components, and transforms. Provides context about what you're actively working on in the viewport.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">get_level_info</div>
+                <p class="tool-description">
+                    Retrieve information about the current level including name, actor count, static mesh count, and other statistics. Get a comprehensive overview of level composition and streaming volumes.
+                </p>
+            </div>
+
+            <div class="tool-card reveal">
+                <div class="tool-name">execute_console_command</div>
+                <p class="tool-description">
+                    Execute editor console commands safely with whitelist validation. Useful for gameplay debugging, profiling commands, and editor state manipulation. Prevents dangerous or destructive commands.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture">
+        <h2 class="section-title">Architecture & Design</h2>
+        <p class="section-subtitle">A clean, extensible architecture built for maximum flexibility</p>
+
+        <div class="architecture-content">
+            <div>
+                <div class="architecture-diagram">
+<span class="type">ULLMProvider</span> (Abstract)
+  ├─ <span class="type">UClaudeProvider</span>
+  │  └─ Anthropic Messages API
+  ├─ <span class="type">UOpenAIProvider</span>
+  │  └─ Chat Completions API
+  ├─ <span class="type">UGeminiProvider</span>
+  │  └─ Generative AI API
+  └─ <span class="type">ULocalProvider</span>
+     └─ OpenAI-compatible
+
+<span class="keyword">class</span> <span class="type">FConversationMessage</span>
+  ├─ Role (User/Assistant)
+  ├─ Content (<span class="type">TArray</span>&lt;<span class="type">FContentBlock</span>&gt;)
+  ├─ Tools
+  └─ Metadata
+
+<span class="keyword">class</span> <span class="type">FLLMTool</span>
+  ├─ Name
+  ├─ Description
+  ├─ InputProperties
+  └─ RequiredProperties
+                </div>
+            </div>
+
+            <div>
+                <div class="architecture-text">
+                    <h3>Two-Module Architecture</h3>
+                    <p>
+                        Mudflood AI is structured as two complementary modules working in perfect harmony. The <strong>MudfloodAICore</strong> runtime module contains all provider implementations, conversation management, streaming logic, and tool execution systems. The <strong>MudfloodAIEditor</strong> module provides the native Slate UI, tool handler, project introspection systems, and editor integration hooks.
+                    </p>
+
+                    <h3>Provider Pattern</h3>
+                    <p>
+                        The abstract <code>ULLMProvider</code> base class defines the interface for all LLM integrations. Each provider implements streaming, tool handling, and response parsing. The plugin ships with four providers (Claude, OpenAI, Gemini, Local), but you can easily add custom providers by subclassing <code>ULLMProvider</code>.
+                    </p>
+
+                    <h3>Tool System</h3>
+                    <p>
+                        Tools are registered in the <code>MudfloodToolHandler</code> as structured metadata. When the LLM requests a tool call, the handler validates parameters and executes the appropriate function. Results are serialized to JSON and returned to the conversation context for multi-turn reasoning.
+                    </p>
+
+                    <h3>Conversation Management</h3>
+                    <p>
+                        All messages are tracked in a conversation history with automatic context management. The system includes configurable message limits, system prompt generation, and conversation state persistence. Tools are automatically included in the system context so the AI knows what it can do.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="file-tree">
+            <div style="margin-bottom: 20px; color: var(--accent-blue); font-weight: 600;">Mudflood AI Plugin Structure (33 Files)</div>
+
+            <div class="file-tree-item"><span class="file-tree-folder">Source/</span></div>
+            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">MudfloodAICore/</span> <span class="file-tree-comment">(Runtime Module)</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-folder">Public/</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LLMProvider.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ClaudeProvider.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">OpenAIProvider.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">GeminiProvider.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LocalProvider.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ConversationManager.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">StreamingManager.h</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">MudfloodAICoreModule.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-folder">Private/</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ClaudeProvider.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">OpenAIProvider.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">GeminiProvider.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">LocalProvider.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ConversationManager.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">StreamingManager.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">MudfloodAICoreModule.cpp</span></div>
+
+            <div class="file-tree-item" style="margin-top: 15px;"><span class="file-tree-folder">MudfloodAIEditor/</span> <span class="file-tree-comment">(Editor Module)</span></div>
+            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">Public/</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodChatPanel.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodStyle.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodCommands.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">ProjectContextGatherer.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodToolHandler.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodEditorSettings.h</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodAIEditorModule.h</span></div>
+            <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">Private/</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodChatPanel.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodStyle.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodCommands.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">ProjectContextGatherer.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodToolHandler.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodEditorSettings.cpp</span></div>
+            <div class="file-tree-item" style="margin-left: 40px;"><span class="file-tree-file">MudfloodAIEditorModule.cpp</span></div>
+
+            <div class="file-tree-item" style="margin-top: 15px;"><span class="file-tree-file">Mudflood.uplugin</span></div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation">
+        <h2 class="section-title">Documentation</h2>
+
+        <div class="docs-container">
+            <nav class="docs-sidebar">
+                <ul class="docs-nav">
+                    <li><button class="docs-btn active" data-tab="quickstart">Quick Start</button></li>
+                    <li><button class="docs-btn" data-tab="configuration">Configuration</button></li>
+                    <li><button class="docs-btn" data-tab="providers">LLM Providers</button></li>
+                    <li><button class="docs-btn" data-tab="introspection">Introspection System</button></li>
+                    <li><button class="docs-btn" data-tab="tools">Tool System</button></li>
+                    <li><button class="docs-btn" data-tab="ui">Editor UI</button></li>
+                    <li><button class="docs-btn" data-tab="extending">Extending</button></li>
+                </ul>
+            </nav>
+
+            <div class="docs-main">
+                <!-- Quick Start -->
+                <div class="docs-content active" data-content="quickstart">
+                    <h2>Quick Start</h2>
+
+                    <div class="docs-step">
+                        <strong>Step 1: Install the Plugin</strong>
+                        Clone the Mudflood AI repository into your project's Plugins folder. Regenerate Visual Studio project files and recompile. The plugin will appear in the Installed Plugins list.
+                    </div>
+
+                    <div class="docs-step">
+                        <strong>Step 2: Configure Your Provider</strong>
+                        Go to Edit → Project Settings → Mudflood AI. Select your preferred LLM provider (Claude recommended) and enter your API key. You can change providers anytime without restarting.
+                        <div class="code-block">
+[/Script/MudfloodAIEditor.MudfloodEditorSettings]
+SelectedProvider=Claude
+ClaudeAPIKey=sk-ant-...
+OpenAIAPIKey=
+GeminiAPIKey=
+LocalBaseURL=http://localhost:11434
+                        </div>
+                    </div>
+
+                    <div class="docs-step">
+                        <strong>Step 3: Open the Chat Panel</strong>
+                        Press <code>Ctrl+Shift+M</code> or go to Tools → Mudflood AI → Open Chat. The panel will dock in your editor interface. Pin it to keep it visible while you work.
+                    </div>
+
+                    <div class="docs-step">
+                        <strong>Step 4: Start Asking Questions</strong>
+                        Type questions about your project naturally. The AI will automatically use its tools to inspect your code, analyze blueprints, search assets, and provide detailed answers. Examples:
+                        <div class="code-block">
+"What blueprints inherit from Character?"
+"Show me the implementation of the Jump function"
+"List all materials using the M_Metallic master"
+"Find todos in my C++ code"
+                        </div>
+                    </div>
+
+                    <div class="docs-step">
+                        <strong>Step 5: Extend with Custom Tools (Optional)</strong>
+                        Add custom tools by subclassing <code>UMudfloodToolHandler</code> and registering them in the constructor. The AI will automatically include your tools in its context and use them when appropriate.
+                    </div>
+                </div>
+
+                <!-- Configuration -->
+                <div class="docs-content" data-content="configuration">
+                    <h2>Configuration Settings</h2>
+                    <p>All settings are configured in Project Settings → Mudflood AI. Changes take effect immediately without restarting.</p>
+
+                    <h3>Provider Selection</h3>
+                    <p>Select which LLM provider to use: Claude (recommended), OpenAI, Gemini, or Local.</p>
+
+                    <table class="settings-table">
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>SelectedProvider</code></td>
+                                <td>ELLMProvider</td>
+                                <td>Claude</td>
+                                <td>Active LLM provider for conversations</td>
+                            </tr>
+                            <tr>
+                                <td><code>ClaudeAPIKey</code></td>
+                                <td>FString</td>
+                                <td>Empty</td>
+                                <td>API key from console.anthropic.com</td>
+                            </tr>
+                            <tr>
+                                <td><code>OpenAIAPIKey</code></td>
+                                <td>FString</td>
+                                <td>Empty</td>
+                                <td>API key from platform.openai.com</td>
+                            </tr>
+                            <tr>
+                                <td><code>GeminiAPIKey</code></td>
+                                <td>FString</td>
+                                <td>Empty</td>
+                                <td>API key from aistudio.google.com</td>
+                            </tr>
+                            <tr>
+                                <td><code>LocalBaseURL</code></td>
+                                <td>FString</td>
+                                <td>http://localhost:11434</td>
+                                <td>Base URL for local/custom OpenAI-compatible endpoints</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Model Configuration</h3>
+                    <table class="settings-table">
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>ModelName</code></td>
+                                <td>FString</td>
+                                <td>Empty (uses provider default)</td>
+                                <td>Specific model to use (e.g., gpt-4o for OpenAI)</td>
+                            </tr>
+                            <tr>
+                                <td><code>MaxTokens</code></td>
+                                <td>int32</td>
+                                <td>8192</td>
+                                <td>Maximum tokens per response (256-128000)</td>
+                            </tr>
+                            <tr>
+                                <td><code>Temperature</code></td>
+                                <td>float</td>
+                                <td>0.7</td>
+                                <td>Response randomness (0.0-2.0, higher = more creative)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Behavior Settings</h3>
+                    <table class="settings-table">
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>bEnableStreaming</code></td>
+                                <td>bool</td>
+                                <td>true</td>
+                                <td>Show responses in real-time as they stream</td>
+                            </tr>
+                            <tr>
+                                <td><code>bEnableToolUse</code></td>
+                                <td>bool</td>
+                                <td>true</td>
+                                <td>Allow the AI to use introspection tools</td>
+                            </tr>
+                            <tr>
+                                <td><code>bAutoIncludeProjectContext</code></td>
+                                <td>bool</td>
+                                <td>true</td>
+                                <td>Automatically include project info in system prompt</td>
+                            </tr>
+                            <tr>
+                                <td><code>MaxContextMessages</code></td>
+                                <td>int32</td>
+                                <td>50</td>
+                                <td>Maximum conversation history to maintain (5-200)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- LLM Providers -->
+                <div class="docs-content" data-content="providers">
+                    <h2>LLM Providers</h2>
+
+                    <h3>Claude (Anthropic) - RECOMMENDED</h3>
+                    <p>Claude provides the best reasoning capability, native tool use, and most reliable code analysis. Go to <a href="https://console.anthropic.com" style="color: var(--accent-blue);">console.anthropic.com</a>, create an API key, and enter it in the settings.</p>
+                    <div class="code-block">
+SelectedProvider=Claude
+ClaudeAPIKey=sk-ant-xxxxxxxxxxxx
+<span class="comment">// Uses claude-sonnet-4-5-20250514 by default</span>
+<span class="comment">// 200K context window, native tool use, extended thinking</span>
+                    </div>
+
+                    <h3>OpenAI GPT-4</h3>
+                    <p>Get your API key from <a href="https://platform.openai.com" style="color: var(--accent-blue);">platform.openai.com</a>. Supports GPT-4o with multimodal capabilities and function calling.</p>
+                    <div class="code-block">
+SelectedProvider=OpenAI
+OpenAIAPIKey=sk-proj-xxxxxxxxxxxx
+ModelName=gpt-4o
+<span class="comment">// Or use gpt-4-turbo for lower cost</span>
+                    </div>
+
+                    <h3>Google Gemini</h3>
+                    <p>Get a free API key from <a href="https://aistudio.google.com" style="color: var(--accent-blue);">aistudio.google.com</a>. Fast inference with strong code understanding.</p>
+                    <div class="code-block">
+SelectedProvider=Gemini
+GeminiAPIKey=AIzaSyxxxxxxxxxxxxxx
+<span class="comment">// Uses latest Gemini model by default</span>
+<span class="comment">// Excellent for rapid iteration and testing</span>
+                    </div>
+
+                    <h3>Local Models</h3>
+                    <p>Run any OpenAI-compatible endpoint locally. Use Ollama or LM Studio for complete privacy and offline capability.</p>
+                    <div class="code-block">
+SelectedProvider=Local
+LocalBaseURL=http://localhost:11434
+<span class="comment">// For Ollama: run `ollama serve` then pull a model</span>
+<span class="comment">// Ollama models: ollama pull mistral, ollama pull llama2, etc.</span>
+<span class="comment">// Zero API costs, complete data privacy</span>
+                    </div>
+
+                    <h3>Custom OpenAI-Compatible Endpoints</h3>
+                    <p>Use any OpenAI-compatible endpoint. Many services offer this (Groq, Together, Fireworks, etc.).</p>
+                    <div class="code-block">
+SelectedProvider=Local
+LocalBaseURL=https://api.fireworks.ai/inference/v1
+<span class="comment">// Configure with your provider's API key in the endpoint URL</span>
+<span class="comment">// Works with any OpenAI-compatible API</span>
+                    </div>
+                </div>
+
+                <!-- Introspection System -->
+                <div class="docs-content" data-content="introspection">
+                    <h2>Introspection System</h2>
+                    <p>The ProjectContextGatherer scans your entire Unreal project and provides detailed information to the LLM. This enables the AI to understand your project structure, architecture, and code.</p>
+
+                    <h3>Asset Registry Integration</h3>
+                    <p>The introspection system uses Unreal's Asset Registry to enumerate all assets in your project. This includes blueprints, materials, meshes, textures, sounds, and all other project assets. The system extracts metadata like asset type, class, and path.</p>
+
+                    <h3>Blueprint Reflection</h3>
+                    <p>For blueprint assets, the system reflects on the blueprint graph structure, variables (with types and defaults), functions, event implementations, and component hierarchies. This allows the AI to understand your blueprint logic and architecture.</p>
+
+                    <div class="code-block">
+<span class="keyword">class</span> <span class="type">UBlueprint</span>
+  ├─ <span class="type">UEdGraph</span> <span class="keyword">for</span> EventGraph
+  ├─ <span class="type">UEdGraph</span> <span class="keyword">for</span> ConstructionScript
+  ├─ <span class="type">FBlueprintVariableDescription</span> []
+  ├─ <span class="type">FProperty</span> [] <span class="keyword">for</span> Components
+  └─ <span class="type">FImplementedInterface</span> []
+                    </div>
+
+                    <h3>World Actor Enumeration</h3>
+                    <p>When a level is open, the system enumerates all actors in the world using TActorIterator. For each actor, it retrieves the class, location, rotation, components, and other relevant properties. This provides context about what's in the current level.</p>
+
+                    <h3>Source File Access</h3>
+                    <p>The system has safe, validated access to all C++ source files in your project's Source folder. Files are read with configurable line limits to prevent excessive context sizes. All file paths are validated to ensure they're within the project folder.</p>
+
+                    <h3>System Prompt Generation</h3>
+                    <p>All gathered context is intelligently formatted into a system prompt that tells the LLM about your project. This includes project metadata, available assets, blueprints, classes, and tools. The system prompt is automatically updated as you work.</p>
+                </div>
+
+                <!-- Tool System -->
+                <div class="docs-content" data-content="tools">
+                    <h2>Tool System</h2>
+                    <p>The tool system allows the LLM to call specialized functions to introspect your project. Tools are defined as structured metadata and executed by the tool handler.</p>
+
+                    <h3>Tool Structure</h3>
+                    <div class="code-block">
+<span class="keyword">struct</span> <span class="type">FLLMTool</span>
+{
+    <span class="type">FString</span> Name;
+    <span class="type">FString</span> Description;
+    <span class="type">TArray</span>&lt;<span class="type">FToolProperty</span>&gt; InputProperties;
+    <span class="type">TArray</span>&lt;<span class="type">FString</span>&gt; RequiredProperties;
+};
+
+<span class="keyword">struct</span> <span class="type">FToolProperty</span>
+{
+    <span class="type">FString</span> Name;
+    <span class="type">FString</span> Type;
+    <span class="type">FString</span> Description;
+    <span class="type">TArray</span>&lt;<span class="type">FString</span>&gt; EnumValues;
+};
+                    </div>
+
+                    <h3>Tool Registration</h3>
+                    <p>Tools are registered in the MudfloodToolHandler constructor. Each tool maps a name to an execution function. When the LLM requests a tool, the handler validates the request, executes the function, and returns the result as JSON.</p>
+
+                    <div class="code-block">
+<span class="keyword">void</span> <span class="type">FMudfloodToolHandler</span>::RegisterTools()
+{
+    RegisterTool(
+        <span class="string">"search_assets"</span>,
+        <span class="string">"Search the Asset Registry by name"</span>,
+        [<span class="keyword">this</span>](<span class="keyword">const</span> <span class="type">FString</span>&amp; Query) {
+            <span class="keyword">return</span> HandleSearchAssets(Query);
+        }
+    );
+}
+                    </div>
+
+                    <h3>Tool Execution Flow</h3>
+                    <p>When the LLM decides to use a tool, this sequence occurs:</p>
+                    <ol style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
+                        <li>LLM returns tool_use content block with name and parameters</li>
+                        <li>Handler validates tool exists and parameters are valid</li>
+                        <li>Handler executes the tool function with provided parameters</li>
+                        <li>Result is serialized to JSON</li>
+                        <li>Tool result is added to conversation history</li>
+                        <li>LLM sees result and continues reasoning to answer your question</li>
+                        <li>Multi-tool chaining: LLM can request multiple tools in sequence</li>
+                    </ol>
+
+                    <h3>Adding Custom Tools</h3>
+                    <p>To add a custom tool, subclass FMudfloodToolHandler and register your tool:</p>
+                    <div class="code-block">
+<span class="keyword">void</span> <span class="type">FMyCustomToolHandler</span>::RegisterTools()
+{
+    <span class="type">Super</span>::RegisterTools();
+
+    RegisterTool(
+        <span class="string">"get_actor_count"</span>,
+        <span class="string">"Get total actor count in level"</span>,
+        [<span class="keyword">this</span>]() {
+            <span class="keyword">int32</span> Count = 0;
+            <span class="keyword">for</span> (<span class="type">TActorIterator</span>&lt;<span class="type">AActor</span>&gt; It(World); It; ++It) {
+                Count++;
+            }
+            <span class="keyword">return</span> <span class="type">FString</span>::FromInt(Count);
+        }
+    );
+}
+                    </div>
+                </div>
+
+                <!-- Editor UI -->
+                <div class="docs-content" data-content="ui">
+                    <h2>Editor UI Architecture</h2>
+
+                    <h3>Chat Panel Layout</h3>
+                    <p>The SMudfloodChatPanel is a native Slate widget with this hierarchy:</p>
+                    <div class="code-block">
+<span class="type">SVerticalBox</span>
+├─ <span class="type">SHorizontalBox</span> (Header)
+│  ├─ Title
+│  ├─ Provider selector
+│  └─ Settings button
+├─ <span class="type">SScrollBox</span> (Messages)
+│  └─ <span class="type">SMudfloodChatMessage</span> []
+├─ <span class="type">SHorizontalBox</span> (Input)
+│  ├─ <span class="type">SMultiLineEditableTextBox</span>
+│  └─ Send button
+└─ <span class="type">STextBlock</span> (Status)
+                    </div>
+
+                    <h3>Message Display</h3>
+                    <p>SMudfloodChatMessage handles displaying both user and assistant messages. It automatically detects code blocks and renders them with syntax highlighting. Streaming messages update in real-time as tokens arrive.</p>
+
+                    <h3>Streaming Text Display</h3>
+                    <p>Text is displayed progressively as it streams from the LLM. The widget uses an FString that grows with each update and automatically reformats for word wrapping. Streaming status is shown to the user.</p>
+
+                    <h3>Tool Use Visualization</h3>
+                    <p>When the AI uses a tool, the panel shows which tool is being called and with what parameters. Tool results are displayed in a collapsible format so you can understand what data the AI is working with.</p>
+
+                    <h3>Styling System</h3>
+                    <p>FMudfloodAIStyle defines all colors, fonts, and visual properties. Extend or override the style by subclassing FMudfloodAIStyle and registering your custom style.</p>
+
+                    <div class="code-block">
+<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentBlue = <span class="type">FLinearColor</span>(0.302f, 0.545f, 1.0f);
+<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentPurple = <span class="type">FLinearColor</span>(0.486f, 0.361f, 0.988f);
+<span class="keyword">const</span> <span class="type">FLinearColor</span> AccentCyan = <span class="type">FLinearColor</span>(0.0f, 0.851f, 1.0f);
+                    </div>
+
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>FMudfloodAICommands defines editor shortcuts:</p>
+                    <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
+                        <li><code>Ctrl+Shift+M</code> - Toggle Mudflood AI panel</li>
+                        <li><code>Ctrl+Enter</code> - Send message from input box</li>
+                        <li><code>Shift+Enter</code> - New line in input box</li>
+                    </ul>
+                </div>
+
+                <!-- Extending -->
+                <div class="docs-content" data-content="extending">
+                    <h2>Extending Mudflood AI</h2>
+
+                    <h3>Creating a New LLM Provider</h3>
+                    <p>Subclass ULLMProvider and implement the required virtual functions:</p>
+                    <div class="code-block">
+<span class="keyword">class</span> <span class="type">UMyCustomProvider</span> : <span class="keyword">public</span> <span class="type">ULLMProvider</span>
+{
+    <span class="keyword">virtual</span> <span class="type">void</span> SendMessage(...) <span class="keyword">override</span>;
+    <span class="keyword">virtual</span> <span class="type">void</span> ProcessResponse(...) <span class="keyword">override</span>;
+    <span class="keyword">virtual</span> <span class="type">bool</span> SupportsStreaming() <span class="keyword">override</span>;
+};
+                    </div>
+
+                    <h3>Creating Custom Tools</h3>
+                    <p>Register tools by subclassing the tool handler or by adding to the global tool registry:</p>
+                    <div class="code-block">
+<span class="keyword">void</span> RegisterMyTool()
+{
+    <span class="type">FMudfloodToolHandler</span>::GetInstance()->RegisterTool(
+        <span class="string">"my_tool"</span>,
+        <span class="string">"My custom tool description"</span>,
+        [](){ <span class="keyword">return</span> <span class="string">"Tool result"</span>; }
+    );
+}
+                    </div>
+
+                    <h3>Customizing the UI</h3>
+                    <p>Create a custom Slate widget that inherits from SMudfloodChatPanel. Override the layout, styling, or message rendering to match your preferences.</p>
+
+                    <h3>Hooking into Delegates</h3>
+                    <p>The system provides delegates for key events:</p>
+                    <div class="code-block">
+<span class="comment">// Called when a message is sent</span>
+<span class="type">FMudfloodAI</span>::OnMessageSent.AddDynamic(...);
+
+<span class="comment">// Called when a tool is executed</span>
+<span class="type">FMudfloodToolHandler</span>::OnToolExecuted.AddDynamic(...);
+
+<span class="comment">// Called when response streaming completes</span>
+<span class="type">FStreamingManager</span>::OnStreamingComplete.AddDynamic(...);
+                    </div>
+
+                    <h3>Extending Project Context</h3>
+                    <p>Override ProjectContextGatherer to add custom project information to the system prompt. This allows the AI to know about custom project structures or metadata.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MUDFLOOD AI</div>
+            <p class="footer-description">
+                Advanced multi-LLM assistant for Unreal Engine 5. Seamlessly integrate Claude, GPT-4, Gemini, or local models directly into your editor workflow.
+            </p>
+            <div class="footer-copyright">
+                © 2025 Mudflood AI. All rights reserved. | Built for Unreal Engine 5.4+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Documentation tab switching
+        const docsBtns = document.querySelectorAll('.docs-btn');
+        const docsContents = document.querySelectorAll('.docs-content');
+
+        docsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                docsBtns.forEach(b => b.classList.remove('active'));
+                docsContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.querySelector(`[data-content="${tabName}"]`).classList.add('active');
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
