@@ -1044,13 +1044,13 @@
             <div class="tagline">Multi-Agent AI Assistant for Unreal Engine</div>
 
             <p class="hero-subtitle">
-                The most comprehensive AI assistant for Unreal Engine. Multi-agent orchestration with 9 specialized AI agents, 42+ tools, C++ code generation, framework learning, deep Blueprint comprehension, Behavior Tree construction, world building, material graph creation, animation blueprint architecture, advanced widget design, and project-wide asset learning — all powered by Claude, GPT-4, Gemini, or local models. Supports UE 4.27 through 5.6.
+                The most comprehensive AI assistant for Unreal Engine. Multi-agent orchestration with 9 specialized AI agents, 42+ tools, C++ code generation, framework learning, deep Blueprint comprehension, Behavior Tree construction, world building, material graph creation, animation blueprint architecture, advanced widget design, project-wide asset learning, and first-class support for frameworks like ACF and Combat Fury — all powered by Claude, GPT-4, Gemini, or local models. Supports UE 4.27 through 5.6.
             </p>
 
             <div class="hero-badges">
                 <span class="badge">UE 4.27 — 5.6</span>
                 <span class="badge">Claude · OpenAI · Gemini · Local</span>
-                <span class="badge">82 Source Files</span>
+                <span class="badge">84 Source Files</span>
                 <span class="badge">42+ Tools</span>
                 <span class="badge">9 AI Agent Types</span>
                 <span class="badge">Multi-Agent Orchestration</span>
@@ -1059,6 +1059,7 @@
                 <span class="badge">Blueprint AI</span>
                 <span class="badge">World Building</span>
                 <span class="badge">Material Graphs</span>
+                <span class="badge">Combat Fury</span>
             </div>
 
             <div class="hero-cta">
@@ -1267,6 +1268,14 @@
                 <div class="feature-name">ACF Integration</div>
                 <p class="feature-description">
                     First-class support for Ascent Combat Framework (ACF) with all 22 modules pre-indexed. Generate ACF-compatible characters, AI enemies, combat actions, inventory systems, spell projectiles, mount systems, and more. Built-in knowledge of ACFPlayerCharacter, ACFAIController, and 128+ ACF classes.
+                </p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon">⚔️</div>
+                <div class="feature-name">Combat Fury Integration</div>
+                <p class="feature-description">
+                    Full support for BP.Systems' Combat Fury combat framework. Pre-indexed knowledge of all 8 component actors — Easy Combo Buffering, Hitbox, Hit Reaction, Parry, Dodge, Lock-On, QTE, and Skills. Generate complete combo chains, hitbox configs, directional hit reactions, enemy AI setups, weapon systems, magic spells, and boss encounters from natural language.
                 </p>
             </div>
 
@@ -1534,7 +1543,7 @@
         </div>
 
         <div class="file-tree">
-            <div style="margin-bottom: 20px; color: var(--accent-blue); font-weight: 600;">Mudflood AI Plugin Structure (82 Files)</div>
+            <div style="margin-bottom: 20px; color: var(--accent-blue); font-weight: 600;">Mudflood AI Plugin Structure (84 Files)</div>
 
             <div class="file-tree-item"><span class="file-tree-folder">Source/</span></div>
             <div class="file-tree-item" style="margin-left: 20px;"><span class="file-tree-folder">MudfloodAICore/</span> <span class="file-tree-comment">(Runtime Module)</span></div>
@@ -1555,6 +1564,7 @@
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">FrameworkAnalyzer.h</span> <span class="file-tree-comment">(NEW — plugin scanning)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">FrameworkKnowledgeBase.h</span> <span class="file-tree-comment">(NEW — knowledge graphs)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ACFIntegration.h</span> <span class="file-tree-comment">(NEW — ACF framework)</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">CombatFuryIntegration.h</span> <span class="file-tree-comment">(NEW — Combat Fury)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">CppCodeRefactorer.h</span> <span class="file-tree-comment">(NEW — refactoring)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">BlueprintComprehension.h</span> <span class="file-tree-comment">(NEW — Blueprint AI)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">BehaviorTreeBuilder.h</span> <span class="file-tree-comment">(NEW — BT builder)</span></div>
@@ -1578,6 +1588,7 @@
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">FrameworkAnalyzer.cpp</span> <span class="file-tree-comment">(NEW — plugin scanning)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">FrameworkKnowledgeBase.cpp</span> <span class="file-tree-comment">(NEW — knowledge graphs)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">ACFIntegration.cpp</span> <span class="file-tree-comment">(NEW — ACF framework)</span></div>
+            <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">CombatFuryIntegration.cpp</span> <span class="file-tree-comment">(NEW — Combat Fury)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">CppCodeRefactorer.cpp</span> <span class="file-tree-comment">(NEW — refactoring)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">BlueprintComprehension.cpp</span> <span class="file-tree-comment">(NEW — Blueprint AI)</span></div>
             <div class="file-tree-item" style="margin-left: 60px;"><span class="file-tree-file">BehaviorTreeBuilder.cpp</span> <span class="file-tree-comment">(NEW — BT builder)</span></div>
@@ -2141,8 +2152,13 @@ LocalBaseURL=https://api.fireworks.ai/inference/v1
                 </tr>
                 <tr>
                     <td>Framework Learning</td>
-                    <td class="check-yes">Auto-scan any plugin, build knowledge graphs, 22 ACF modules indexed</td>
+                    <td class="check-yes">Auto-scan any plugin, build knowledge graphs, ACF + Combat Fury pre-indexed</td>
                     <td class="check-no">No framework awareness</td>
+                </tr>
+                <tr>
+                    <td>Combat Fury Support</td>
+                    <td class="check-yes">8 components, combos, hitbox, parry, dodge, AI, weapons, magic</td>
+                    <td class="check-no">No Combat Fury support</td>
                 </tr>
                 <tr>
                     <td>Blueprint Comprehension</td>
@@ -2191,7 +2207,7 @@ LocalBaseURL=https://api.fireworks.ai/inference/v1
                 </tr>
                 <tr>
                     <td>Source Files</td>
-                    <td class="check-yes">82 files, 2 modules</td>
+                    <td class="check-yes">84 files, 2 modules</td>
                     <td class="check-partial">Varies</td>
                 </tr>
             </tbody>
